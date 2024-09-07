@@ -54,7 +54,7 @@
 	"nvidia-drm.fbdev=1" "nvidia-drm.modeset=1" "ec_sys.write_support=1"
   ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "albus"; # Define your hostname.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -125,10 +125,10 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim 
     neovim
     wget
     git
+    gnumake
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
