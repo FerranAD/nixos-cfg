@@ -23,6 +23,7 @@
 	    vscodevim.vim
 	    yzhang.markdown-all-in-one
 	    jnoortheen.nix-ide
+      eamodio.gitlens
 	  ];
   };
 
