@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    xremap-flake.url = "github:xremap/nix-flake";
-
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-plugins = {
@@ -23,9 +21,8 @@
     {
       self,
       nixpkgs,
-      home-manager,
       ...
-    }@inputs:
+    } @ inputs:
     {
       nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
         specialArgs = {
