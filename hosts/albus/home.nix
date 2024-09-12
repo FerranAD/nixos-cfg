@@ -19,12 +19,6 @@
 
   home.stateVersion = "24.05";
 
-  # nixpkgs = {
-  #   overlays = [
-  #     inputs.hyprpanel.overlay.x86_64-linux
-  #   ];
-  # };
-
   home.packages = with pkgs; [
   	dolphin
 	  hello
