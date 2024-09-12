@@ -18,5 +18,21 @@
 			"files.autoSave" = "afterDelay";
 			"workbench.colorTheme" = "Dracula Theme";
 		};
+		keybindings = [
+			{
+				key = "ctrl+c";
+				command = "editor.action.clipboardCopyAction";
+				when = "textInputFocus";
+			}
+			{
+				key = "ctrl+shift+j";
+				command = "-workbench.action.search.toggleQueryDetails";
+				when = "inSearchEditor || searchViewletFocus";
+			}
+			{
+				key = "ctrl+shift+j";
+				command = "editor.action.joinLines";
+			}
+		];
   };	
 }
