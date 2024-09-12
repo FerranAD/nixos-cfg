@@ -15,6 +15,8 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs =
@@ -22,7 +24,7 @@
       self,
       nixpkgs,
       ...
-    } @ inputs:
+    } @ inputs: 
     {
       nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
         specialArgs = {

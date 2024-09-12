@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -22,6 +22,9 @@
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
+      ];
+      exec-once = [
+        "${inputs.hyprpanel.packages.x86_64-linux.default}/bin/hyprpanel"
       ];
     };
   };

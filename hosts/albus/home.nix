@@ -9,6 +9,7 @@
      ../../modules/home-manager/hyprland
      ../../modules/home-manager/pass.nix
      ../../modules/home-manager/wofi.nix
+     ../../modules/home-manager/gpg
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -18,13 +19,19 @@
 
   home.stateVersion = "24.05";
 
-  home.packages = [
-  	pkgs.dolphin
-	  pkgs.hello
-    pkgs.grimblast
-    pkgs.jq
-    pkgs.brightnessctl
-    pkgs.playerctl
+  # nixpkgs = {
+  #   overlays = [
+  #     inputs.hyprpanel.overlay.x86_64-linux
+  #   ];
+  # };
+
+  home.packages = with pkgs; [
+  	dolphin
+	  hello
+    grimblast
+    jq
+    brightnessctl
+    playerctl
   ];
 
   home.sessionVariables = {

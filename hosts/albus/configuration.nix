@@ -25,6 +25,7 @@
     graphics.enable = true;
     bluetooth.enable = true;
     uinput.enable = true;
+    gpgSmartcards.enable = true;
   };
 
   networking = {
@@ -45,9 +46,10 @@
     isNormalUser = true;
     description = "Ferran";
     extraGroups = [ "networkmanager" "wheel" "udev"];
-    packages = with pkgs; [
-      kitty
-      dolphin
+    packages = [
+      pkgs.kitty
+      pkgs.dolphin
+      inputs.hyprpanel.packages.x86_64-linux.default
     ];
   };
 
