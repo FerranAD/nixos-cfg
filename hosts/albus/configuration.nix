@@ -20,7 +20,6 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
 
   hardware = {
     graphics.enable = true;
@@ -38,6 +37,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
     users = {
       "ferran" = import ./home.nix;
     };
@@ -50,7 +50,6 @@
     packages = [
       pkgs.kitty
       pkgs.dolphin
-      inputs.hyprpanel.packages.x86_64-linux.default
     ];
   };
 

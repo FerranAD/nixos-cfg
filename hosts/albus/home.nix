@@ -12,8 +12,6 @@
      ../../modules/home-manager/gpg
     ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home.username = "ferran";
   home.homeDirectory = "/home/ferran";
 
@@ -26,6 +24,7 @@
     jq
     brightnessctl
     playerctl
+    hyprpanel
   ];
 
   home.sessionVariables = {

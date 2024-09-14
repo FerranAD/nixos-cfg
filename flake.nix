@@ -25,14 +25,26 @@
       nixpkgs,
       ...
     } @ inputs: 
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.hyprpanel.overlay
+        ];
+        config.allowUnfree = true;
+      };
+    in
     {
       nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+
         specialArgs = {
+          inherit system;
           inherit inputs;
         };
         modules = [
           ./hosts/albus/configuration.nix
-          inputs.home-manager.nixosModules.default
         ];
       };
     };
