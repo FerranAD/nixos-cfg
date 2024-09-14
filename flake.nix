@@ -16,24 +16,33 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    } @ inputs: 
-    {
-      nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/albus/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: let
+	  system = "x86_64-linux";
+    pkgs = import nixpkgs {
+	  inherit system;
+	  overlays = [
+        inputs.hyprpanel.overlay
+	  ];
+	};
+  in {
+    nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit system;
+        inherit inputs;
       };
+      modules = [
+        ./hosts/albus/configuration.nix
+      ];
     };
+  };
 }

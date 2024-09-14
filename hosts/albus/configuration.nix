@@ -49,7 +49,7 @@
     packages = [
       pkgs.kitty
       pkgs.dolphin
-      inputs.hyprpanel.packages.x86_64-linux.default
+      pkgs.hyprpanel
     ];
   };
 
