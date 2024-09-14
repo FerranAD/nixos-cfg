@@ -26,12 +26,6 @@
     home.file.".pam-gnupg".text = ''
         99C6A5713950906F2D6E82ECE088F51931A156CC
     '';
-    programs.ssh.enable = true;
-    # programs.ssh = {
-    #   enable = true;
-    #   hashKnownHosts = true;
-    #   matchBlocks = cfg.sshHosts;
-    # };
     home.packages = [
       pkgs.pinentry-gnome3
     ];

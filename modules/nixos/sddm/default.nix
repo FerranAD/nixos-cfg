@@ -8,13 +8,15 @@
       sddm-themes = pkgs.callPackage ./themes.nix { };
     in
     [
-      pkgs.libsForQt5.qt5.qtgraphicaleffects
-      sddm-themes.astronaut
+      # sddm-themes.astronaut
+      (pkgs.where-is-my-sddm-theme.override {
+        variants = [ "qt5" ];
+      })
     ];
 
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "astronaut";
+    theme = "where_is_my_sddm_theme_qt5";
   };
 }
