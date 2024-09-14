@@ -15,6 +15,7 @@
       ../../modules/nixos/yubikey.nix
       ../../modules/nixos/hyprland.nix
       ../../modules/nixos/bootloader.nix
+      ../../modules/nixos/sddm
       inputs.home-manager.nixosModules.default
     ];
 
