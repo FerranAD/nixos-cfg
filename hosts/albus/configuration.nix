@@ -37,6 +37,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
     users = {
       "ferran" = import ./home.nix;
     };
@@ -49,7 +50,6 @@
     packages = [
       pkgs.kitty
       pkgs.dolphin
-      pkgs.hyprpanel
     ];
   };
 

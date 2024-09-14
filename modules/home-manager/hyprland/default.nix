@@ -24,7 +24,7 @@
         "$mod, mouse:273, resizewindow"
       ];
       exec-once = [
-        "${pkgs.hyprpanel}/bin/hyprpanel"
+        # "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
     };
   };
