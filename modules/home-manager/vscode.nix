@@ -11,6 +11,9 @@
 		yzhang.markdown-all-in-one
 		bbenoist.nix
 		eamodio.gitlens
+		catppuccin.catppuccin-vsc-icons
+		github.copilot
+		github.copilot-chat
 	];
     userSettings = {
     	"keyboard.dispatch" = "keyCode";
@@ -20,6 +23,7 @@
 			};
 			"files.autoSave" = "afterDelay";
 			"workbench.colorTheme" = "Dracula";
+			"workbench.iconTheme" = "catppuccin-mocha";
 		};
 		keybindings = [
 			{
