@@ -32,8 +32,7 @@
       };
       bind = import ./keybindings.nix { inherit pkgs; };
       monitor = [
-        "HDMI-A-1,1920x1080@143.98Hz,auto,auto"
-        ",preferred,auto,auto"
+        ",highrr,auto,auto"
       ]; 
       bindm = [
         "$mod, mouse:272, movewindow"
