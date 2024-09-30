@@ -6,8 +6,8 @@
 	    dracula-theme.theme-dracula
 	    vscodevim.vim
 	    yzhang.markdown-all-in-one
-	    jnoortheen.nix-ide
-      eamodio.gitlens
+		bbenoist.nix
+        eamodio.gitlens
 	  ];
     userSettings = {
     	"keyboard.dispatch" = "keyCode";
