@@ -1,14 +1,17 @@
 { pkgs, ... }:
 {
   programs.vscode = {
-	  enable = true;
-	  extensions = with pkgs.vscode-extensions; [
-	    dracula-theme.theme-dracula
-	    vscodevim.vim
-	    yzhang.markdown-all-in-one
+	enable = true;
+	enableUpdateCheck = false;
+    enableExtensionUpdateCheck = false;
+    mutableExtensionsDir = false;
+	extensions = with pkgs.vscode-extensions; [
+		dracula-theme.theme-dracula
+		vscodevim.vim
+		yzhang.markdown-all-in-one
 		bbenoist.nix
-        eamodio.gitlens
-	  ];
+		eamodio.gitlens
+	];
     userSettings = {
     	"keyboard.dispatch" = "keyCode";
 			"vim.handleKeys" = {
@@ -16,7 +19,7 @@
 					"<C-p>" = false;
 			};
 			"files.autoSave" = "afterDelay";
-			"workbench.colorTheme" = "Dracula Theme";
+			"workbench.colorTheme" = "Dracula";
 		};
 		keybindings = [
 			{
