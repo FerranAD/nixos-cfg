@@ -10,11 +10,11 @@
       monitorHotplugCallback = pkgs.pkgs.writeShellScriptBin "monitorHotplugCallback" ''
         handle() {
           case $1 in
-            monitoradded*) ${lib.getExe restartHyprpanel} ;;
+            monitoradded*) "${pkgs.hyprpanel}/bin/hyprpanel" -q && "${pkgs.hyprpanel}/bin/hyprpanel" & ;;
           esac
         }
 
-        "${pkgs.socat}" -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done 
+        "${pkgs.socat}/bin/socat" -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
       '';
     in
   {

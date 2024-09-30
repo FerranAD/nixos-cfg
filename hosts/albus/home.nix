@@ -24,7 +24,6 @@
     jq
     brightnessctl
     playerctl
-    hyprpanel
   ];
 
   home.sessionVariables = {
