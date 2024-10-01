@@ -25,6 +25,10 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
       "$mod" = "SUPER";
       input = {
         kb_layout = "us, es";
@@ -44,6 +48,7 @@
       ];
       exec-once = [
         "${pkgs.hyprpanel}/bin/hyprpanel"
+        "${pkgs.hyprpaper}/bin/hyprpaper"
         "${lib.getExe monitorHotplugCallback}"
       ];
     };

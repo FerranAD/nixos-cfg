@@ -6,6 +6,7 @@
      ../../modules/home-manager/alacritty.nix
      ../../modules/home-manager/vscode.nix
      ../../modules/home-manager/fonts.nix
+     ../../modules/home-manager/wallpaper
      ../../modules/home-manager/hyprland
      ../../modules/home-manager/pass.nix
      ../../modules/home-manager/wofi.nix
