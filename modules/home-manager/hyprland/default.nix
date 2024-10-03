@@ -36,7 +36,7 @@
       };
       bind = import ./keybindings.nix { inherit pkgs; };
       monitor = [
-        ",highrr,auto,auto"
+        ",preferred,auto,auto"
       ]; 
       bindm = [
         "$mod, mouse:272, movewindow"

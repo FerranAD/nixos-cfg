@@ -1,27 +1,44 @@
 {
   pkgs,
   config,
-  ... 
-}: {
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  lib, 
+  ...  
+}:
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
+  '';
+in {
+  environment.systemPackages = [ nvidia-offload ];
 
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
+  boot.blacklistedKernelModules = ["nouveau"];
+  services.xserver.videoDrivers = lib.mkForce ["nvidia"];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-  };
-
-  hardware.nvidia.prime = {
-    offload = {
+  hardware = {
+    graphics = {
       enable = true;
-      enableOffloadCmd = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        nvidia-vaapi-driver
+      ];
     };
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      powerManagement.enable = true;
+      powerManagement.finegrained = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      prime = {
+        # sync.enable = true;
+        offload.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
   };
 }
