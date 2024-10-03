@@ -6,11 +6,11 @@
         splash = false;
 
       preload = [
-        "~/nixos/modules/home-manager/wallpaper/cloud-coffee.jpg"
+        "${./cloud-coffee.jpg}"
       ];
 
       wallpaper = [
-        ",~/nixos/modules/home-manager/wallpaper/cloud-coffee.jpg"
+        ",${./cloud-coffee.jpg}"
       ];
     };
 }
