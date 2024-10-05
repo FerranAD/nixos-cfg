@@ -6,6 +6,10 @@ let
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   jq = "${pkgs.jq}/bin/jq";
+  getKeyboardLayout = pkgs.pkgs.writeShellScriptBin "getKeyboardLayout" ''
+    ${hyprctl} devices -j |
+      ${jq} -r '.keyboards[] | .active_keymap' | head -n1
+  '';
   keyboardChange = pkgs.pkgs.writeShellScriptBin "keyboardChange" ''
       ${hyprctl} \
     --batch "$(
