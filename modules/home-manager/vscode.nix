@@ -16,6 +16,10 @@
 		github.copilot-chat
 	];
     userSettings = {
+		"github.copilot.enable" = {
+			"*" = true;
+    		"markdown" = true;
+		};
     	"keyboard.dispatch" = "keyCode";
 			"vim.handleKeys" = {
 					"<C-w>" = false;
