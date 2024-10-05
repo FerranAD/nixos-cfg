@@ -5,7 +5,7 @@
     let
       restartHyprpanel = pkgs.pkgs.writeShellScriptBin "restartHyprpanel" ''
         "${pkgs.hyprpanel}/bin/hyprpanel" -q
-        "${pkgs.hyprpanel}/bin/hyprpanel"
+        "${pkgs.hyprpanel}/bin/hyprpanel" &
       '';
       monitorHotplugCallback = pkgs.pkgs.writeShellScriptBin "monitorHotplugCallback" ''
         handle() {
