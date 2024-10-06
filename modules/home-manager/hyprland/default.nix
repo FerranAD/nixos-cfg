@@ -1,6 +1,13 @@
 
 { pkgs, lib, inputs, ... }:
 {
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
   wayland.windowManager.hyprland = 
     let
       restartHyprpanel = pkgs.pkgs.writeShellScriptBin "restartHyprpanel" ''
@@ -34,7 +41,7 @@
         kb_layout = "us, es";
         kb_options = "caps:swapescape";
       };
-      bind = import ./keybindings.nix { inherit pkgs; };
+      bind = import ./keybindings.nix { inherit pkgs lib; };
       monitor = [
         ",preferred,auto,auto"
       ]; 

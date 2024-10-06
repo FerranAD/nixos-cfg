@@ -50,6 +50,7 @@
     packages = [
       pkgs.kitty
       pkgs.dolphin
+      pkgs.material-design-icons
     ];
   };
 

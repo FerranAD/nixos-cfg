@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
@@ -8,7 +8,7 @@ let
   jq = "${pkgs.jq}/bin/jq";
   getKeyboardLayout = pkgs.pkgs.writeShellScriptBin "getKeyboardLayout" ''
     ${hyprctl} devices -j |
-      ${jq} -r '.keyboards[] | .active_keymap' | head -n1
+    ${jq} -r '.keyboards[] | .active_keymap' | head -n1
   '';
   keyboardChange = pkgs.pkgs.writeShellScriptBin "keyboardChange" ''
       ${hyprctl} \
@@ -19,7 +19,7 @@ let
           printf '%s %s %s;' 'switchxkblayout' "$keyboard" 'next'
         done
     )"
-     ${hyprctl} notify -1 10000 "rgb(ff1ea3)" "Changed keyboard!"
+    ${pkgs.libnotify}/bin/notify-send --icon=${./icons/keyboard-layout.svg} "Layout changed to" "$(${lib.getExe getKeyboardLayout})" --expire-time=1500
   '';
   passMenu = pkgs.pkgs.writeShellScriptBin "passMenu" ''
     export PASSWORD_STORE_DIR=/home/ferran/.password-store

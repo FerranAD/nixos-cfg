@@ -14,8 +14,8 @@
 
 - [ ] Try if external monitor is less laggy with Performance power mode
 - [ ] `nvidia-offload` declaration is duplicated, fix that
-- [ ] Be able to use icons on notify-send
-- [ ] Fix missing icons on hyprpanel
+- [x] Be able to use icons on notify-send
+- [x] Fix missing icons on hyprpanel
 - [ ] Configure shell through home-manager
 - [ ] Configure terminal emulator
 - [ ] LUKS encryption
@@ -25,3 +25,4 @@
 - [ ] Add floating scratchpad
 - [ ] Custom hyprpanel through config file
 - [ ] Theme wofi
+- [ ] Auto blue light based on location
