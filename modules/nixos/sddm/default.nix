@@ -18,12 +18,13 @@ in {
       sddm-themes = pkgs.callPackage ./themes.nix { };
     in
     [
-      # sddm-themes.astronaut
       (pkgs.where-is-my-sddm-theme.override {
         variants = [ "qt5" ];
         themeConfig.General = {
-          background = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          backgroundMode = "none";
+          background = "${../../../images/wallpaper.jpg}";
+          blurRadius= 25;
+          passwordTextColor= "#ffffff";
+          basicTextColor="#313244";
           showSessionsByDefault= true;
         };
       })
@@ -43,7 +44,7 @@ in {
         Exec=${lib.getExe nvidia-offload} ${pkgs.hyprland}/bin/Hyprland
         Type=Application
       '')
-      .overrideAttrs (_: {passthru.providedSessions = ["hyprland-nvidia"];})) # This tells Nix it is a session providing "steam" in the derivation, which allows it to be defined as a session to `sessionPackages`
+      .overrideAttrs (_: {passthru.providedSessions = ["hyprland-nvidia"];}))
     ];
   };
 }
