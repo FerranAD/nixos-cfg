@@ -5,6 +5,7 @@ let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+  fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   jq = "${pkgs.jq}/bin/jq";
   getKeyboardLayout = pkgs.pkgs.writeShellScriptBin "getKeyboardLayout" ''
     ${hyprctl} devices -j |
@@ -23,7 +24,7 @@ let
   '';
   passMenu = pkgs.pkgs.writeShellScriptBin "passMenu" ''
     export PASSWORD_STORE_DIR=/home/ferran/.password-store
-    ${pkgs.wofi-pass}/bin/wofi-pass -c
+    ${pkgs.wofi-pass}/bin/wofi-pass -c -s
   '';
   movementKeys = [
     "$mod, W, killactive"
@@ -36,7 +37,8 @@ let
   ];
   programKeys = [
     "$mod, N, exec, ${pkgs.firefox}/bin/firefox"
-    "$mod, M, exec, ${pkgs.wofi}/bin/wofi --show run"
+    "$mod, M, exec, ${fuzzel} --show run"
+    "$mod, e, exec, ${pkgs.rofimoji}/bin/rofimoji --selector fuzzel --action copy"
     "$mod, y, exec, ${passMenu}/bin/passMenu"
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
