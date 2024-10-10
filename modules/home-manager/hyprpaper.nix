@@ -6,11 +6,11 @@
         splash = false;
 
       preload = [
-        "${./cloud-coffee.jpg}"
+        "${../../images/wallpaper.jpg}"
       ];
 
       wallpaper = [
-        ",${./cloud-coffee.jpg}"
+        ",${../../images/wallpaper.jpg}"
       ];
     };
 }
