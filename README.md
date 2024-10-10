@@ -21,6 +21,7 @@
 - [ ] LUKS encryption
 - [ ] Refactor so modules are togglable options
 - [ ] Add secret management through Yubikey
+- [ ] Cache yubikey touch
 - [ ] Add fullscreen, expand window, toggle floating keybinds
 - [ ] Add floating scratchpad
 - [ ] Custom hyprpanel through config file

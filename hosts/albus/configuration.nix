@@ -14,8 +14,9 @@
       ../../modules/nixos/fonts.nix
       ../../modules/nixos/yubikey.nix
       ../../modules/nixos/hyprland.nix
-      ../../modules/nixos/bootloader.nix
+      ../../modules/nixos/boot
       ../../modules/nixos/sddm
+      ../../modules/cattpuccin.nix
       inputs.home-manager.nixosModules.default
     ];
 
