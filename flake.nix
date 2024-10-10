@@ -17,6 +17,8 @@
     };
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
