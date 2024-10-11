@@ -1,0 +1,25 @@
+From 03e5b72938267b24bd528be7beda8cb6113ad5e4 Mon Sep 17 00:00:00 2001
+From: Pablo Fraile Alonso <pablo@pablofraile.net>
+Date: Thu, 10 Oct 2024 22:37:00 +0200
+Subject: [PATCH] feat: add support for fuzzel
+
+---
+ wofi-pass | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/wofi-pass b/wofi-pass
+index f344ae0..474bee0 100755
+--- a/wofi-pass
++++ b/wofi-pass
+@@ -23,7 +23,7 @@ WOFI_PASS_DELAY=${WOFI_PASS_DELAY:-2}
+ WOFI_PASS_AUTO_ENTER="${WOFI_PASS_AUTO_ENTER:-"false"}"
+ 
+ function _wofi() {
+-    wofi "${@}"
++    fuzzel "${@}"
+ }
+ 
+ function _pass() {
+-- 
+2.46.0
+

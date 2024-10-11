@@ -22,10 +22,6 @@ let
     )"
     ${pkgs.libnotify}/bin/notify-send --icon=${./icons/keyboard-layout.svg} "Layout changed to" "$(${lib.getExe getKeyboardLayout})" --expire-time=1500
   '';
-  passMenu = pkgs.pkgs.writeShellScriptBin "passMenu" ''
-    export PASSWORD_STORE_DIR=/home/ferran/.password-store
-    ${pkgs.wofi-pass}/bin/wofi-pass -c -s
-  '';
   movementKeys = [
     "$mod, W, killactive"
     "$mod, h, movefocus, l"
@@ -39,7 +35,7 @@ let
     "$mod, N, exec, ${pkgs.firefox}/bin/firefox"
     "$mod, M, exec, ${fuzzel} --show run"
     "$mod, e, exec, ${pkgs.rofimoji}/bin/rofimoji --selector fuzzel --action copy"
-    "$mod, y, exec, ${passMenu}/bin/passMenu"
+    "$mod, y, exec, passMenu"
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
     ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
