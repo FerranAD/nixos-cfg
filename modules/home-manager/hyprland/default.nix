@@ -36,6 +36,9 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
+      windowrulev2 = [
+        "float, class:(udiskie), title:(udiskie)"
+      ];
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
