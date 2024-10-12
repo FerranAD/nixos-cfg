@@ -4,15 +4,7 @@
   inputs,
   ... 
 }: 
-let
-  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-    export __NV_PRIME_RENDER_OFFLOAD=1
-    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __VK_LAYER_NV_optimus=NVIDIA_only
-    exec "$@"
-  '';
-in {
+{
   environment.systemPackages =
     let
       sddm-themes = pkgs.callPackage ./themes.nix { };
@@ -41,7 +33,7 @@ in {
         [Desktop Entry]
         Name=Hyprland (NVIDIA)
         Comment=Hyprland completely running on NVIDIA
-        Exec=${lib.getExe nvidia-offload} ${pkgs.hyprland}/bin/Hyprland
+        Exec=nvidia-offload ${pkgs.hyprland}/bin/Hyprland
         Type=Application
       '')
       .overrideAttrs (_: {passthru.providedSessions = ["hyprland-nvidia"];}))
