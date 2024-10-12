@@ -6,7 +6,6 @@
   programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-  # For hyprpanel battery widget to work
   services.gvfs.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;

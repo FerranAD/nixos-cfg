@@ -8,10 +8,12 @@
   imports =
     [
       ./hardware-configuration.nix
+      ../../modules/nixos/xdg-portal.nix
       ../../modules/nixos/hyprland.nix
       ../../modules/nixos/yubikey.nix
       ../../modules/nixos/nvidia.nix
       ../../modules/nixos/locale.nix
+      ../../modules/nixos/power.nix
       ../../modules/nixos/audio.nix
       ../../modules/cattpuccin.nix
       ../../modules/nixos/sddm.nix
