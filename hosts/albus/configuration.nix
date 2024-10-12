@@ -8,15 +8,14 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../modules/nixos/audio.nix
+      ../../modules/nixos/hyprland.nix
+      ../../modules/nixos/yubikey.nix
       ../../modules/nixos/nvidia.nix
       ../../modules/nixos/locale.nix
-      ../../modules/nixos/fonts.nix
-      ../../modules/nixos/yubikey.nix
-      ../../modules/nixos/hyprland.nix
-      ../../modules/nixos/boot
-      ../../modules/nixos/sddm
+      ../../modules/nixos/audio.nix
       ../../modules/cattpuccin.nix
+      ../../modules/nixos/sddm.nix
+      ../../modules/nixos/boot
       inputs.home-manager.nixosModules.default
     ];
 

@@ -5,28 +5,25 @@
   ... 
 }: 
 {
-  environment.systemPackages =
-    let
-      sddm-themes = pkgs.callPackage ./themes.nix { };
-    in
-    [
-      (pkgs.where-is-my-sddm-theme.override {
-        variants = [ "qt5" ];
-        themeConfig.General = {
-          background = "${../../../images/wallpaper.jpg}";
-          blurRadius= 25;
-          passwordTextColor= "#ffffff";
-          basicTextColor="#313244";
-          showSessionsByDefault= true;
-        };
-      })
-    ];
+  environment.systemPackages = [
+    (pkgs.where-is-my-sddm-theme.override {
+      variants = [ "qt5" ];
+      themeConfig.General = {
+        background = "${../../../images/wallpaper.jpg}";
+        blurRadius= 25;
+        passwordTextColor= "#ffffff";
+        basicTextColor="#313244";
+        showSessionsByDefault= true;
+      };
+    })
+  ];
 
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     theme = "where_is_my_sddm_theme_qt5";
   };
+
   services.displayManager = {
     sessionPackages = [
       ((pkgs.writeTextDir "share/wayland-sessions/hyprland-nvidia.desktop" ''
