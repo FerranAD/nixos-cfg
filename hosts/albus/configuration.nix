@@ -24,10 +24,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   hardware = {
-    graphics.enable = true;
     bluetooth.enable = true;
     uinput.enable = true;
-    gpgSmartcards.enable = true;
   };
 
   networking = {
@@ -36,6 +34,7 @@
   };
 
   services.printing.enable = true;
+  services.gvfs.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
