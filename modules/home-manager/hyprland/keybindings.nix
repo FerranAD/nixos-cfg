@@ -28,8 +28,9 @@ let
     "$mod, l, movefocus, r"
     "$mod, k, movefocus, u"
     "$mod, j, movefocus, d"
-    "$mod SHIFT, 0, movetoworkspace, special:magic"
-    "$mod, space, togglespecialworkspace, magic"
+    "$mod, f, togglefloating"
+    "$mod SHIFT, tab, fullscreen"
+    "$mod, tab, fullscreen, 1"
   ];
   programKeys = [
     "$mod, N, exec, ${pkgs.firefox}/bin/firefox"
@@ -38,6 +39,7 @@ let
     "$mod, y, exec, passMenu"
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
+    "$mod, space, exec, ${pkgs.pyprland}/bin/pypr toggle term"
     ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
     ", XF86MonBrightnessUp, exec, ${brightnessctl} set +5%"
     ", Print, exec, ${grimblast} copy area"

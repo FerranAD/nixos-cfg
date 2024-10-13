@@ -18,6 +18,8 @@
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
+    pyprland.url = "github:hyprland-community/pyprland";
+
     catppuccin.url = "github:catppuccin/nix";
   };
 

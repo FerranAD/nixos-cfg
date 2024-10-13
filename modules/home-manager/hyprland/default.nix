@@ -38,6 +38,7 @@
     settings = {
       windowrulev2 = [
         "float, class:(udiskie), title:(udiskie)"
+        "opacity 0.6, class:(alacritty-dropterm)"
       ];
       misc = {
         disable_hyprland_logo = true;
@@ -64,6 +65,7 @@
         "${pkgs.hyprpanel}/bin/hyprpanel"
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${lib.getExe monitorHotplugCallback}"
+        "${pkgs.pyprland}/bin/pypr"
       ];
     };
   };
