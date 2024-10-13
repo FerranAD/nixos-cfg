@@ -9,7 +9,7 @@
     (pkgs.where-is-my-sddm-theme.override {
       variants = [ "qt5" ];
       themeConfig.General = {
-        background = "${../../../images/wallpaper.jpg}";
+        background = "${../../images/wallpaper.jpg}";
         blurRadius= 25;
         passwordTextColor= "#ffffff";
         basicTextColor="#313244";
