@@ -31,11 +31,11 @@ in {
       modesetting.enable = true;
       open = true;
       powerManagement.enable = true;
-      powerManagement.finegrained = true;
+      powerManagement.finegrained = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
-        # sync.enable = true;
-        offload.enable = true;
+        sync.enable = true;
+        # offload.enable = true;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
