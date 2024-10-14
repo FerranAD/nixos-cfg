@@ -1,6 +1,17 @@
 
 { pkgs, lib, inputs, ... }:
 {
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      background = [
+        {
+          path = "${../../../images/wallpaper.jpg}";
+        }
+      ];
+    };
+  };
+
   wayland.windowManager.hyprland = 
     let
       restartHyprpanel = pkgs.pkgs.writeShellScriptBin "restartHyprpanel" ''

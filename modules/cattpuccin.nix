@@ -22,6 +22,7 @@ in
         catppuccin.pointerCursor.enable = true;
         catppuccin.pointerCursor.accent = "dark";
         programs.fuzzel.catppuccin.enable = true;
+        programs.hyprlock.catppuccin.enable = true;
         # Disable since it's horrible on zsh
         programs.zsh.syntaxHighlighting.catppuccin.enable = false;
       };

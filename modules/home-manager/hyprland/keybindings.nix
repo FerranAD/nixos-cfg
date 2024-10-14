@@ -37,6 +37,7 @@ let
     "$mod, M, exec, ${fuzzel} --show run"
     "$mod, e, exec, ${pkgs.rofimoji}/bin/rofimoji --selector fuzzel --action copy"
     "$mod, y, exec, passMenu"
+    "$mod SHIFT, l, exec, hyprlock"
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
     "$mod, space, exec, ${pkgs.pyprland}/bin/pypr toggle term"
