@@ -14,6 +14,8 @@
 		catppuccin.catppuccin-vsc-icons
 		github.copilot
 		github.copilot-chat
+		ms-toolsai.jupyter
+		ms-python.python
 	];
     userSettings = {
 		"github.copilot.enable" = {
