@@ -16,6 +16,7 @@
 		github.copilot-chat
 		ms-toolsai.jupyter
 		ms-python.python
+		tomoki1207.pdf
 	];
     userSettings = {
 		"github.copilot.enable" = {
