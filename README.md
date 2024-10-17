@@ -21,3 +21,4 @@
 - [ ] Auto blue light based on location
 - [ ] Add clipboard manager
 - [ ] Configure screen sharing
+- [ ] File manager
