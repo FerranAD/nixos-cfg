@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services.udev.packages = with pkgs; [ yubikey-personalization libu2f-host ];
   services.dbus.packages = [ pkgs.gcr ];
   services.pcscd.enable = true;
@@ -14,7 +13,11 @@
     cue = true;
   };
 
-  environment.systemPackages = with pkgs; [ yubikey-manager yubikey-personalization yubioath-flutter ];
+  environment.systemPackages = with pkgs; [
+    yubikey-manager
+    yubikey-personalization
+    yubioath-flutter
+  ];
   environment.shellInit = ''
     gpg-connect-agent /bye
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

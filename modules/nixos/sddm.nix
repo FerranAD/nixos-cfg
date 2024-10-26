@@ -1,19 +1,13 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  ... 
-}: 
-{
+{ pkgs, lib, inputs, ... }: {
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
       variants = [ "qt5" ];
       themeConfig.General = {
         background = "${../../images/wallpaper.jpg}";
-        blurRadius= 25;
-        passwordTextColor= "#ffffff";
-        basicTextColor="#313244";
-        showSessionsByDefault= true;
+        blurRadius = 25;
+        passwordTextColor = "#ffffff";
+        basicTextColor = "#313244";
+        showSessionsByDefault = true;
       };
     })
   ];
@@ -32,8 +26,8 @@
         Comment=Hyprland completely running on NVIDIA
         Exec=nvidia-offload ${pkgs.hyprland}/bin/Hyprland
         Type=Application
-      '')
-      .overrideAttrs (_: {passthru.providedSessions = ["hyprland-nvidia"];}))
+      '').overrideAttrs
+        (_: { passthru.providedSessions = [ "hyprland-nvidia" ]; }))
     ];
   };
 }

@@ -1,32 +1,27 @@
-{ pkgs, ... }:
-{
-    programs.gpg = {
-      enable = true;
-      scdaemonSettings = {
-        disable-ccid = true;
-      };
-      settings = {
-        with-fingerprint = true;
-        use-agent = true;
-      };
-      publicKeys = [ { source = ./yubikey.pub; } ];
+{ pkgs, ... }: {
+  programs.gpg = {
+    enable = true;
+    scdaemonSettings = { disable-ccid = true; };
+    settings = {
+      with-fingerprint = true;
+      use-agent = true;
     };
-    services.gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-      enableBashIntegration = true;
-      enableExtraSocket = true;
-      sshKeys = [ "99C6A5713950906F2D6E82ECE088F51931A156CC" ];
-      extraConfig = ''
-        allow-preset-passphrase
-      '';
-      pinentryPackage = pkgs.pinentry-gnome3;
-    };
-    # This is the key-grip, not the same as the key fingerprint.
-    home.file.".pam-gnupg".text = ''
-        99C6A5713950906F2D6E82ECE088F51931A156CC
+    publicKeys = [{ source = ./yubikey.pub; }];
+  };
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    enableBashIntegration = true;
+    enableExtraSocket = true;
+    sshKeys = [ "99C6A5713950906F2D6E82ECE088F51931A156CC" ];
+    extraConfig = ''
+      allow-preset-passphrase
     '';
-    home.packages = [
-      pkgs.pinentry-gnome3
-    ];
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
+  # This is the key-grip, not the same as the key fingerprint.
+  home.file.".pam-gnupg".text = ''
+    99C6A5713950906F2D6E82ECE088F51931A156CC
+  '';
+  home.packages = [ pkgs.pinentry-gnome3 ];
 }

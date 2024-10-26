@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib, 
-  ...  
-}:
+{ pkgs, config, lib, ... }:
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -15,17 +10,14 @@ let
 in {
   environment.systemPackages = [ nvidia-offload ];
 
-  boot.blacklistedKernelModules = ["nouveau"];
-  services.xserver.videoDrivers = lib.mkForce ["nvidia"];
+  boot.blacklistedKernelModules = [ "nouveau" ];
+  services.xserver.videoDrivers = lib.mkForce [ "nvidia" ];
 
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        vaapiVdpau
-        nvidia-vaapi-driver
-      ];
+      extraPackages = with pkgs; [ vaapiVdpau nvidia-vaapi-driver ];
     };
     nvidia = {
       modesetting.enable = true;

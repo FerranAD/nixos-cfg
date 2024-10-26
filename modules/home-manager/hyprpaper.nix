@@ -1,16 +1,11 @@
-{ pkgs, ... }:
-{
-    services.hyprpaper.enable = true;
-    services.hyprpaper.settings = {
-        ipc = "on";
-        splash = false;
+{ pkgs, ... }: {
+  services.hyprpaper.enable = true;
+  services.hyprpaper.settings = {
+    ipc = "on";
+    splash = false;
 
-      preload = [
-        "${../../images/wallpaper.jpg}"
-      ];
+    preload = [ "${../../images/wallpaper.jpg}" ];
 
-      wallpaper = [
-        ",${../../images/wallpaper.jpg}"
-      ];
-    };
+    wallpaper = [ ",${../../images/wallpaper.jpg}" ];
+  };
 }

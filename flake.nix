@@ -23,32 +23,22 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    } @ inputs: 
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [
-          inputs.hyprpanel.overlay
-        ];
+        overlays = [ inputs.hyprpanel.overlay ];
         config.allowUnfree = true;
       };
-    in
-    {
+    in {
       nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {
           inherit system;
           inherit inputs;
         };
-        modules = [
-          ./hosts/albus/configuration.nix
-        ];
+        modules = [ ./hosts/albus/configuration.nix ];
       };
     };
 }

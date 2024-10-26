@@ -2,8 +2,7 @@
 let
   flavor = "mocha";
   user = "ferran";
-in
-{
+in {
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
     {
@@ -14,9 +13,7 @@ in
     }
     {
       home-manager.users.${user} = {
-        imports = [
-          inputs.catppuccin.homeManagerModules.catppuccin
-        ];
+        imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
         catppuccin.flavor = flavor;
         catppuccin.enable = true;
         catppuccin.pointerCursor.enable = true;

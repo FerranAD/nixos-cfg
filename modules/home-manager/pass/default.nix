@@ -4,8 +4,7 @@ let
     export PASSWORD_STORE_DIR=/home/ferran/.password-store
     wofi-pass -c -s
   '';
-in
-{
+in {
   programs.password-store = {
     enable = true;
     package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
@@ -14,11 +13,10 @@ in
       PASSWORD_STORE_CLIP_TIME = "90";
     };
   };
-  home.packages =
-    [
-      ((pkgs.wofi-pass.override { wofi= pkgs.fuzzel; }).overrideAttrs {
-        patches = [ ./fuzzel.patch ];
-      })
-      passMenu
-    ];
+  home.packages = [
+    ((pkgs.wofi-pass.override { wofi = pkgs.fuzzel; }).overrideAttrs {
+      patches = [ ./fuzzel.patch ];
+    })
+    passMenu
+  ];
 }
