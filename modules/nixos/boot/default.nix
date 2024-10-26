@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
     consoleLogLevel = 0;
     initrd = {
       verbose = false;
