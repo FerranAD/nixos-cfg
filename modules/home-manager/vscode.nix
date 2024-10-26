@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    nixfmt
+	nixd
+  ];
   programs.vscode = {
 	enable = true;
 	enableUpdateCheck = false;
@@ -9,7 +13,7 @@
 		dracula-theme.theme-dracula
 		vscodevim.vim
 		yzhang.markdown-all-in-one
-		bbenoist.nix
+    	jnoortheen.nix-ide
 		eamodio.gitlens
 		catppuccin.catppuccin-vsc-icons
 		github.copilot
@@ -19,6 +23,14 @@
 		tomoki1207.pdf
 	];
     userSettings = {
+		"nix.serverPath" = "nixd";
+		"nix.enableLanguageServer" = true;
+		"nixpkgs" = {
+			"expr" = "import <nixpkgs> { }";
+		};
+		"formatting" = {
+			"command" = [ "nixfmt" ];
+		};
 		"github.copilot.enable" = {
 			"*" = true;
     		"markdown" = true;

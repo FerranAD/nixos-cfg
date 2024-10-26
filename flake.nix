@@ -42,7 +42,6 @@
     {
       nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
         inherit pkgs;
-
         specialArgs = {
           inherit system;
           inherit inputs;
