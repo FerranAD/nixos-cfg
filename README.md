@@ -18,9 +18,9 @@
 - [ ] Refactor so modules are togglable options
 - [ ] Add secret management through Yubikey
 - [ ] Custom hyprpanel through config file
-- [ ] Auto blue light based on location
 - [ ] Add clipboard manager
 - [ ] Configure screen sharing
 - [ ] File manager
 - [ ] Swap 'fn' for 'win' on BIOS
 - [ ] Add git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git config
+- [ ] Configure firefox
