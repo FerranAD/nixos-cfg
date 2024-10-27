@@ -7,6 +7,7 @@
     ../../modules/nixos/yubikey.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/locale.nix
+    ../../modules/nixos/thunar.nix
     ../../modules/nixos/power.nix
     ../../modules/nixos/audio.nix
     ../../modules/cattpuccin.nix
