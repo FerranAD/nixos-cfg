@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ ... }:
+{
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     window.opacity = 0.95;
@@ -8,9 +9,13 @@
       duration = 0;
     };
 
-    cursor = { style = "Underline"; };
+    cursor = {
+      style = "Underline";
+    };
 
-    env = { TERM = "alacritty"; };
+    env = {
+      TERM = "alacritty";
+    };
 
     font = {
       size = 18;
@@ -122,10 +127,12 @@
     };
 
     mouse = {
-      bindings = [{
-        action = "Copy";
-        mouse = "Right";
-      }];
+      bindings = [
+        {
+          action = "Copy";
+          mouse = "Right";
+        }
+      ];
     };
 
     scrolling = {

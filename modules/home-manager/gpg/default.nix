@@ -1,12 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.gpg = {
     enable = true;
-    scdaemonSettings = { disable-ccid = true; };
+    scdaemonSettings = {
+      disable-ccid = true;
+    };
     settings = {
       with-fingerprint = true;
       use-agent = true;
     };
-    publicKeys = [{ source = ./yubikey.pub; }];
+    publicKeys = [ { source = ./yubikey.pub; } ];
   };
   services.gpg-agent = {
     enable = true;

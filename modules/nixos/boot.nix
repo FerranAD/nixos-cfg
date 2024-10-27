@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     consoleLogLevel = 0;
@@ -7,11 +8,7 @@
       systemd.dbus.enable = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    plymouth = {
-      enable = true;
-      # themePackages = [ (pkgs.callPackage ./theme.nix {}) ];
-      # theme = "nixsur";
-    };
+    plymouth.enable = true;
     kernelParams = [
       "nvidia-drm.fbdev=1"
       "nvidia-drm.modeset=1"

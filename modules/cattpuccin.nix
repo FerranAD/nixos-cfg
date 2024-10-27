@@ -2,7 +2,8 @@
 let
   flavor = "mocha";
   user = "ferran";
-in {
+in
+{
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
     {

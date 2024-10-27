@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -29,7 +29,9 @@
     playerctl
   ];
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   programs.home-manager.enable = true;
 }

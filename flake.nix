@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Ferran Aran's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -23,7 +23,8 @@
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    { nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -31,7 +32,8 @@
         overlays = [ inputs.hyprpanel.overlay ];
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {

@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ nixfmt-rfc-style nixd ];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    nixfmt-rfc-style
+    nixd
+  ];
   programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
@@ -21,12 +25,15 @@
     userSettings = {
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
-      "nixpkgs" = { "expr" = "import <nixpkgs> { }"; };
-      "formatting" = { "command" = [ "nixfmt" ]; };
+      "nixpkgs" = {
+        "expr" = "import <nixpkgs> { }";
+      };
+      "formatting" = {
+        "command" = [ "nixfmt" ];
+      };
       "options" = {
         "nixos" = {
-          "expr" = ''
-            (builtins.getFlake "../../").nixosConfigurations.albus.options'';
+          "expr" = ''(builtins.getFlake "../../").nixosConfigurations.albus.options'';
         };
       };
       "github.copilot.enable" = {

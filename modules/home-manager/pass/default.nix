@@ -4,7 +4,8 @@ let
     export PASSWORD_STORE_DIR=/home/ferran/.password-store
     wofi-pass -c -s
   '';
-in {
+in
+{
   programs.password-store = {
     enable = true;
     package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
