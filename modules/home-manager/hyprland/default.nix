@@ -57,6 +57,7 @@
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${lib.getExe monitorHotplugCallback}"
         "${pkgs.pyprland}/bin/pypr"
+        "${pkgs.wlsunset}/bin/wlsunset -l 41.614159 -L 0.625800"
       ];
     };
   };
