@@ -24,3 +24,4 @@
 - [ ] Swap 'fn' for 'win' on BIOS
 - [ ] Add git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git config
 - [ ] Configure firefox
+- [ ] Configure nnn file browser
