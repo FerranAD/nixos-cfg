@@ -4,6 +4,7 @@
   imports = [
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/hyprpaper.nix
+    ../../modules/home-manager/hyprpanel.nix
     ../../modules/home-manager/pyprland.nix
     ../../modules/home-manager/udiskie.nix
     ../../modules/home-manager/vscode.nix
