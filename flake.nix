@@ -26,10 +26,12 @@
   outputs =
     { nixpkgs, ... }@inputs:
     {
-      nixosConfigurations.albus = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.albus = let
         system = "x86_64-linux";
+      in nixpkgs.lib.nixosSystem {
+        inherit system;
         pkgs = import nixpkgs {
-          system = "x86_64-linux";
+          inherit system;
           overlays = [ inputs.hyprpanel.overlay ];
           config.allowUnfree = true;
         };
@@ -41,10 +43,6 @@
 
       nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
         specialArgs = {
           inherit inputs;
         };
