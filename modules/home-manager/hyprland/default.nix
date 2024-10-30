@@ -33,7 +33,7 @@
       settings = {
         windowrulev2 = [
           "float, class:(udiskie), title:(udiskie)"
-          "opacity 0.6, class:(alacritty-dropterm)"
+          "opacity 0.8, class:(alacritty-dropterm)"
         ];
         misc = {
           disable_hyprland_logo = true;
