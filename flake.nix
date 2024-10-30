@@ -26,20 +26,22 @@
   outputs =
     { nixpkgs, ... }@inputs:
     {
-      nixosConfigurations.albus = let
-        system = "x86_64-linux";
-      in nixpkgs.lib.nixosSystem {
-        inherit system;
-        pkgs = import nixpkgs {
+      nixosConfigurations.albus =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
           inherit system;
-          overlays = [ inputs.hyprpanel.overlay ];
-          config.allowUnfree = true;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ inputs.hyprpanel.overlay ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./hosts/albus/configuration.nix ];
         };
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [ ./hosts/albus/configuration.nix ];
-      };
 
       nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
