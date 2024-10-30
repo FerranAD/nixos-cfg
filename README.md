@@ -25,3 +25,4 @@
 - [ ] Add git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git configAdd git config
 - [ ] Configure firefox
 - [ ] Configure nnn file browser
+- [ ] Configure thunderbird
