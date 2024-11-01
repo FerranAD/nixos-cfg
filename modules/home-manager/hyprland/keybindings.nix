@@ -58,11 +58,10 @@ let
     builtins.genList (
       x:
       let
-        ws =
-          let
-            c = (x + 1) / 10;
-          in
-          builtins.toString (x + 1 - (c * 10));
+        ws = if x < 5 then
+          builtins.toString (x + 1)
+        else
+          "F" + builtins.toString (x - 4);
       in
       [
         "$mod, ${ws}, workspace, ${toString (x + 1)}"
