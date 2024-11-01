@@ -22,12 +22,10 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
-    dolphin
-    hello
-    grimblast
-    jq
-    brightnessctl
-    playerctl
+    vesktop
+    wl-clipboard-rs
+    swappy
+    hyprpicker
   ];
 
   home.sessionVariables = {

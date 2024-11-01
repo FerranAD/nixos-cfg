@@ -4,6 +4,7 @@ let
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   grimblast = "${pkgs.grimblast}/bin/grimblast";
+  swappy = "${pkgs.swappy}/bin/swappy";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   jq = "${pkgs.jq}/bin/jq";
@@ -43,7 +44,7 @@ let
     "$mod, space, exec, ${pkgs.pyprland}/bin/pypr toggle term"
     ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
     ", XF86MonBrightnessUp, exec, ${brightnessctl} set +5%"
-    ", Print, exec, ${grimblast} copy area"
+    ", Print, exec, ${grimblast} save area - | ${swappy} -f -"
   ];
   volumeKeys = [
     ", XF86AudioRaiseVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
