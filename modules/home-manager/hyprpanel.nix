@@ -19,6 +19,7 @@
       "left": [
         "dashboard",
         "workspaces",
+        "kbinput",
         "windowtitle"
       ],
       "middle": [
@@ -38,6 +39,7 @@
       "left": [
         "dashboard",
         "workspaces",
+        "kbinput",
         "windowtitle"
       ],
       "middle": [
