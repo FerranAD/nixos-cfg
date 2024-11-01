@@ -12,6 +12,7 @@
     ../../modules/home-manager/fonts.nix
     ../../modules/home-manager/hyprland
     ../../modules/home-manager/gtk.nix
+    ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
   ];

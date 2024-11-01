@@ -45,19 +45,22 @@
     };
   };
 
-  users.users.ferran = {
-    isNormalUser = true;
-    description = "Ferran";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "udev"
-    ];
-    packages = [
-      pkgs.kitty
-      pkgs.dolphin
-      pkgs.material-design-icons
-    ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.ferran = {
+      isNormalUser = true;
+      description = "Ferran";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "udev"
+      ];
+      packages = [
+        pkgs.kitty
+        pkgs.dolphin
+        pkgs.material-design-icons
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -68,6 +71,7 @@
   ];
 
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
