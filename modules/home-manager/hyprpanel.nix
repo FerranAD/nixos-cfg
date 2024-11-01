@@ -5,12 +5,12 @@
   home.file.".cache/ags/hyprpanel/options.json".text = ''
 {
   "bar.customModules.updates.pollingInterval": 1440000,
-  "menus.clock.weather.location": "Madrid",
+  "menus.clock.weather.location": "Lleida",
   "menus.clock.weather.unit": "metric",
   "theme.bar.menus.menu.power.scaling": 100,
   "theme.bar.menus.menu.clock.scaling": 90,
   "theme.bar.scaling": 100,
-  "menus.dashboard.powermenu.confirmation": true,
+  "menus.dashboard.powermenu.confirmation": false,
   "menus.dashboard.stats.enable_gpu": false,
   "terminal": "alacritty",
   "bar.battery.label": true,
@@ -85,7 +85,6 @@
   "theme.bar.buttons.windowtitle.enableBorder": false,
   "bar.windowtitle.icon": true,
   "theme.bar.menus.opacity": 100,
-  "theme.matugen_settings.mode": "dark",
   "theme.bar.transparent": true,
   "theme.bar.buttons.workspaces.smartHighlight": true,
   "bar.workspaces.hideUnoccupied": false,
@@ -103,7 +102,8 @@
   "bar.launcher.icon": "",
   "notifications.monitor": 0,
   "notifications.position": "top right",
-  "notifications.active_monitor": true
+  "notifications.active_monitor": true,
+  "bar.workspaces.workspaces": 9
 }
   '';
   # "menus.clock.weather.key": "age.secrets.weatherapi.path"
