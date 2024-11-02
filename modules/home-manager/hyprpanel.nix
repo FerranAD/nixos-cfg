@@ -106,5 +106,5 @@
   "bar.workspaces.workspaces": 9
 }
   '';
-  # "menus.clock.weather.key": "age.secrets.weatherapi.path"
+  # "menus.clock.weather.key": "${config.age.secrets.weather-api.path}"
 }

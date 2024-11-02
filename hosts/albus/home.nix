@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -15,6 +15,7 @@
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
+    inputs.agenix.homeManagerModules.default
   ];
 
   home.username = "ferran";

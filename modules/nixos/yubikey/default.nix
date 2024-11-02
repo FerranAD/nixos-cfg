@@ -21,6 +21,7 @@
     yubikey-manager
     yubikey-personalization
     yubioath-flutter
+    age-plugin-yubikey
   ];
   environment.shellInit = ''
     gpg-connect-agent /bye
