@@ -81,6 +81,7 @@
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
+  programs.zsh.setOptions = [ "EXTENDED_HISTORY" "APPEND_HISTORY" "EMACS" ];
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

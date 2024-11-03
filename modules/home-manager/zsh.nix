@@ -1,11 +1,15 @@
 { lib, pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    zsh-fzf-history-search
+  ];
   programs = {
     bat.enable = true;
     lsd.enable = true;
     zsh = {
       enable = true;
       autosuggestion.enable = true;
+      enableCompletion = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
         cp = "cp -iv";
