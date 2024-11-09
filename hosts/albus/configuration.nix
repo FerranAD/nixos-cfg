@@ -24,6 +24,7 @@
     localStorageDir = ../../secrets/rekeyed/albus;
   };
   age.secrets.weather-api.rekeyFile = ../../secrets/weather-api.age;
+  age.secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
 
   nix.settings.experimental-features = [
     "nix-command"
