@@ -59,10 +59,7 @@ let
     builtins.genList (
       x:
       let
-        ws = if x < 5 then
-          builtins.toString (x + 1)
-        else
-          "F" + builtins.toString (x - 4);
+        ws = if x < 5 then builtins.toString (x + 1) else "F" + builtins.toString (x - 4);
       in
       [
         "$mod, ${ws}, workspace, ${toString (x + 1)}"

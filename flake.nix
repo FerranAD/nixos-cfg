@@ -21,7 +21,7 @@
     pyprland.url = "github:hyprland-community/pyprland";
 
     catppuccin.url = "github:catppuccin/nix";
-    
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +34,13 @@
   };
 
   outputs =
-    { self, nixpkgs, agenix, agenix-rekey, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      agenix,
+      agenix-rekey,
+      ...
+    }@inputs:
     {
       nixosConfigurations.albus =
         let
@@ -44,8 +50,8 @@
           inherit system;
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [ 
-              inputs.hyprpanel.overlay 
+            overlays = [
+              inputs.hyprpanel.overlay
               agenix-rekey.overlays.default
             ];
             config.allowUnfree = true;
@@ -53,7 +59,7 @@
           specialArgs = {
             inherit inputs;
           };
-          modules = [ 
+          modules = [
             ./hosts/albus/configuration.nix
             agenix.nixosModules.default
             agenix-rekey.nixosModules.default
