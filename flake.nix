@@ -31,6 +31,14 @@
       url = "github:oddlama/agenix-rekey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    secrets = {
+      type = "git";
+      url = "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets";
+      submodules = true;
+      flake = false;
+      allRefs = true;
+    };
   };
 
   outputs =

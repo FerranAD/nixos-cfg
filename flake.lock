@@ -779,7 +779,28 @@
         "hyprland-plugins": "hyprland-plugins",
         "hyprpanel": "hyprpanel",
         "nixpkgs": "nixpkgs_4",
-        "pyprland": "pyprland"
+        "pyprland": "pyprland",
+        "secrets": "secrets"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "allRefs": true,
+        "lastModified": 1731160516,
+        "narHash": "sha256-F8oKduYk5e2BCSP3Yf3qNfHPvoSORaUeroqNpxivk2Y=",
+        "ref": "refs/heads/main",
+        "rev": "8ee043c6cc3f84fc10cff8d933afb503c665db8d",
+        "revCount": 1,
+        "submodules": true,
+        "type": "git",
+        "url": "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets"
+      },
+      "original": {
+        "allRefs": true,
+        "submodules": true,
+        "type": "git",
+        "url": "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets"
       }
     },
     "systems": {
