@@ -20,9 +20,9 @@
     hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIid1Lb2Zrsm/gacF7OOtbak7f6EBSsm7NvQ7g2nda2T ferran@albus";
     masterIdentities = [ ../../modules/nixos/yubikey/yubikey-5c-age.pub ];
     storageMode = "local";
-    localStorageDir = ./. + "/secrets/rekeyed/albus";
+    localStorageDir = ../../secrets/rekeyed/albus;
   };
-  age.secrets.weather-api.rekeyFile = ./. + "/secrets/weather-api.age";
+  age.secrets.weather-api.rekeyFile = ../../secrets/weather-api.age;
 
   nix.settings.experimental-features = [
     "nix-command"
