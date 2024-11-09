@@ -8,21 +8,6 @@
   };
 
   wayland.windowManager.hyprland =
-    let
-      restartHyprpanel = pkgs.pkgs.writeShellScriptBin "restartHyprpanel" ''
-        "${pkgs.hyprpanel}/bin/hyprpanel" -q
-        "${pkgs.hyprpanel}/bin/hyprpanel" &
-      '';
-      monitorHotplugCallback = pkgs.pkgs.writeShellScriptBin "monitorHotplugCallback" ''
-        handle() {
-          case $1 in
-            monitoradded*) "${pkgs.hyprpanel}/bin/hyprpanel" -q && "${pkgs.hyprpanel}/bin/hyprpanel" & ;;
-          esac
-        }
-
-        "${pkgs.socat}/bin/socat" -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
-      '';
-    in
     {
       enable = true;
       # plugins = [
@@ -52,12 +37,11 @@
         ];
         bindl = [
           '', switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"''
-          '', switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1,1920x1080@144.00,0x0,0" && ${lib.getExe restartHyprpanel}''
+          '', switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1,1920x1080@144.00,0x0,0"''
         ];
         exec-once = [
           "${pkgs.hyprpanel}/bin/hyprpanel"
           "${pkgs.hyprpaper}/bin/hyprpaper"
-          "${lib.getExe monitorHotplugCallback}"
           "${pkgs.pyprland}/bin/pypr"
           "${pkgs.wlsunset}/bin/wlsunset -l 41.614159 -L 0.625800"
         ];

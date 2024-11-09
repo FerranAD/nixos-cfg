@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 {
@@ -103,7 +104,8 @@
   "notifications.monitor": 0,
   "notifications.position": "top right",
   "notifications.active_monitor": true,
-  "bar.workspaces.workspaces": 9
+  "bar.workspaces.workspaces": 9,
+  "hyprpanel.restartCommand": "${pkgs.hyprpanel}/bin/hyprpanel -q; ${pkgs.hyprpanel}/bin/hyprpanel"
 }
   '';
   # "menus.clock.weather.key": "${config.age.secrets.weather-api.path}"
