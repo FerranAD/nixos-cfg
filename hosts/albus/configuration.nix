@@ -8,6 +8,7 @@
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/thunar.nix
+    ../../modules/nixos/network.nix
     ../../modules/nixos/power.nix
     ../../modules/nixos/audio.nix
     ../../modules/cattpuccin.nix
@@ -33,11 +34,6 @@
   hardware = {
     bluetooth.enable = true;
     uinput.enable = true;
-  };
-
-  networking = {
-    hostName = "albus";
-    networkmanager.enable = true;
   };
 
   services.printing.enable = true;
