@@ -66,6 +66,7 @@
     neovim
     wget
     git
+    gnumake
   ];
 
   services.xserver.enable = true;
