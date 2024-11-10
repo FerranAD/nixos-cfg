@@ -12,15 +12,9 @@
 
 # TODO
 
-- [ ] Configure shell through home-manager
-- [ ] Configure terminal emulator
 - [ ] LUKS encryption
 - [ ] Refactor so modules are togglable options
-- [ ] Add secret management through Yubikey
 - [ ] Add clipboard manager
-- [ ] Configure screen sharing
-- [ ] File manager
-- [ ] Swap 'fn' for 'win' on BIOS
 - [ ] Add git config
 - [ ] Configure firefox
 - [ ] Configure nnn file browser
