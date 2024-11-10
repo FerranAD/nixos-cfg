@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ../../modules/nixos/nix-settings.nix
     ./hardware-configuration.nix
   ];
 
