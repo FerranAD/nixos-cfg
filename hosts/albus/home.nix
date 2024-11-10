@@ -13,6 +13,7 @@
     ../../modules/home-manager/hyprland
     ../../modules/home-manager/gtk.nix
     ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/git.nix
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
     inputs.agenix.homeManagerModules.default
