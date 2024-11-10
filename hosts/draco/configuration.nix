@@ -10,6 +10,15 @@
     ./hardware-configuration.nix
   ];
 
+  age.identityPaths = [ "/home/ferran/.ssh/agenix" ];
+  age.rekey = {
+    hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMikkJgqeDyddmg+/zCoSrTnddc0iXp4Z7Ae5dwUj8kh ferran@draco";
+    masterIdentities = [ ../../modules/nixos/yubikey/yubikey-5c-age.pub ];
+    storageMode = "local";
+    localStorageDir = ../../secrets/rekeyed/draco;
+  };
+  age.secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
+
   boot.loader = {
     efi.efiSysMountPoint = "/boot";
     systemd-boot.enable = true;
