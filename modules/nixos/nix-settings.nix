@@ -1,5 +1,4 @@
-
-{ 
+{
   inputs,
   ...
 }:
@@ -20,7 +19,10 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q="
       ];
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     gc = {

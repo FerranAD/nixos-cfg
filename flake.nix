@@ -77,29 +77,29 @@
           ];
         };
 
-      nixosConfigurations.draco = 
-      let 
-        system = "x86_64-linux";
-      in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        pkgs = import nixpkgs {
+      nixosConfigurations.draco =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
           inherit system;
-          overlays = [
-            agenix-rekey.overlays.default
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/draco/configuration.nix
+            nixos-hardware.nixosModules.apple-t2
+            agenix.nixosModules.default
+            agenix-rekey.nixosModules.default
           ];
-          config.allowUnfree = true;
         };
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/draco/configuration.nix
-          nixos-hardware.nixosModules.apple-t2
-          agenix.nixosModules.default
-          agenix-rekey.nixosModules.default
-        ];
-      };
 
       # nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
       #   system = "aarch64-linux";
