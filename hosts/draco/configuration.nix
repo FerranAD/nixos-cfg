@@ -18,18 +18,18 @@
     localStorageDir = ../../secrets/rekeyed/draco;
   };
   age.secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
+  age.secrets.nextcloud-admin-pass.rekeyFile = ../../secrets/nextcloud-admin-pass.age;
 
   boot.loader = {
     efi.efiSysMountPoint = "/boot";
     systemd-boot.enable = true;
   };
-  environment.etc."nextcloud-admin-pass".text = "password";
 
   services.nextcloud = {
     enable = false;
     package = pkgs.nextcloud29;
     hostName = "draco";
-    config.adminpassFile = "/etc/nextcloud-admin-pass";
+    config.adminpassFile = config.age.secrets.nextcloud-admin-pass.path;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar;
     };
