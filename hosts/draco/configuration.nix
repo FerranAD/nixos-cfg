@@ -47,7 +47,6 @@
   };
 
   hardware.pulseaudio.enable = false;
-  sound.enable = false;
 
   time.timeZone = "Europe/Madrid";
 
