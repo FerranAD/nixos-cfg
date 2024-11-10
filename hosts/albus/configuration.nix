@@ -2,18 +2,19 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/xdg-portal.nix
     ../../modules/nixos/hyprland.nix
-    ../../modules/nixos/yubikey
+    ../../modules/nixos/network.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/thunar.nix
-    ../../modules/nixos/network.nix
     ../../modules/nixos/power.nix
     ../../modules/nixos/audio.nix
     ../../modules/cattpuccin.nix
     ../../modules/nixos/sddm.nix
     ../../modules/nixos/boot.nix
+    ../../modules/nixos/yubikey
     inputs.home-manager.nixosModules.default
   ];
   age.identityPaths = [ "/home/ferran/.ssh/agenix" ];
@@ -25,12 +26,6 @@
   };
   age.secrets.weather-api.rekeyFile = ../../secrets/weather-api.age;
   age.secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   hardware = {
     bluetooth.enable = true;
