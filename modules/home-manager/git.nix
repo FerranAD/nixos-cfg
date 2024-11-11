@@ -23,7 +23,7 @@
   };
   programs.zsh.shellAliases = {
     gad = "git add .";
-    gc = "git commit";
+    gco = "git commit";
     gl = "git log --oneline";
     gst = "git status";
   };
