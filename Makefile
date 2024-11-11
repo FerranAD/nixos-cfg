@@ -7,6 +7,9 @@ endif
 switch:
 	nixos-rebuild switch --use-remote-sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
 
+boot:
+	nixos-rebuild boot --use-remote-sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
+
 test:
 	nixos-rebuild test --use-remote-sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
 
