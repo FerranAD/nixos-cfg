@@ -686,6 +686,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1731515340,
+        "narHash": "sha256-GE/kuwXQhmUynUPdRbWp3ccuqfFshF6oLMg7TGXgl+8=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "4ae1080fdf68e0c54c05860030861a852439223a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -795,6 +810,7 @@
         "hyprpanel": "hyprpanel",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
+        "nur": "nur",
         "pyprland": "pyprland",
         "secrets": "secrets"
       }

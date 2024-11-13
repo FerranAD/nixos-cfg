@@ -41,6 +41,8 @@
       flake = false;
       allRefs = true;
     };
+
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
@@ -69,6 +71,14 @@
           };
           specialArgs = {
             inherit inputs;
+            nurPkgs = (import inputs.nur) {
+              nurpkgs = import inputs.nixpkgs {
+                inherit system;
+              };
+              pkgs = import inputs.nixpkgs {
+                inherit system;
+              };
+            };
           };
           modules = [
             ./hosts/albus/configuration.nix

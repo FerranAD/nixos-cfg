@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, nurPkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -37,7 +37,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs nurPkgs;
     };
     useGlobalPkgs = true;
     users = {
