@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/home-manager/thunderbird.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/hyprpaper.nix
     ../../modules/home-manager/hyprpanel.nix
