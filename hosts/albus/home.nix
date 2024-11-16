@@ -31,6 +31,7 @@
     wl-clipboard-rs
     swappy
     hyprpicker
+    monero-gui
   ];
 
   home.sessionVariables = {
