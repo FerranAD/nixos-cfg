@@ -15,7 +15,5 @@
 - [ ] LUKS encryption
 - [ ] Refactor so modules are togglable options
 - [ ] Add clipboard manager
-- [ ] Add git config
-- [ ] Configure firefox
 - [ ] Configure nnn file browser
 - [ ] Configure thunderbird
