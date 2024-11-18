@@ -17,3 +17,4 @@
 - [ ] Add clipboard manager
 - [ ] Configure nnn file browser
 - [ ] Configure thunderbird
+- [ ] Check Hyprland plugins
