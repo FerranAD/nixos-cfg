@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -11,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -49,6 +50,7 @@
     {
       self,
       nixpkgs,
+      nixpkgs-stable,
       nixos-hardware,
       agenix,
       agenix-rekey,
@@ -93,7 +95,7 @@
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          pkgs = import nixpkgs {
+          pkgs = import nixpkgs-stable {
             inherit system;
             overlays = [
               agenix-rekey.overlays.default

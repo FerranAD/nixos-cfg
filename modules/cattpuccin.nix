@@ -17,8 +17,8 @@ in
         imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
         catppuccin.flavor = flavor;
         catppuccin.enable = true;
-        catppuccin.pointerCursor.enable = true;
-        catppuccin.pointerCursor.accent = "dark";
+        # catppuccin.pointerCursor.enable = true;
+        # catppuccin.pointerCursor.accent = "dark";
         programs.fuzzel.catppuccin.enable = true;
         programs.hyprlock.catppuccin.enable = true;
         # Disable since it's horrible on zsh
