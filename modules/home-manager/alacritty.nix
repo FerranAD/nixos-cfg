@@ -20,21 +20,6 @@
     font = {
       size = 18;
 
-      bold = {
-        family = "FiraCode Nerd Font";
-        style = "Bold";
-      };
-
-      italic = {
-        family = "FiraCode Nerd Font";
-        style = "Italic";
-      };
-
-      normal = {
-        family = "FiraCode Nerd Font";
-        style = "Regular";
-      };
-
       offset = {
         x = 0;
         y = 0;
