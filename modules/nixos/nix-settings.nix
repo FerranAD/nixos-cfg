@@ -3,6 +3,7 @@
   ...
 }:
 {
+  programs.nix-ld.enable = true;
   nix = {
     settings = {
       auto-optimise-store = true;
