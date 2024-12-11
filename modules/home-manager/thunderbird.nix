@@ -1,9 +1,13 @@
-{ pkgs,
+{
+  pkgs,
   ...
 }:
 
 {
-  home.packages = with pkgs; [birdtray thunderbird];
+  home.packages = with pkgs; [
+    birdtray
+    thunderbird
+  ];
 
   programs.thunderbird = {
     profiles.ferran = {
@@ -12,4 +16,3 @@
     };
   };
 }
-    

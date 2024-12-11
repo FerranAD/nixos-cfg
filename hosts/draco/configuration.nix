@@ -45,7 +45,7 @@
     useRoutingFeatures = "client";
     authKeyFile = config.age.secrets.tailscale-authkey.path;
   };
-  
+
   services.monero = {
     enable = true;
     rpc.address = "100.83.251.121";

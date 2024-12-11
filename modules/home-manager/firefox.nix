@@ -1,6 +1,7 @@
-{ pkgs
-, nurPkgs
-, ...
+{
+  pkgs,
+  nurPkgs,
+  ...
 }:
 let
   betterfox = pkgs.fetchFromGitHub {
@@ -132,7 +133,12 @@ in
       search = {
         force = true;
         default = "DuckDuckGo";
-        order = [ "DuckDuckGo" "NixOS Options" "Nix Packages" "GitHub" ];
+        order = [
+          "DuckDuckGo"
+          "NixOS Options"
+          "Nix Packages"
+          "GitHub"
+        ];
 
         engines = {
           "Nix Packages" = {
