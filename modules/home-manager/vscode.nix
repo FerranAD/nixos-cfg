@@ -64,6 +64,19 @@
         key = "ctrl+shift+j";
         command = "editor.action.joinLines";
       }
+      {
+        "key" = "ctrl+enter";
+        "command" = "-github.copilot.generate";
+        "when" = "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused";
+      }
+      {
+        "key" = "ctrl+enter";
+        "command" = "notebook.cell.execute";
+      }
+      {
+        "key" = "meta+enter";
+        "command" = "-notebook.cell.execute";
+      }
     ];
   };
 }

@@ -13,4 +13,6 @@
     useRoutingFeatures = "client";
     authKeyFile = config.age.secrets.tailscale-authkey.path;
   };
+
+  systemd.services.tailscaled.after = ["NetworkManager-wait-online.service"];
 }
