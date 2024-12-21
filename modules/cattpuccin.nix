@@ -9,20 +9,20 @@ in
     {
       catppuccin.flavor = flavor;
       catppuccin.enable = true;
-      boot.plymouth.catppuccin.enable = true;
-      services.displayManager.sddm.catppuccin.enable = false;
+      catppuccin.plymouth.enable = true;
+      catppuccin.sddm.enable = false;
     }
     {
       home-manager.users.${user} = {
         imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
         catppuccin.flavor = flavor;
         catppuccin.enable = true;
-        # catppuccin.pointerCursor.enable = true;
-        # catppuccin.pointerCursor.accent = "dark";
-        programs.fuzzel.catppuccin.enable = true;
-        programs.hyprlock.catppuccin.enable = true;
+        catppuccin.pointerCursor.enable = true;
+        catppuccin.pointerCursor.accent = "dark";
+        catppuccin.fuzzel.enable = true;
+        catppuccin.hyprlock.enable = true;
         # Disable since it's horrible on zsh
-        programs.zsh.syntaxHighlighting.catppuccin.enable = false;
+        catppuccin.zsh-syntax-highlighting.enable = false;
       };
     }
   ];
