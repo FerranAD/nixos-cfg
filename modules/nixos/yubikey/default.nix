@@ -7,7 +7,8 @@
   services.dbus.packages = [ pkgs.gcr ];
   services.pcscd.enable = true;
 
-  programs.yubikey-touch-detector.enable = false;
+  programs.yubikey-touch-detector.enable = true;
+  programs.yubikey-touch-detector.libnotify = true;
   programs.ssh.startAgent = false;
 
   security.pam.u2f.settings = {
