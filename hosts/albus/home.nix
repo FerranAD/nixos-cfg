@@ -19,6 +19,7 @@
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
     inputs.agenix.homeManagerModules.default
+    inputs.hyprpanel.homeManagerModules.hyprpanel
   ];
 
   home.username = "ferran";

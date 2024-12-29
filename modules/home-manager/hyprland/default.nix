@@ -39,7 +39,6 @@
         '', switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1,1920x1080@144.00,0x0,0"''
       ];
       exec-once = [
-        "${pkgs.hyprpanel}/bin/hyprpanel"
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${pkgs.pyprland}/bin/pypr"
         "${pkgs.wlsunset}/bin/wlsunset -l 41.614159 -L 0.625800"
