@@ -35,7 +35,6 @@
 
     settings = {
       bar.launcher.autoDetectIcon = true;
-      # bar.launcher.icon = "";
       bar.workspaces.hideUnoccupied = false;
       bar.workspaces.workspaces = 9;
 
@@ -54,6 +53,7 @@
         shortcuts.enabled = false;
         stats.enable_gpu = true;
         powermenu.confirmation = false;
+        powermenu.avatar.image = "../../images/avatar.ico";
       };
 
       terminal = "alacritty";

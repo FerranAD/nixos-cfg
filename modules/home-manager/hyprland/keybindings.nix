@@ -42,6 +42,7 @@ let
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
     "$mod, space, exec, ${pkgs.pyprland}/bin/pypr toggle term"
+    "$mod, u ,exec, ${pkgs.hyprpanel}/bin/hyprpanel t powermenu"
     ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
     ", XF86MonBrightnessUp, exec, ${brightnessctl} set +5%"
     ", Print, exec, ${grimblast} save area - | ${swappy} -f -"
