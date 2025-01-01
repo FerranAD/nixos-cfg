@@ -5,6 +5,9 @@ ifndef HOSTNAME
 endif
 
 switch:
+	nixos-rebuild switch --use-remote-sudo --flake .?submodules=1#${HOSTNAME} -L
+
+switch-debug:
 	nixos-rebuild switch --use-remote-sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
 
 boot:
@@ -23,4 +26,4 @@ update:
 	nix flake update
 
 upgrade:
-	make update && make switch
+	make update && make switch-debug
