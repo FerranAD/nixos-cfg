@@ -18,7 +18,6 @@
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
-    inputs.agenix.homeManagerModules.default
     inputs.hyprpanel.homeManagerModules.hyprpanel
   ];
 

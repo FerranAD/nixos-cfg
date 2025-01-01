@@ -2,35 +2,31 @@
   inputs,
   pkgs,
   nurPkgs,
+  self,
   ...
 }:
 {
   imports = [
+    inputs.home-manager.nixosModules.default
+
+    ./agenix.nix
     ./hardware-configuration.nix
     ../../modules/nixos/nix-settings.nix
-    ../../modules/nixos/xdg-portal.nix
-    ../../modules/nixos/hyprland.nix
     ../../modules/nixos/network.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/locale.nix
-    ../../modules/nixos/thunar.nix
     ../../modules/nixos/power.nix
+    ../../modules/nixos/boot.nix
+    ../../modules/nixos/yubikey
+
+    #Desktop
+    ../../modules/nixos/xdg-portal.nix
+    ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/thunar.nix
     ../../modules/nixos/audio.nix
     ../../modules/cattpuccin.nix
     ../../modules/nixos/sddm.nix
-    ../../modules/nixos/boot.nix
-    ../../modules/nixos/yubikey
-    inputs.home-manager.nixosModules.default
   ];
-  age.identityPaths = [ "/home/ferran/.ssh/agenix" ];
-  age.rekey = {
-    hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIid1Lb2Zrsm/gacF7OOtbak7f6EBSsm7NvQ7g2nda2T ferran@albus";
-    masterIdentities = [ ../../modules/nixos/yubikey/yubikey-5c-age.pub ];
-    storageMode = "local";
-    localStorageDir = ../../secrets/rekeyed/albus;
-  };
-  age.secrets.weather-api.rekeyFile = ../../secrets/weather-api.age;
-  age.secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
 
   hardware = {
     bluetooth.enable = true;

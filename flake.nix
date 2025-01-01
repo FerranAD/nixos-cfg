@@ -53,7 +53,6 @@
       nixpkgs,
       nixpkgs-stable,
       nixos-hardware,
-      agenix,
       agenix-rekey,
       ...
     }@inputs:
@@ -85,8 +84,6 @@
           };
           modules = [
             ./hosts/albus/configuration.nix
-            agenix.nixosModules.default
-            agenix-rekey.nixosModules.default
           ];
         };
 
@@ -109,8 +106,6 @@
           modules = [
             ./hosts/draco/configuration.nix
             nixos-hardware.nixosModules.apple-t2
-            agenix.nixosModules.default
-            agenix-rekey.nixosModules.default
           ];
         };
 
