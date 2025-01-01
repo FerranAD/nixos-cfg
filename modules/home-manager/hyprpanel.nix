@@ -1,4 +1,5 @@
 {
+  config,
   ...
 }:
 {
@@ -35,7 +36,6 @@
 
     settings = {
       bar.launcher.autoDetectIcon = true;
-      bar.workspaces.hideUnoccupied = false;
       bar.workspaces.workspaces = 9;
 
       menus.clock = {
@@ -45,7 +45,7 @@
         };
         weather.unit = "metric";
         weather.location = "Lleida";
-        # weather.key = "${config.age.secrets.weather-api.path}";
+        weather.key = config.age.secrets.weather-api.path;
       };
 
       menus.dashboard = {
