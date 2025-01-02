@@ -45,7 +45,8 @@
         };
         weather.unit = "metric";
         weather.location = "Lleida";
-        weather.key = config.age.secrets.weather-api.path;
+        # TODO: Open an issue to add a `keyPath` option
+        # weather.key = builtins.readFile config.age.secrets.weather-api.path;
       };
 
       menus.dashboard = {
@@ -53,7 +54,7 @@
         shortcuts.enabled = false;
         stats.enable_gpu = true;
         powermenu.confirmation = false;
-        powermenu.avatar.image = "../../images/avatar.ico";
+        powermenu.avatar.image = "${../../images/avatar.png}";
       };
 
       terminal = "alacritty";
