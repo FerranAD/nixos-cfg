@@ -16,5 +16,6 @@
 - [ ] Refactor so modules are togglable options
 - [ ] Add clipboard manager
 - [ ] Configure nnn file browser
-- [ ] Configure thunderbird
-- [ ] Check Hyprland plugins
+- [ ] Extract thunderbird config from dotfiles
+- [ ] Add shortcuts for screen recording and capture and color picker and others in hyprpanel
+- [ ] Add spotify tuned to look nice
