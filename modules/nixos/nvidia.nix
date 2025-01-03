@@ -30,8 +30,8 @@ in
     };
     nvidia = {
       modesetting.enable = true;
-      open = true;
-      powerManagement.enable = true;
+      open = false;
+      powerManagement.enable = false;
       powerManagement.finegrained = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
