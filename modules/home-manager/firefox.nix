@@ -256,6 +256,7 @@ in
         tree-style-tab
         ublock-origin
         multi-account-containers
+        simplelogin
         # TODO: Servas for bookmarking
       ];
     };
