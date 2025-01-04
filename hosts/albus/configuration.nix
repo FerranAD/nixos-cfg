@@ -16,6 +16,7 @@
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/power.nix
+    ../../modules/nixos/docker.nix
     ../../modules/nixos/boot.nix
     ../../modules/nixos/yubikey
 
