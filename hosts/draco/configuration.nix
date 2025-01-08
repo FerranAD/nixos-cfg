@@ -46,7 +46,7 @@
     '';
   };
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   time.timeZone = "Europe/Madrid";
 
