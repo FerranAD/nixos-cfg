@@ -1,18 +1,27 @@
-From 03e5b72938267b24bd528be7beda8cb6113ad5e4 Mon Sep 17 00:00:00 2001
-From: Pablo Fraile Alonso <pablo@pablofraile.net>
-Date: Thu, 10 Oct 2024 22:37:00 +0200
-Subject: [PATCH] feat: add support for fuzzel
+From 4c815d4e9cea57f20918f3348b84d11f7ce50763 Mon Sep 17 00:00:00 2001
+From: Ferran Aran <ferran@ferranaran.com>
+Date: Wed, 8 Jan 2025 15:46:20 +0100
+Subject: [PATCH] feat: replace by fuzzel
 
 ---
- wofi-pass | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ wofi-pass | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/wofi-pass b/wofi-pass
-index f344ae0..474bee0 100755
+index 90fa1d6..ae52e0c 100644
 --- a/wofi-pass
 +++ b/wofi-pass
-@@ -23,7 +23,7 @@ WOFI_PASS_DELAY=${WOFI_PASS_DELAY:-2}
- WOFI_PASS_AUTO_ENTER="${WOFI_PASS_AUTO_ENTER:-"false"}"
+@@ -11,7 +11,7 @@ FLAG_ONLYPASSWORD=0
+ FLAG_SQUASH=0
+ FLAG_TYPE=0
+ FLAG_HELP=0
+-FLAG_HOTKEYS_SUPPORTED=1
++FLAG_HOTKEYS_SUPPORTED=0
+ FLAG_CASE_INSENSITIVE=0
+ 
+ CMD_COPY="${CMD_COPY:-"wl-copy"}"
+@@ -36,7 +36,7 @@ HOTKEY_OTP_RET=13
+ FIELD_OTP_TAG="<<--OTP-->>"
  
  function _wofi() {
 -    wofi "${@}"
@@ -21,5 +30,5 @@ index f344ae0..474bee0 100755
  
  function _pass() {
 -- 
-2.46.0
+2.47.0
 
