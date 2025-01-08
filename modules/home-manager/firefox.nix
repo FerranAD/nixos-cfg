@@ -247,6 +247,12 @@ in
           icon = "chill";
           name = "whats";
         };
+        "linkedin" = {
+          id = 6;
+          color = "blue";
+          icon = "chill";
+          name = "linkedin";
+        };
       };
       containersForce = true;
 
