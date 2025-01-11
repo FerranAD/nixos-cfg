@@ -20,6 +20,7 @@
       github.copilot-chat
       ms-toolsai.jupyter
       ms-python.python
+      ms-python.black-formatter
       tomoki1207.pdf
     ];
     userSettings = {
