@@ -37,6 +37,10 @@
     settings = {
       bar.launcher.autoDetectIcon = true;
       bar.workspaces.workspaces = 9;
+      bar.workspaces.monitorSpecific = false;
+
+      # Needed to avoid pyprland scratchpads showing up in the workspaces
+      bar.workspaces.ignored = "-98";
 
       menus.clock = {
         time = {
