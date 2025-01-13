@@ -28,7 +28,7 @@
 
   home.packages = with pkgs; [
     vesktop
-    wl-clipboard-rs
+    wl-clipboard
     swappy
     hyprpicker
     monero-gui

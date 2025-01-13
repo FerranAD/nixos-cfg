@@ -18,6 +18,8 @@
       windowrulev2 = [
         "float, class:(udiskie), title:(udiskie)"
         "opacity 0.8, class:(alacritty-dropterm)"
+        "float, class:(clipse)"
+        "size 622 652, class:(clipse)"
       ];
       misc = {
         disable_hyprland_logo = true;
@@ -45,6 +47,7 @@
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${pkgs.pyprland}/bin/pypr"
         "${pkgs.wlsunset}/bin/wlsunset -l 41.614159 -L 0.625800"
+        "${pkgs.clipse}/bin/clipse -listen"
       ];
     };
   };
