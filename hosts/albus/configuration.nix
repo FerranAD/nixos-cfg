@@ -51,12 +51,12 @@
     defaultUserShell = pkgs.zsh;
     users.ferran = {
       isNormalUser = true;
-      description = "Ferran";
       extraGroups = [
         "networkmanager"
         "wheel"
         "udev"
       ];
+      uid = 1000;
       packages = [
         pkgs.kitty
         pkgs.dolphin

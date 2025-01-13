@@ -49,8 +49,7 @@
         };
         weather.unit = "metric";
         weather.location = "Lleida";
-        # TODO: Open an issue to add a `keyPath` option
-        # weather.key = builtins.readFile config.age.secrets.weather-api.path;
+        weather.key = "/run/user/1000/agenix/weather-api";
       };
 
       menus.dashboard = {

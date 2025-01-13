@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   ...
 }:
@@ -7,8 +8,16 @@ let
   hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIid1Lb2Zrsm/gacF7OOtbak7f6EBSsm7NvQ7g2nda2T ferran@albus";
   masterIdentities = [ ../../modules/nixos/yubikey/yubikey-5c-age.pub ];
   storageMode = "local";
-  localStorageDir = ../../secrets/rekeyed/albus;
   user = "ferran";
+  # This is so home-manager agenix moduel doesn't use env var $XDG_RUNTIME_DIR for creating secret paths.
+  secretsDirString =
+    if (config.users.users.${user} ? uid)
+    then "/run/user/${builtins.toString config.users.users.${user}.uid}/agenix"
+    else null;
+  secretsDir =
+    if secretsDirString == null
+    then (throw "User for HomeManager (secrets) must have an uid")
+    else secretsDirString;
 in
 {
   # Nixos Configuration
@@ -23,7 +32,7 @@ in
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;
       storageMode = storageMode;
-      localStorageDir = localStorageDir;
+      localStorageDir = ../../secrets/rekeyed/albus;
     };
   };
 
@@ -36,11 +45,12 @@ in
     age = {
       identityPaths = identityPaths;
       secrets.weather-api.rekeyFile = ../../secrets/weather-api.age;
+      inherit secretsDir;
       rekey = {
         hostPubkey = hostPubkey;
         masterIdentities = masterIdentities;
         storageMode = storageMode;
-        localStorageDir = localStorageDir;
+        localStorageDir = ../../secrets/rekeyed/albus-ferran;
       };
     };
   };
