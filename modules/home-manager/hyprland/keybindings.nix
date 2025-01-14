@@ -22,6 +22,7 @@ let
     )"
     ${pkgs.libnotify}/bin/notify-send --icon=${./icons/keyboard-layout.svg} "Layout changed to" "$(${lib.getExe getKeyboardLayout})" --expire-time=1500
   '';
+  clearClipboard = "sleep 15 && ${pkgs.clipse}/bin/clipse -clear";
   movementKeys = [
     "$mod, W, killactive"
     "$mod, h, movefocus, l"
@@ -36,7 +37,7 @@ let
     "$mod, N, exec, ${pkgs.firefox}/bin/firefox"
     "$mod, M, exec, ${fuzzel} --show run"
     "$mod, e, exec, ${pkgs.rofimoji}/bin/rofimoji --selector fuzzel --action copy"
-    "$mod, y, exec, passMenu"
+    "$mod, y, exec, passMenu && ${clearClipboard}"
     "$mod SHIFT, l, exec, hyprlock"
     "SUPER, V, exec, alacritty --class clipse -e ${pkgs.clipse}/bin/clipse"
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
