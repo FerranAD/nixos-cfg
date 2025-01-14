@@ -18,8 +18,10 @@
       windowrulev2 = [
         "float, class:(udiskie), title:(udiskie)"
         "opacity 0.8, class:(alacritty-dropterm)"
+        "float, class:(org.ksnip.ksnip)"
+        "size >30% >50%, class:(org.ksnip.ksnip)"
         "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
+        "size 40% 40%, class:(clipse)"
       ];
       misc = {
         disable_hyprland_logo = true;

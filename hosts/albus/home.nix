@@ -17,6 +17,7 @@
     ../../modules/home-manager/gtk.nix
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/qt.nix
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
     inputs.hyprpanel.homeManagerModules.hyprpanel

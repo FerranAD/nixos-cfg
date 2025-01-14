@@ -9,7 +9,7 @@
 
   home.file.".config/ksnip/ksnip.conf".text = ''
 [Application]
-ApplicationStyle=Fusion
+ApplicationStyle=kvantum-dark
 CloseToTray=false
 MinimizeToTray=false
 SaveDirectory=/home/ferran
