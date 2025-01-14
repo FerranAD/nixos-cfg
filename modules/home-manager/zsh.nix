@@ -19,6 +19,7 @@
         grep = "grep --color=auto";
         diff = "diff --color=auto";
         cat = "${pkgs.bat}/bin/bat";
+        clipclear = "${pkgs.clipse}/bin/clipse -clear";
       };
     };
     dircolors = {
