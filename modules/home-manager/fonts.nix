@@ -6,6 +6,7 @@
     noto-fonts-emoji
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
   ];
   fonts = {
     fontconfig = {

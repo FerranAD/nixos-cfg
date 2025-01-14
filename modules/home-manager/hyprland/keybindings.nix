@@ -3,11 +3,10 @@ let
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  grimblast = "${pkgs.grimblast}/bin/grimblast";
-  swappy = "${pkgs.swappy}/bin/swappy";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   jq = "${pkgs.jq}/bin/jq";
+  takeScreenshot = "${pkgs.grimblast}/bin/grimblast save area - | ${pkgs.ksnip}/bin/ksnip -";
   getKeyboardLayout = pkgs.pkgs.writeShellScriptBin "getKeyboardLayout" ''
     ${hyprctl} devices -j |
     ${jq} -r '.keyboards[] | .active_keymap' | head -n1
@@ -46,7 +45,7 @@ let
     "$mod, u ,exec, ${pkgs.hyprpanel}/bin/hyprpanel t powermenu"
     ", XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-"
     ", XF86MonBrightnessUp, exec, ${brightnessctl} set +5%"
-    ", Print, exec, ${grimblast} save area - | ${swappy} -f -"
+    ", Print, exec, ${takeScreenshot}"
   ];
   volumeKeys = [
     ", XF86AudioRaiseVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
