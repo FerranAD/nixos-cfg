@@ -4,13 +4,13 @@
 }:
 let
   default_layout = {
-    layout_left = [
+    left = [
       "dashboard"
       "workspaces"
       "windowtitle"
     ];
-    layout_middle = [ "media" ];
-    layout_right = [
+    middle = [ "media" ];
+    right = [
       "bluetooth"
       "battery"
       "volume"
