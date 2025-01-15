@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   nurPkgs,
-  self,
   ...
 }:
 {
@@ -28,6 +27,9 @@
     ../../modules/cattpuccin.nix
     ../../modules/nixos/sddm.nix
   ];
+
+  # TODO: Move this outside here, it should be closer to hyprpanel where its used for a shortcut.
+  programs.gpu-screen-recorder.enable = true;
 
   hardware = {
     bluetooth.enable = true;

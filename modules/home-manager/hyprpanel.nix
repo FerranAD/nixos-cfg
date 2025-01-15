@@ -1,12 +1,11 @@
 {
-  config,
+  pkgs,
   ...
 }:
 {
 
- programs.hyprpanel = {
+  programs.hyprpanel = {
     enable = true;
-    systemd.enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
 
@@ -17,19 +16,58 @@
     layout = {
       "bar.layouts" = {
         "0" = {
-          left = [ "dashboard" "workspaces" "kbinput" "windowtitle" ];
+          left = [
+            "dashboard"
+            "workspaces"
+            "kbinput"
+            "windowtitle"
+          ];
           middle = [ "media" ];
-          right = [ "volume" "network" "bluetooth" "battery" "systray" "clock" "notifications" ];
+          right = [
+            "volume"
+            "network"
+            "bluetooth"
+            "battery"
+            "systray"
+            "clock"
+            "notifications"
+          ];
         };
         "1" = {
-          left = [ "dashboard" "workspaces" "kbinput" "windowtitle" ];
+          left = [
+            "dashboard"
+            "workspaces"
+            "kbinput"
+            "windowtitle"
+          ];
           middle = [ "media" ];
-          right = [ "volume" "network" "bluetooth" "battery" "systray" "clock" "notifications" ];
+          right = [
+            "volume"
+            "network"
+            "bluetooth"
+            "battery"
+            "systray"
+            "clock"
+            "notifications"
+          ];
         };
         "2" = {
-          left = [ "dashboard" "workspaces" "kbinput" "windowtitle" ];
+          left = [
+            "dashboard"
+            "workspaces"
+            "kbinput"
+            "windowtitle"
+          ];
           middle = [ "media" ];
-          right = [ "volume" "network" "bluetooth" "battery" "systray" "clock" "notifications" ];
+          right = [
+            "volume"
+            "network"
+            "bluetooth"
+            "battery"
+            "systray"
+            "clock"
+            "notifications"
+          ];
         };
       };
     };
@@ -54,10 +92,29 @@
 
       menus.dashboard = {
         directories.enabled = false;
-        shortcuts.enabled = false;
         stats.enable_gpu = true;
         powermenu.confirmation = false;
         powermenu.avatar.image = "${../../images/avatar.png}";
+        shortcuts = {
+          left.shortcut1.command = "${pkgs.firefox}/bin/firefox";
+          left.shortcut1.icon = "󰈹";
+          left.shortcut1.tooltip = "Firefox";
+          left.shortcut2.command = "spotify";
+          left.shortcut2.icon = "";
+          left.shortcut2.tooltip = "Spotify";
+          left.shortcut3.command = "${pkgs.vesktop}/bin/vesktop";
+          left.shortcut3.icon = "";
+          left.shortcut3.tooltip = "Discord";
+          left.shortcut4.command = "${pkgs.fuzzel}/bin/fuzzel --show run";
+          left.shortcut4.icon = "";
+          left.shortcut4.tooltip = "Search apps";
+          right.shortcut1.command = "${pkgs.hyprpicker}/bin/hyprpicker -a";
+          right.shortcut1.icon = "";
+          right.shortcut1.tooltip = "Color picker";
+          right.shortcut3.command = "${pkgs.vscode}/bin/code /home/ferran/nixos";
+          right.shortcut3.icon = "";
+          right.shortcut3.tooltip = "Edit NixOS config";
+        };
       };
 
       terminal = "alacritty";
