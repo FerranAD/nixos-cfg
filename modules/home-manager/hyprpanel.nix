@@ -2,6 +2,27 @@
   pkgs,
   ...
 }:
+let
+  default_layout = {
+    layout_left = [
+      "dashboard"
+      "workspaces"
+      "windowtitle"
+    ];
+    layout_middle = [ "media" ];
+    layout_right = [
+      "bluetooth"
+      "battery"
+      "volume"
+      "kbinput"
+      "network"
+      "hypridle"
+      "clock"
+      "notifications"
+      "power"
+    ];
+  };
+in
 {
 
   programs.hyprpanel = {
@@ -9,76 +30,33 @@
     hyprland.enable = true;
     overwrite.enable = true;
 
-    theme = "catppuccin_macchiato";
-    # theme = "catppuccin_macchiato_split";
-    # theme = "catppuccin_macchiato_vivid";
+    theme = "catppuccin_frappe_split";
 
     layout = {
       "bar.layouts" = {
-        "0" = {
-          left = [
-            "dashboard"
-            "workspaces"
-            "kbinput"
-            "windowtitle"
-          ];
-          middle = [ "media" ];
-          right = [
-            "volume"
-            "network"
-            "bluetooth"
-            "battery"
-            "systray"
-            "clock"
-            "notifications"
-          ];
-        };
-        "1" = {
-          left = [
-            "dashboard"
-            "workspaces"
-            "kbinput"
-            "windowtitle"
-          ];
-          middle = [ "media" ];
-          right = [
-            "volume"
-            "network"
-            "bluetooth"
-            "battery"
-            "systray"
-            "clock"
-            "notifications"
-          ];
-        };
-        "2" = {
-          left = [
-            "dashboard"
-            "workspaces"
-            "kbinput"
-            "windowtitle"
-          ];
-          middle = [ "media" ];
-          right = [
-            "volume"
-            "network"
-            "bluetooth"
-            "battery"
-            "systray"
-            "clock"
-            "notifications"
-          ];
-        };
+        "0" = default_layout;
+        "1" = default_layout;
       };
     };
 
     settings = {
       bar.launcher.autoDetectIcon = true;
-      bar.workspaces.workspaces = 9;
-      bar.workspaces.monitorSpecific = false;
 
       # Needed to avoid pyprland scratchpads showing up in the workspaces
       bar.workspaces.ignored = "-98";
+
+      bar.workspaces = {
+        workspaces = 9;
+        monitorSpecific = false;
+        applicationIconOncePerWorkspace = true;
+        show_icons = true;
+        icons.occupied = "";
+      };
+
+      menus.power = {
+        confirmation = false;
+        lowBatteryNotification = true;
+      };
 
       menus.clock = {
         time = {
@@ -119,11 +97,19 @@
 
       terminal = "alacritty";
 
-      theme.bar.transparent = true;
-
-      theme.font = {
-        name = "JetBrainsMono Nerd Font";
-        size = "16px";
+      theme = {
+        bar = {
+          transparent = false;
+          opacity = 80;
+          buttons.radius = "0.8em";
+          buttons.style = "split";
+          buttons.y_margins = "0.45em";
+        };
+        font = {
+          name = "JetBrainsMono Nerd Font Mono Thin";
+          weight = 600;
+          size = "16px";
+        };
       };
     };
   };
