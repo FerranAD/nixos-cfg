@@ -9,6 +9,7 @@
     ../../modules/home-manager/pyprland.nix
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/udiskie.nix
+    ../../modules/home-manager/spotify.nix
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/fuzzel.nix
     ../../modules/home-manager/ksnip.nix
@@ -21,6 +22,7 @@
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
     inputs.hyprpanel.homeManagerModules.hyprpanel
+    inputs.spicetify-nix.homeManagerModules.default
   ];
 
   home.username = "ferran";
