@@ -17,8 +17,8 @@ let
     ];
     "right" = [
       "volume"
-      "network"
       "bluetooth"
+      "network"
       "clock"
       "notifications"
       "power"
