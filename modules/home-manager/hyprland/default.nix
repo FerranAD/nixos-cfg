@@ -1,12 +1,5 @@
 { pkgs, lib, ... }:
 {
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      background = [ { path = "${../../../images/wallpaper.jpg}"; } ];
-    };
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     # plugins = [

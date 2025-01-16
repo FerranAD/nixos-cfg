@@ -38,7 +38,7 @@ let
     "$mod, M, exec, ${fuzzel} --show run"
     "$mod, e, exec, ${pkgs.rofimoji}/bin/rofimoji --selector fuzzel --action copy"
     "$mod, y, exec, passMenu && ${clearClipboard}"
-    "$mod SHIFT, l, exec, hyprlock"
+    "$mod SHIFT, l, exec, loginctl lock-session"
     "SUPER, V, exec, alacritty --class clipse -e ${pkgs.clipse}/bin/clipse"
     "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
