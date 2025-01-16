@@ -4,19 +4,21 @@
 }:
 let
   default_layout = {
-    left = [
+    "left" = [
       "dashboard"
       "workspaces"
+      "kbinput"
+      "battery"
+      "hypridle"
       "windowtitle"
     ];
-    middle = [ "media" ];
-    right = [
-      "bluetooth"
-      "battery"
+    "middle" = [
+      "media"
+    ];
+    "right" = [
       "volume"
-      "kbinput"
       "network"
-      "hypridle"
+      "bluetooth"
       "clock"
       "notifications"
       "power"
@@ -101,9 +103,12 @@ in
         bar = {
           transparent = false;
           opacity = 80;
-          buttons.radius = "0.8em";
-          buttons.style = "split";
-          buttons.y_margins = "0.45em";
+          scaling = 80;
+          buttons = {
+            radius = "0.8em";
+            style = "split";
+            y_margins = "0.45em";
+          };
         };
         font = {
           name = "JetBrainsMono Nerd Font Mono Thin";
