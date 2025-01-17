@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -70,7 +71,7 @@ in
         };
         weather.unit = "metric";
         weather.location = "Lleida";
-        weather.key = "/run/user/1000/agenix/weather-api";
+        weather.key = config.age.secrets.weather-api.path;
       };
 
       menus.dashboard = {
