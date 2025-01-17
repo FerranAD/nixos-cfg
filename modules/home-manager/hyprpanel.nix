@@ -105,6 +105,16 @@ in
 
       theme = {
         bar = {
+          menus.menu.dashboard.scaling = 75;
+          menus.menu.battery.scaling = 75;
+          menus.menu.power.scaling = 85;
+          menus.menu.media.scaling = 60;
+          menus.menu.volume.scaling = 75;
+          menus.menu.bluetooth.scaling = 95;
+          menus.menu.network.scaling = 95;
+          # TODO: Option missing to scale the weather module
+          # menus.menu.weather.scaling = 75;
+          menus.menu.notifications.scaling = 85;
           transparent = false;
           opacity = 80;
           scaling = 80;
