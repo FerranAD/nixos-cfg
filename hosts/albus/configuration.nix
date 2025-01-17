@@ -22,7 +22,7 @@
     #Desktop
     ../../modules/nixos/xdg-portal.nix
     ../../modules/nixos/hyprland.nix
-    ../../modules/nixos/thunar.nix
+    ../../modules/nixos/file-manager.nix
     ../../modules/nixos/audio.nix
     ../../modules/cattpuccin.nix
     ../../modules/nixos/sddm.nix
