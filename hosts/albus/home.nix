@@ -13,6 +13,8 @@
     ../../modules/home-manager/spotify.nix
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/fuzzel.nix
+    ../../modules/home-manager/clipse.nix
+    ../../modules/home-manager/kitty.nix
     ../../modules/home-manager/ksnip.nix
     ../../modules/home-manager/fonts.nix
     ../../modules/home-manager/hyprland
