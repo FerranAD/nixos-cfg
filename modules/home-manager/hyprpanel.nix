@@ -54,6 +54,9 @@ in
         show_icons = true;
         icons.occupied = "";
       };
+      bar.customModules.hypridle.startCommand = "systemctl --user start hypridle.service";
+      bar.customModules.hypridle.stopCommand = "systemctl --user stop hypridle.service";
+      bar.customModules.hypridle.isActiveCommand = "systemctl --user status hypridle.service | grep -q 'Active: active (running)' && echo 'yes' || echo 'no'";
 
       menus.power = {
         confirmation = false;
