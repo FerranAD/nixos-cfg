@@ -2,7 +2,7 @@
 {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
-    window.opacity = 0.95;
+    window.opacity = 0.75;
 
     bell = {
       animation = "EaseOutExpo";
@@ -18,7 +18,7 @@
     };
 
     font = {
-      size = 18;
+      size = 15;
 
       offset = {
         x = 0;

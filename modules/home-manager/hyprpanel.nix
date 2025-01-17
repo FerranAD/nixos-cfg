@@ -116,6 +116,7 @@ in
           # menus.menu.weather.scaling = 75;
           menus.menu.notifications.scaling = 85;
           transparent = false;
+          outer_spacing = "0.5em";
           opacity = 80;
           scaling = 80;
           buttons = {
