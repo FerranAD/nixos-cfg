@@ -24,7 +24,7 @@
     ../../modules/nixos/hyprland.nix
     ../../modules/nixos/file-manager.nix
     ../../modules/nixos/audio.nix
-    ../../modules/cattpuccin.nix
+    ../../modules/catppuccin.nix
     ../../modules/nixos/sddm.nix
   ];
 

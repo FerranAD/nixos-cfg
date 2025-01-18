@@ -19,9 +19,6 @@ in
         catppuccin.enable = true;
         catppuccin.cursors.enable = true;
         catppuccin.cursors.accent = "dark";
-        catppuccin.fuzzel.enable = true;
-        catppuccin.hyprlock.enable = true;
-        catppuccin.kvantum.enable = true;
         # Disable since it's horrible on zsh
         catppuccin.zsh-syntax-highlighting.enable = false;
       };

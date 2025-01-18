@@ -10,12 +10,12 @@
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
+      enkia.tokyo-night
+      catppuccin.catppuccin-vsc-icons
       vscodevim.vim
       yzhang.markdown-all-in-one
       jnoortheen.nix-ide
       eamodio.gitlens
-      catppuccin.catppuccin-vsc-icons
       github.copilot
       github.copilot-chat
       ms-toolsai.jupyter
@@ -47,7 +47,7 @@
         "<C-p>" = false;
       };
       "files.autoSave" = "afterDelay";
-      "workbench.colorTheme" = "Dracula";
+      "workbench.colorTheme" = "Tokyo Night";
       "workbench.iconTheme" = "catppuccin-mocha";
     };
     keybindings = [
