@@ -21,6 +21,15 @@
         cat = "${pkgs.bat}/bin/bat";
         clipclear = "${pkgs.clipse}/bin/clipse -clear";
       };
+      initExtra = ''
+        nixr() {
+          nix run "nixpkgs#$1"
+        }
+
+        nixs() {
+          nix shell "nixpkgs#$1"
+        }
+      '';
     };
     dircolors = {
       enable = true;
