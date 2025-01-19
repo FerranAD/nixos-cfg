@@ -9,6 +9,18 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
     plymouth.enable = true;
+    plymouth.theme = "breeze";
+    # plymouth.themePackages = [
+    #   (pkgs.adi1090x-plymouth-themes.override {
+    #     selected_themes = [
+    #       "loader"
+    #       "liquid"
+    #       "lone"
+    #       "sliced"
+    #       "splash"
+    #     ];
+    #   })
+    # ];
     kernelParams = [
       "nvidia-drm.fbdev=1"
       "nvidia-drm.modeset=1"

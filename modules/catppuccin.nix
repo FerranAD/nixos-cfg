@@ -9,7 +9,7 @@ in
     {
       catppuccin.flavor = flavor;
       catppuccin.enable = true;
-      catppuccin.plymouth.enable = true;
+      catppuccin.plymouth.enable = false;
       catppuccin.sddm.enable = false;
     }
     {
