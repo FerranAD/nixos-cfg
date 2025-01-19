@@ -18,11 +18,13 @@
     cue = true;
   };
 
+  # Import the custom package here
   environment.systemPackages = with pkgs; [
     yubikey-manager
     yubikey-personalization
     yubioath-flutter
     age-plugin-yubikey
+    (pkgs.callPackage ./icon/icon.nix { })
   ];
   environment.shellInit = ''
     gpg-connect-agent /bye

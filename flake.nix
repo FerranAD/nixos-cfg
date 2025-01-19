@@ -45,7 +45,7 @@
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland";
-
+  
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
