@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 {
+  # Hint electron apps to use wayland
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
   wayland.windowManager.hyprland = {
     plugins = with pkgs.hyprlandPlugins; [
       hyprexpo
@@ -91,6 +94,7 @@
 
       windowrulev2 = [
         "float, class:(udiskie), title:(udiskie)"
+        "float, class:(codium), title:(Open File)"
         "opacity 0.8, class:(alacritty-dropterm)"
         "float, class:(org.ksnip.ksnip)"
         "size >30% >50%, class:(org.ksnip.ksnip)"

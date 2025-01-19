@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  home.sessionVariables.GTK_THEME = "rose-pine";
+
   gtk = {
     enable = true;
     theme = {

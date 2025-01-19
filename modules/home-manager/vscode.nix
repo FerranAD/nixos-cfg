@@ -1,11 +1,21 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    nixfmt-rfc-style
-    nixd
-  ];
+  home.packages =
+    let
+      vscode-alias = pkgs.writeShellScriptBin "code" ''
+        #!/bin/sh
+        exec codium "$@"
+      '';
+    in
+    with pkgs;
+    [
+      nixfmt-rfc-style
+      nixd
+      vscode-alias
+    ];
   programs.vscode = {
     enable = true;
+    package = pkgs.vscodium;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
@@ -49,6 +59,8 @@
       "files.autoSave" = "afterDelay";
       "workbench.colorTheme" = "Tokyo Night";
       "workbench.iconTheme" = "catppuccin-mocha";
+      "window.titleBarStyle" = "custom";
+      "window.dialogStyle" = "custom";
     };
     keybindings = [
       {
@@ -68,7 +80,8 @@
       {
         "key" = "ctrl+enter";
         "command" = "-github.copilot.generate";
-        "when" = "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused";
+        "when" =
+          "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused";
       }
       {
         "key" = "ctrl+enter";
