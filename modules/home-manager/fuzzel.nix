@@ -8,7 +8,7 @@
       };
       key-bindings = {
         # Remaped since it defaults to Control+k
-        delete-line-forward = "Control+d";
+        delete-line-forward = "Control+z";
 
         next = "Down Control+j";
         prev = "Up Control+k";
