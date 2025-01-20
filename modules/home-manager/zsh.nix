@@ -23,11 +23,11 @@
       };
       initExtra = ''
         nixr() {
-          nix run "nixpkgs#$1"
+          nix run "nixpkgs#$1" ''${@:2}
         }
 
         nixs() {
-          nix shell "nixpkgs#$1"
+          nix shell "nixpkgs#$1" ''${@:2}
         }
       '';
     };
