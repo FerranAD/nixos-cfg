@@ -263,7 +263,7 @@ in
         ublock-origin
         multi-account-containers
         simplelogin
-        # TODO: Servas for bookmarking
+        zotero-connector
       ];
     };
     profiles.empty = {
