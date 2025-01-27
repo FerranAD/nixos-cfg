@@ -1,21 +1,16 @@
-### Hostnames
+## Hostnames
 
-🗿 Old chunky PC with lots of storage -> rubeus
-
-👿 Macbook server -> draco
+🪄 MSI laptop -> albus
 
 🦉 Home server (RPI4) -> hedwig
 
-🥱 Light server (RPI3) -> ron
+🤡 Macbook laptop -> draco
 
-🪄 Main PC (MSI Laptop) -> albus
+🗿 Slow server with lots of storage -> rubeus
 
-# TODO
+
+## TODO
 
 - [ ] LUKS encryption
 - [ ] Refactor so modules are togglable options
-- [ ] Add clipboard manager
-- [ ] Configure nnn file browser
-- [ ] Extract thunderbird config from dotfiles
-- [ ] Add shortcuts for screen recording and capture and color picker and others in hyprpanel
-- [ ] Add spotify tuned to look nice
+- [ ] Move thunderbird config from dotfiles to home-manager
