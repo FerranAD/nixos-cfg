@@ -20,18 +20,24 @@
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
+      # Style
       enkia.tokyo-night
       catppuccin.catppuccin-vsc-icons
-      vscodevim.vim
-      yzhang.markdown-all-in-one
-      jnoortheen.nix-ide
-      eamodio.gitlens
-      github.copilot
-      github.copilot-chat
+
+      # Language
       ms-toolsai.jupyter
       ms-python.python
       ms-python.black-formatter
+      jnoortheen.nix-ide
+      yzhang.markdown-all-in-one
       tomoki1207.pdf
+
+      # Tools
+      vscodevim.vim
+      eamodio.gitlens
+      github.copilot
+      github.copilot-chat
+      aaron-bond.better-comments
     ];
     userSettings = {
       "nix.serverPath" = "nixd";
