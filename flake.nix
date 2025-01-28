@@ -66,8 +66,6 @@
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
-      inputs.home-manager.follows = "home-manager";
     };
 
     spicetify-nix = {
