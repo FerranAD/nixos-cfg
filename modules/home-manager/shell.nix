@@ -1,11 +1,47 @@
 { lib, pkgs, ... }:
+let
+  zsh-direnv-hook = "eval \"$(direnv hook zsh)\"";
+  zsh-init-direnv-flake = ''
+    flakify() {
+      if [ ! -e flake.nix ]; then
+        nix flake new -t github:nix-community/nix-direnv .
+        rm .envrc
+        echo "use flake" > .envrc
+        direnv allow
+      fi
+      ''${EDITOR:-vim} flake.nix
+    }
+  '';
+in
 {
   home.packages = with pkgs; [
     zsh-fzf-history-search
   ];
+
+  # Make direnv cache live on cache directory instead of at each project
+  home.file.".config/direnv/direnvrc".text = ''
+      : "''${XDG_CACHE_HOME:="''${HOME}/.cache"}"
+      declare -A direnv_layout_dirs
+      direnv_layout_dir() {
+          local hash path
+          echo "''${direnv_layout_dirs[$PWD]:=$(
+              hash="$(sha1sum - <<< "$PWD" | head -c40)"
+              path="''${PWD//[^a-zA-Z0-9]/-}"
+              echo "''${XDG_CACHE_HOME}/direnv/layouts/''${hash}''${path}"
+          )}"
+      }
+  '';
+
   programs = {
+    direnv = {
+      enable = true;
+      enableZshIntegration = false;
+      nix-direnv.enable = true;
+    };
+
     bat.enable = true;
     lsd.enable = true;
+
     zsh = {
       enable = true;
       autosuggestion.enable = true;
@@ -29,12 +65,17 @@
         nixs() {
           nix shell "nixpkgs#$1" ''${@:2}
         }
+
+        ${zsh-direnv-hook}
+        ${zsh-init-direnv-flake}
       '';
     };
+
     dircolors = {
       enable = true;
       enableZshIntegration = true;
     };
+
     starship = {
       enable = true;
       enableZshIntegration = true;

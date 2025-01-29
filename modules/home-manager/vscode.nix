@@ -38,6 +38,7 @@
       github.copilot
       github.copilot-chat
       aaron-bond.better-comments
+      mkhl.direnv
     ];
     userSettings = {
       "nix.serverPath" = "nixd";
