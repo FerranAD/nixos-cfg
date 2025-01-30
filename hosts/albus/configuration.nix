@@ -10,6 +10,7 @@
 
     ./agenix.nix
     ./hardware-configuration.nix
+    ../../modules/nixos/remote-desktop.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/network.nix
     ../../modules/nixos/nvidia.nix
