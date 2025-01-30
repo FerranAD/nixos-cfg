@@ -37,6 +37,11 @@ in
       enable = true;
       enableZshIntegration = false;
       nix-direnv.enable = true;
+      config = {
+        global = {
+          hide_env_diff = true;
+        };
+      };
     };
 
     bat.enable = true;
