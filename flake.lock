@@ -140,11 +140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739254209,
-        "narHash": "sha256-ItKHyr8Xwlq46K8XSiF39YImqgcNgjlgscgEQDB7GFM=",
+        "lastModified": 1739334114,
+        "narHash": "sha256-9ljNLrjuSoS72IkEyy2GT+cZYJEZ9MuaNl9z9KyrAlY=",
         "owner": "nix-community",
         "repo": "autofirma-nix",
-        "rev": "22b1cc6bff83f5c934940cd77456be1336af1f7b",
+        "rev": "95dce17d9a69e07bf078079c45f7fb99a3e73723",
         "type": "github"
       },
       "original": {
@@ -177,11 +177,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739094937,
-        "narHash": "sha256-LemSQ5AZHwl4ZVlirdpAytDWgS96OZsct7Akx/REdGA=",
+        "lastModified": 1739283129,
+        "narHash": "sha256-GXJllf1wY7tOF6uei9S3PnSEghFbnJP1vkxM0kkMOoI=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "aee0cec463e62702751adaeb9f4fc00f2f72879b",
+        "rev": "d4e258e29075a86a82dacaf4f5e0985935ae4658",
         "type": "github"
       },
       "original": {
@@ -446,11 +446,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1739233400,
-        "narHash": "sha256-fldFwXHP9Ndy/ADMDWNTpfWNsLdhZ8PP4DQyr1Igfo4=",
+        "lastModified": 1739314552,
+        "narHash": "sha256-ggVf2BclyIW3jexc/uvgsgJH4e2cuG6Nyg54NeXgbFI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ba4a1a110204c27805d1a1b5c8b24b3a0da4d063",
+        "rev": "83bd3a26ac0526ae04fa74df46738bb44b89dcdd",
         "type": "github"
       },
       "original": {
@@ -464,11 +464,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1739233400,
-        "narHash": "sha256-fldFwXHP9Ndy/ADMDWNTpfWNsLdhZ8PP4DQyr1Igfo4=",
+        "lastModified": 1739314552,
+        "narHash": "sha256-ggVf2BclyIW3jexc/uvgsgJH4e2cuG6Nyg54NeXgbFI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ba4a1a110204c27805d1a1b5c8b24b3a0da4d063",
+        "rev": "83bd3a26ac0526ae04fa74df46738bb44b89dcdd",
         "type": "github"
       },
       "original": {
@@ -551,11 +551,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1739211449,
-        "narHash": "sha256-zuNQu1w9xXWOBD+FlNSqmQticolSyLNp/iSkpE5BBNc=",
+        "lastModified": 1739285923,
+        "narHash": "sha256-2G2qqyx9MIlWTxNVm+ADZvZSwrNhrV6UtazonxZ9FJ0=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "f2d43e5f2180adb81b3b7b51a7d0f39dace70b05",
+        "rev": "f83fe9986b34c53c67b113a015d54fe8c084e9bd",
         "type": "github"
       },
       "original": {
@@ -884,11 +884,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1739055578,
-        "narHash": "sha256-2MhC2Bgd06uI1A0vkdNUyDYsMD0SLNGKtD8600mZ69A=",
+        "lastModified": 1739206421,
+        "narHash": "sha256-PwQASeL2cGVmrtQYlrBur0U20Xy07uSWVnFup2PHnDs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a45fa362d887f4d4a7157d95c28ca9ce2899b70e",
+        "rev": "44534bc021b85c8d78e465021e21f33b856e2540",
         "type": "github"
       },
       "original": {
@@ -932,11 +932,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1739020877,
-        "narHash": "sha256-mIvECo/NNdJJ/bXjNqIh8yeoSjVLAuDuTUzAo7dzs8Y=",
+        "lastModified": 1739214665,
+        "narHash": "sha256-26L8VAu3/1YRxS8MHgBOyOM8xALdo6N0I04PgorE7UM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a79cfe0ebd24952b580b1cf08cd906354996d547",
+        "rev": "64e75cd44acf21c7933d61d7721e812eac1b5a0a",
         "type": "github"
       },
       "original": {
@@ -1095,13 +1095,13 @@
         "revCount": 9,
         "submodules": true,
         "type": "git",
-        "url": "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets"
+        "url": "ssh://git@github.com/ferranad/nixos-secrets.git"
       },
       "original": {
         "allRefs": true,
         "submodules": true,
         "type": "git",
-        "url": "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets"
+        "url": "ssh://git@github.com/ferranad/nixos-secrets.git"
       }
     },
     "spicetify-nix": {
