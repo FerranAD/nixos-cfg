@@ -37,7 +37,8 @@
 
     secrets = {
       type = "git";
-      url = "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets";
+      # url = "ssh://git@github.com/ferranad/nixos-secrets.git?dir=secrets";
+      url = "ssh://git@github.com/ferranad/nixos-secrets.git";
       submodules = true;
       flake = false;
       allRefs = true;
@@ -45,7 +46,7 @@
 
     # Desktop
     hyprland.url = "github:hyprwm/hyprland";
-  
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -70,6 +71,11 @@
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    autofirma-nix = {
+      url = "github:nix-community/autofirma-nix"; # If you're tracking NixOS unstable
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
