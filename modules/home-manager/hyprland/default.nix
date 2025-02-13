@@ -11,7 +11,6 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-
       general = {
         gaps_in = 5;
         gaps_out = 5;
@@ -89,6 +88,8 @@
         kb_layout = "us, es";
         kb_options = "caps:swapescape";
       };
+
+      cursor.no_hardware_cursors = true;
 
       monitor = [ ",preferred,auto,auto" ];
 
