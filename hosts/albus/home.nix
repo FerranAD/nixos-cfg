@@ -19,6 +19,7 @@
     ../../modules/home-manager/kitty.nix
     ../../modules/home-manager/fonts.nix
     ../../modules/home-manager/hyprland
+    ../../modules/home-manager/dnie.nix
     ../../modules/home-manager/gtk.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/qt.nix
