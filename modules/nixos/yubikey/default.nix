@@ -22,8 +22,7 @@
   environment.systemPackages = with pkgs; [
     yubikey-manager
     yubikey-personalization
-    # TODO: Broken build
-    # yubioath-flutter
+    yubioath-flutter
     age-plugin-yubikey
     (pkgs.callPackage ./icon/icon.nix { })
   ];
