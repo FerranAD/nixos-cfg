@@ -253,6 +253,12 @@ in
           icon = "chill";
           name = "linkedin";
         };
+        "finances" = {
+          id = 7;
+          color = "green";
+          icon = "cart";
+          name = "finances";
+        };
       };
       containersForce = true;
 
