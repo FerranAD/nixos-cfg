@@ -62,7 +62,6 @@
       uid = 1000;
       packages = [
         pkgs.kitty
-        pkgs.dolphin
         pkgs.material-design-icons
       ];
     };
