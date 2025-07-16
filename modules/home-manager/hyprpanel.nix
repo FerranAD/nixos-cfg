@@ -30,17 +30,17 @@ in
 
   programs.hyprpanel = {
     enable = true;
-    hyprland.enable = true;
-    overwrite.enable = true;
+    # hyprland.enable = true;
+    # overwrite.enable = true;
 
-    theme = "catppuccin_frappe_split";
+    # theme = "catppuccin_frappe_split";
 
-    layout = {
-      "bar.layouts" = {
-        "0" = default_layout;
-        "1" = default_layout;
-      };
-    };
+    # layout = {
+    #   "bar.layouts" = {
+    #     "0" = default_layout;
+    #     "1" = default_layout;
+    #   };
+    # };
 
     settings = {
       bar.launcher.autoDetectIcon = true;

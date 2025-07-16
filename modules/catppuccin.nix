@@ -14,7 +14,7 @@ in
     }
     {
       home-manager.users.${user} = {
-        imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+        imports = [ inputs.catppuccin.homeModules.catppuccin ];
         catppuccin.flavor = flavor;
         catppuccin.enable = true;
         catppuccin.cursors.enable = true;
