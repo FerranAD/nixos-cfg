@@ -45,7 +45,6 @@ in
     };
 
     bat.enable = true;
-    lsd.enable = true;
 
     zsh = {
       enable = true;

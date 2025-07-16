@@ -19,6 +19,7 @@ in
         catppuccin.enable = true;
         catppuccin.cursors.enable = true;
         catppuccin.cursors.accent = "dark";
+        catppuccin.vscode.enable = false;
         # Disable since it's horrible on zsh
         catppuccin.zsh-syntax-highlighting.enable = false;
       };

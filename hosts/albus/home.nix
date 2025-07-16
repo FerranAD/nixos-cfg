@@ -40,6 +40,7 @@
     swappy
     hyprpicker
     monero-gui
+    zotero
   ];
 
   home.sessionVariables = {

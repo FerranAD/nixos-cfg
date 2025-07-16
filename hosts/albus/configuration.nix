@@ -39,6 +39,8 @@
 
   services.printing.enable = true;
   services.gvfs.enable = true;
+  services.udev.packages = [ pkgs.android-udev-rules ];
+  programs.adb.enable = true;
 
   home-manager = {
     extraSpecialArgs = {
@@ -58,6 +60,8 @@
         "networkmanager"
         "wheel"
         "udev"
+        "adbusers" 
+        "kvm"
       ];
       uid = 1000;
       packages = [
