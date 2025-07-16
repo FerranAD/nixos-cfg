@@ -15,10 +15,10 @@ in
   programs.firefox = {
     enable = true;
     profiles.ferran = {
-      id = 0;
-      isDefault = true;
-
-      # Hide tab bar because we have tree style tabs
+        isDefault = false;
+        id = 1234;
+    };
+    profiles.default = {
       userChrome = ''
                 /*
          *    Hide Tabs on Topbar
@@ -262,7 +262,9 @@ in
       };
       containersForce = true;
 
-      extensions = with nurPkgs.repos.rycee.firefox-addons; [
+
+      extensions.force = true;
+      extensions.packages = with nurPkgs.repos.rycee.firefox-addons; [
         darkreader
         vimium
         tree-style-tab
