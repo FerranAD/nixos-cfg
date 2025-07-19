@@ -25,7 +25,7 @@
     ../../modules/home-manager/qt.nix
     ../../modules/home-manager/pass
     ../../modules/home-manager/gpg
-    inputs.hyprpanel.homeManagerModules.hyprpanel
+    # inputs.hyprpanel.homeManagerModules.hyprpanel
     inputs.spicetify-nix.homeManagerModules.default
   ];
 

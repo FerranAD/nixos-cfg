@@ -30,20 +30,13 @@ in
 
   programs.hyprpanel = {
     enable = true;
-    # hyprland.enable = true;
-    # overwrite.enable = true;
-
-    # theme = "catppuccin_frappe_split";
-
-    # layout = {
-    #   "bar.layouts" = {
-    #     "0" = default_layout;
-    #     "1" = default_layout;
-    #   };
-    # };
 
     settings = {
       bar.launcher.autoDetectIcon = true;
+
+      bar.layouts = {
+        "*" = default_layout;
+      };
 
       # Needed to avoid pyprland scratchpads showing up in the workspaces
       bar.workspaces.ignored = "-98";

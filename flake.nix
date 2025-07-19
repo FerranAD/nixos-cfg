@@ -53,12 +53,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprpanel = {
-      # url = "github:Jas-SinghFSU/HyprPanel/3698bfe2b35a7943356618811538e3abd31a6eb3";
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     pyprland = {
       url = "github:hyprland-community/pyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -99,7 +93,6 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
-              inputs.hyprpanel.overlay
               agenix-rekey.overlays.default
             ];
             config.allowUnfree = true;
