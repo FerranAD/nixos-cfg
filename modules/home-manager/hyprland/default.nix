@@ -1,5 +1,21 @@
 { pkgs, lib, ... }:
 {
+  home.packages =
+    let
+      laptop-screen-off-alias = pkgs.writeShellScriptBin "laptop-off" ''
+        #!/bin/sh
+        hyprctl keyword monitor "eDP-1, disable"
+      '';
+      laptop-screen-on-alias = pkgs.writeShellScriptBin "laptop-on" ''
+        #!/bin/sh
+        hyprctl keyword monitor "eDP-1,1920x1080@144.00,0x0,0"
+      '';
+    in
+    [
+      laptop-screen-off-alias
+      laptop-screen-on-alias
+    ];
+
   # Hint electron apps to use wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
