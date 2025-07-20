@@ -54,7 +54,7 @@ in
       shellAliases = {
         cp = "cp -iv";
         mv = "mv -iv";
-        rm = "rm -vI";
+        rm = "${pkgs.trash-cli}/bin/trash-put";
         ls = "${pkgs.lsd}/bin/lsd -h";
         grep = "grep --color=auto";
         diff = "diff --color=auto";
