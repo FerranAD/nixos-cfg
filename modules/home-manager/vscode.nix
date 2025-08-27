@@ -18,7 +18,7 @@
     package = pkgs.vscodium;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions; [
       # Style
       enkia.tokyo-night
@@ -26,7 +26,7 @@
 
       # Language
       ms-toolsai.jupyter
-      ms-python.python
+      # ms-python.python
       ms-python.black-formatter
       jnoortheen.nix-ide
       yzhang.markdown-all-in-one

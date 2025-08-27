@@ -9,7 +9,7 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
     plymouth.enable = true;
-    plymouth.theme = "breeze";
+    # plymouth.theme = "rings";
     # plymouth.themePackages = [
     #   (pkgs.adi1090x-plymouth-themes.override {
     #     selected_themes = [

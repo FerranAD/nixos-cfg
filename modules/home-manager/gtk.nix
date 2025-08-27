@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.sessionVariables.GTK_THEME = "rose-pine";
 
@@ -8,9 +8,9 @@
       name = "rose-pine";
       package = pkgs.rose-pine-gtk-theme;
     };
-    iconTheme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-icon-theme;
-    };
+    # iconTheme = {
+    #   name = lib.mkForce "rose-pine";
+    #   package = pkgs.rose-pine-icon-theme;
+    # };
   };
 }

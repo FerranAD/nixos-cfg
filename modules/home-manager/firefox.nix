@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   nurPkgs,
   ...
 }:
@@ -17,8 +18,9 @@ in
     profiles.ferran = {
         isDefault = false;
         id = 1234;
+        extensions.force = true;
     };
-    profiles.default = {
+    profiles.default =  {
       userChrome = ''
                 /*
          *    Hide Tabs on Topbar
@@ -273,10 +275,6 @@ in
         simplelogin
         zotero-connector
       ];
-    };
-    profiles.empty = {
-      id = 1;
-      isDefault = false;
     };
   };
 
