@@ -1,7 +1,15 @@
 { pkgs, ... }:
 {
+  nix.settings.extra-sandbox-paths = [ "/run/binfmt" ];
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.preferStaticEmulators = true;
+    binfmt.registrations.aarch64-linux = {
+      interpreter = "${pkgs.qemu-user}/bin/qemu-aarch64";
+      fixBinary = true;
+      wrapInterpreterInShell = false;
+    };
+
     consoleLogLevel = 0;
     initrd = {
       verbose = false;

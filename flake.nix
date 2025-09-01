@@ -4,9 +4,10 @@
   inputs = {
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
+    home-manager-stable.url = "github:nix-community/home-manager/release-25.05";
 
     nur = {
       url = "github:nix-community/NUR";
@@ -72,6 +73,11 @@
       url = "github:nix-community/autofirma-nix"; # If you're tracking NixOS unstable
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -81,6 +87,9 @@
       nixpkgs-stable,
       nixos-hardware,
       agenix-rekey,
+      agenix,
+      disko,
+      nixos-generators,
       ...
     }@inputs:
     {
@@ -135,17 +144,55 @@
           ];
         };
 
-      # nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
-      #   system = "aarch64-linux";
-      #   specialArgs = {
-      #     inherit inputs;
-      #   };
-      #   modules = [
-      #     ./hosts/hedwig/configuration.nix
-      #     agenix.nixosModules.default
-      #     agenix-rekey.nixosModules.default
-      #   ];
-      # };
+      packages.aarch64-linux = {
+        hedwig-iso = nixos-generators.nixosGenerate {
+          system = "aarch64-linux";
+          modules = [
+            ./minimal-cfg.nix
+          ];
+          specialArgs = { hostname = "hedwig"; };
+          format = "sd-aarch64-installer";
+        };
+      };
+
+      nixosConfigurations.hedwig-install = nixpkgs-stable.lib.nixosSystem {
+        system = "aarch64-linux";
+        pkgs = import nixpkgs-stable {
+          system = "aarch64-linux";
+          overlays = [
+            agenix-rekey.overlays.default
+          ];
+          config.allowUnfree = true;
+        };
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/hedwig/configuration.nix
+          {
+            age.identityPaths = nixpkgs.lib.mkForce [
+              "${/home/ferran/.ssh/agenix-hedwig}"
+            ];
+          }
+        ];
+      };
+
+      nixosConfigurations.hedwig = nixpkgs-stable.lib.nixosSystem {
+        system = "aarch64-linux";
+        pkgs = import nixpkgs-stable {
+          system = "aarch64-linux";
+          overlays = [
+            agenix-rekey.overlays.default
+          ];
+          config.allowUnfree = true;
+        };
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/hedwig/configuration.nix
+        ];
+      };
 
       agenix-rekey = agenix-rekey.configure {
         userFlake = self;

@@ -77,6 +77,7 @@
     git
     gnumake
     agenix-rekey
+    nixos-anywhere
   ];
 
   programs.zsh.enable = true;
