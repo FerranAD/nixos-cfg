@@ -26,11 +26,11 @@
 
       # Language
       ms-toolsai.jupyter
+
       # ms-python.python
       ms-python.black-formatter
       jnoortheen.nix-ide
       yzhang.markdown-all-in-one
-      tomoki1207.pdf
 
       # Tools
       vscodevim.vim
@@ -39,6 +39,7 @@
       github.copilot-chat
       aaron-bond.better-comments
       mkhl.direnv
+      james-yu.latex-workshop
     ];
     userSettings = {
       "nix.serverPath" = "nixd";
@@ -59,6 +60,7 @@
         "markdown" = true;
       };
       "keyboard.dispatch" = "keyCode";
+      "editor.wordWrap" = "on";
       "vim.handleKeys" = {
         "<C-w>" = false;
         "<C-p>" = false;

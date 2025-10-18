@@ -78,6 +78,7 @@
     gnumake
     agenix-rekey
     nixos-anywhere
+    texliveMedium
   ];
 
   programs.zsh.enable = true;
