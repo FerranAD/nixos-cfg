@@ -274,6 +274,9 @@ in
         multi-account-containers
         simplelogin
         zotero-connector
+        keepa
+        untrap-for-youtube
+        libredirect
       ];
     };
   };
