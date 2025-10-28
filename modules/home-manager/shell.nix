@@ -20,17 +20,20 @@ in
 
   # Make direnv cache live on cache directory instead of at each project
   home.file.".config/direnv/direnvrc".text = ''
-      : "''${XDG_CACHE_HOME:="''${HOME}/.cache"}"
-      declare -A direnv_layout_dirs
-      direnv_layout_dir() {
-          local hash path
-          echo "''${direnv_layout_dirs[$PWD]:=$(
-              hash="$(sha1sum - <<< "$PWD" | head -c40)"
-              path="''${PWD//[^a-zA-Z0-9]/-}"
-              echo "''${XDG_CACHE_HOME}/direnv/layouts/''${hash}''${path}"
-          )}"
-      }
+    : "''${XDG_CACHE_HOME:="''${HOME}/.cache"}"
+    declare -A direnv_layout_dirs
+    direnv_layout_dir() {
+        local hash path
+        echo "''${direnv_layout_dirs[$PWD]:=$(
+            hash="$(sha1sum - <<< "$PWD" | head -c40)"
+            path="''${PWD//[^a-zA-Z0-9]/-}"
+            echo "''${XDG_CACHE_HOME}/direnv/layouts/''${hash}''${path}"
+        )}"
+    }
   '';
+
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
 
   programs = {
     direnv = {
