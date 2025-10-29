@@ -64,7 +64,7 @@ in
         cat = "${pkgs.bat}/bin/bat";
         clipclear = "${pkgs.clipse}/bin/clipse -clear";
       };
-      initExtra = ''
+      initContent = ''
         nixr() {
           nix run "nixpkgs#$1" ''${@:2}
         }

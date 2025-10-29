@@ -39,8 +39,6 @@
 
   services.printing.enable = true;
   services.gvfs.enable = true;
-  services.udev.packages = [ pkgs.android-udev-rules ];
-  programs.adb.enable = true;
 
   home-manager = {
     extraSpecialArgs = {
@@ -77,6 +75,7 @@
     git
     gnumake
     agenix-rekey
+    nwg-displays
     nixos-anywhere
     texliveMedium
   ];

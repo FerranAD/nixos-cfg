@@ -20,7 +20,7 @@
     extraConfig = ''
       allow-preset-passphrase
     '';
-    pinentryPackage = pkgs.pinentry-gnome3;
+    pinentry.package = pkgs.pinentry-gnome3;
   };
   # This is the key-grip, not the same as the key fingerprint.
   home.file.".pam-gnupg".text = ''

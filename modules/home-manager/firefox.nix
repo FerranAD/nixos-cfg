@@ -134,9 +134,9 @@ in
 
       search = {
         force = true;
-        default = "DuckDuckGo";
+        default = "ddg";
         order = [
-          "DuckDuckGo"
+          "ddg"
           "NixOS Options"
           "Nix Packages"
           "GitHub"
@@ -183,7 +183,7 @@ in
           };
 
           "GitHub" = {
-            iconUpdateURL = "https://github.com/favicon.ico";
+            icon = "https://github.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
             definedAliases = [ "@gh" ];
 
