@@ -52,4 +52,4 @@ hedwig-switch:
 		echo "❌ Error: please run 'make hedwig-switch ip=<address>'"; \
 		exit 1; \
 	fi
-	nixos-rebuild --flake .?submodules=1#hedwig --build-host ferran@localhost --target-host root@$(ip) --sudo --ask-sudo-password switch;
+	nixos-rebuild --flake .?submodules=1#hedwig --build-host ferran@localhost --target-host root@$(ip) switch;

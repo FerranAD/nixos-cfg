@@ -6,6 +6,8 @@
   programs.nix-ld.enable = true;
   nix = {
     settings = {
+      max-jobs = 6;
+      cores    = 0;
       auto-optimise-store = true;
       allowed-users = [ "@wheel" ];
       substituters = [
