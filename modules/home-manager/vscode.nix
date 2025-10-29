@@ -27,14 +27,13 @@
       # Language
       ms-toolsai.jupyter
 
-      # ms-python.python
+      ms-python.python
       ms-python.black-formatter
       jnoortheen.nix-ide
       yzhang.markdown-all-in-one
 
       # Tools
       vscodevim.vim
-      eamodio.gitlens
       github.copilot
       github.copilot-chat
       aaron-bond.better-comments
