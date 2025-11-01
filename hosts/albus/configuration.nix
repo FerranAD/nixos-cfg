@@ -69,6 +69,8 @@
     };
   };
 
+  virtualisation.virtualbox.host.enable = true;
+
   environment.systemPackages = with pkgs; [
     neovim
     wget
@@ -78,6 +80,7 @@
     nwg-displays
     nixos-anywhere
     texliveMedium
+    signal-desktop-bin
   ];
 
   programs.zsh.enable = true;
