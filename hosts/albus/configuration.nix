@@ -87,7 +87,7 @@
   programs.zsh.setOptions = [
     "EXTENDED_HISTORY"
     "APPEND_HISTORY"
-    "EMACS"
+    # "EMACS"
   ];
   programs.gnupg.agent = {
     enable = true;

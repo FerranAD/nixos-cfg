@@ -14,9 +14,10 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [
-    zsh-fzf-history-search
-  ];
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   # Make direnv cache live on cache directory instead of at each project
   home.file.".config/direnv/direnvrc".text = ''
@@ -61,7 +62,6 @@ in
         ls = "${pkgs.lsd}/bin/lsd -h";
         grep = "grep --color=auto";
         diff = "diff --color=auto";
-        cat = "${pkgs.bat}/bin/bat";
         clipclear = "${pkgs.clipse}/bin/clipse -clear";
       };
       initContent = ''
