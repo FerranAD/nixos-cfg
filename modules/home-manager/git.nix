@@ -4,6 +4,7 @@
   programs.difftastic.git.enable = true;
   programs.git = {
     enable = true;
+    lfs.enable = true;
     settings = {
       user.name = "Ferran Aran";
       user.email = "ferran@ferranaran.com";
