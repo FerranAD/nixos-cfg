@@ -24,8 +24,8 @@ in
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
         nvidia-vaapi-driver
+        libva-vdpau-driver
       ];
     };
     nvidia = {
