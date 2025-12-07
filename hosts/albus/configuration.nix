@@ -58,7 +58,7 @@
         "networkmanager"
         "wheel"
         "udev"
-        "adbusers" 
+        "adbusers"
         "kvm"
       ];
       uid = 1000;
@@ -71,17 +71,19 @@
 
   virtualisation.virtualbox.host.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    wget
-    git
-    gnumake
-    agenix-rekey
-    nwg-displays
-    nixos-anywhere
-    texliveMedium
-    signal-desktop-bin
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      neovim
+      wget
+      git
+      gnumake
+      agenix-rekey
+      nwg-displays
+      nixos-anywhere
+      texliveMedium
+      signal-desktop-bin
+    ];
 
   programs.zsh.enable = true;
   programs.zsh.setOptions = [

@@ -83,7 +83,7 @@
             chain postrouting {
               type nat hook postrouting priority 100;
 
-              # SNAT on the tailscale leg so A accepts the packets (appears from B’s 100.x)
+              # SNAT on the tailscale leg so A accepts the packets (appears from B's 100.x)
               oifname "tailscale0" ip daddr ${tailscale_ip_client} tcp dport ${portLow}-${portHigh} masquerade
               oifname "tailscale0" ip daddr ${tailscale_ip_client} udp dport ${portLow}-${portHigh} masquerade
 
