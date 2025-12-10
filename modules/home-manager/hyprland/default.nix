@@ -110,6 +110,7 @@
       monitor = [ ",preferred,auto,auto" ];
 
       windowrulev2 = [
+        "float,class:^(Zotero)$,title:^(Progress)$"
         "float, class:(udiskie), title:(udiskie)"
         "float, class:(codium), title:(Open File)"
         "opacity 0.8, class:(alacritty-dropterm)"
