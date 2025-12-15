@@ -151,7 +151,9 @@
           modules = [
             ./minimal-cfg.nix
           ];
-          specialArgs = { hostname = "hedwig"; };
+          specialArgs = {
+            hostname = "hedwig";
+          };
           format = "sd-aarch64-installer";
         };
       };

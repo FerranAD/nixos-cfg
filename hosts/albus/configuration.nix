@@ -10,6 +10,7 @@
 
     ./agenix.nix
     ./hardware-configuration.nix
+    # ./disko.nix
     # ../../modules/nixos/remote-desktop.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/network.nix
@@ -83,6 +84,9 @@
       nixos-anywhere
       texliveMedium
       signal-desktop-bin
+      onlyoffice-desktopeditors
+      mpv
+      htop
     ];
 
   programs.zsh.enable = true;
