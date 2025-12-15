@@ -71,6 +71,7 @@
       "workbench.iconTheme" = "catppuccin-mocha";
       "window.titleBarStyle" = "custom";
       "window.dialogStyle" = "custom";
+      "chat.disableAIFeatures" = false;
     };
     keybindings = [
       {
