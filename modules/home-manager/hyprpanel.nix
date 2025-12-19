@@ -85,7 +85,7 @@ in
           right.shortcut1.command = "${pkgs.hyprpicker}/bin/hyprpicker -a";
           right.shortcut1.icon = "";
           right.shortcut1.tooltip = "Color picker";
-          right.shortcut3.command = "${pkgs.vscodium}/bin/codium /home/ferran/nixos";
+          right.shortcut3.command = "${pkgs.vscodium}/bin/codium /home/ferran/nixos-cfg";
           right.shortcut3.icon = "";
           right.shortcut3.tooltip = "Edit NixOS config";
         };

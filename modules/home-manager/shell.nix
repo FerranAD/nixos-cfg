@@ -51,6 +51,7 @@ in
     bat.enable = true;
 
     zsh = {
+      dotDir = "/home/ferran/.zsh";
       enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;

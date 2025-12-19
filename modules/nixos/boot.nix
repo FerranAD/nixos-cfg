@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   nix.settings.extra-sandbox-paths = [ "/run/binfmt" ];
+  # TODO: Checkout wtf is this and other qemu options which may not be needed
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     binfmt.preferStaticEmulators = true;
@@ -14,21 +15,10 @@
     initrd = {
       verbose = false;
       systemd.dbus.enable = true;
+      systemd.emergencyAccess = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
     plymouth.enable = true;
-    # plymouth.theme = "rings";
-    # plymouth.themePackages = [
-    #   (pkgs.adi1090x-plymouth-themes.override {
-    #     selected_themes = [
-    #       "loader"
-    #       "liquid"
-    #       "lone"
-    #       "sliced"
-    #       "splash"
-    #     ];
-    #   })
-    # ];
     kernelParams = [
       "nvidia-drm.fbdev=1"
       "nvidia-drm.modeset=1"

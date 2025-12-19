@@ -4,7 +4,8 @@
   ...
 }:
 let
-  identityPaths = [ "/home/ferran/.ssh/agenix" ];
+  # identityPaths = [ "/home/ferran/.ssh/agenix" ];
+  identityPaths = [ "/etc/nixos/agenix-albus" ];
   hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIid1Lb2Zrsm/gacF7OOtbak7f6EBSsm7NvQ7g2nda2T ferran@albus";
   masterIdentities = [ ../../modules/nixos/yubikey/yubikey-5c-age.pub ];
   storageMode = "local";
@@ -28,6 +29,7 @@ in
   age = {
     identityPaths = identityPaths;
     secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
+    secrets.user-password.rekeyFile = ../../secrets/user-password.age;
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

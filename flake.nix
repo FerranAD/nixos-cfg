@@ -123,6 +123,50 @@
           ];
         };
 
+      nixosConfigurations.albus-install =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+            nurPkgs = (import inputs.nur) {
+              nurpkgs = import inputs.nixpkgs {
+                inherit system;
+              };
+              pkgs = import inputs.nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+              };
+            };
+          };
+          modules = [
+            ./hosts/albus/configuration.nix
+            {
+            age.identityPaths = nixpkgs.lib.mkForce [
+              "${/etc/nixos/agenix-albus}"
+            ];
+
+            # Create the /persist/home folder if it is not created, make the folder rwx by everyone, since we can't chown with
+            # the real ${user}, yet...
+            system.activationScripts.addHomeImpermanenceFolder.text = ''
+              echo "Adding your /persist/home folder..."
+              mkdir -p /persist/home
+              # I know, this is a mess and it is temporal!
+              chmod -R 777 /persist/home
+            '';
+            }
+          ];
+        };
+
       nixosConfigurations.draco =
         let
           system = "x86_64-linux";
@@ -174,7 +218,7 @@
           ./hosts/hedwig/configuration.nix
           {
             age.identityPaths = nixpkgs.lib.mkForce [
-              "${/home/ferran/.ssh/agenix-hedwig}"
+              "${/etc/nixos/agenix-hedwig}"
             ];
           }
         ];
