@@ -82,6 +82,7 @@
       "/var/lib/tailscale"
       "/var/lib/bluetooth"
       "/var/lib/power-profiles-daemon"
+      "/var/lib/systemd/backlight/"
       "/etc/NetworkManager/system-connections"
     ];
   };

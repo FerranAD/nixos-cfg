@@ -1,17 +1,7 @@
 { pkgs, ... }:
 {
-  nix.settings.extra-sandbox-paths = [ "/run/binfmt" ];
-  # TODO: Checkout wtf is this and other qemu options which may not be needed
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
-    binfmt.preferStaticEmulators = true;
-    binfmt.registrations.aarch64-linux = {
-      interpreter = "${pkgs.qemu-user}/bin/qemu-aarch64";
-      fixBinary = true;
-      wrapInterpreterInShell = false;
-    };
-
-    consoleLogLevel = 0;
     initrd = {
       verbose = false;
       systemd.dbus.enable = true;

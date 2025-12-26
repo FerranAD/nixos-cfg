@@ -27,7 +27,6 @@ let
   };
 in
 {
-
   programs.hyprpanel = {
     enable = true;
 
@@ -102,8 +101,6 @@ in
           menus.menu.volume.scaling = 75;
           menus.menu.bluetooth.scaling = 90;
           menus.menu.network.scaling = 90;
-          # TODO: Option missing to scale the weather module
-          # menus.menu.weather.scaling = 75;
           menus.menu.notifications.scaling = 85;
           transparent = false;
           outer_spacing = "0.5em";

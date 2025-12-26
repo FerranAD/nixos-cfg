@@ -66,6 +66,7 @@
         "<C-w>" = false;
         "<C-p>" = false;
       };
+      "vim.useSystemClipboard" = true;
       "files.autoSave" = "afterDelay";
       "workbench.colorTheme" = "Tokyo Night";
       "workbench.iconTheme" = "catppuccin-mocha";

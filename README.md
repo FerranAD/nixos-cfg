@@ -14,8 +14,6 @@
 - [ ] Garbage collect to remove first nixos build and btrfs snapshot with agenix keys on the nix store
 - [ ] Refactor so modules are togglable options
 - [ ] Move thunderbird config from dotfiles to home-manager
-- [ ] Fix clipboard on neovim so it shares it with the system
-- [ ] Fix lid closing behaviour
 
 ## Clone
 

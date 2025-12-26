@@ -19,6 +19,8 @@ in
   boot.blacklistedKernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = lib.mkForce [ "nvidia" ];
 
+  programs.gpu-screen-recorder.enable = true;
+
   hardware = {
     graphics = {
       enable = true;
