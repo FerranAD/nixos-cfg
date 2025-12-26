@@ -12,7 +12,6 @@
 ## TODO
 
 - [ ] Garbage collect to remove first nixos build and btrfs snapshot with agenix keys on the nix store
-- [ ] Check wtf is happening when no yubikey is provided
 - [ ] Refactor so modules are togglable options
 - [ ] Move thunderbird config from dotfiles to home-manager
 - [ ] Fix clipboard on neovim so it shares it with the system
@@ -53,3 +52,26 @@ sudo systemd-cryptenroll /dev/nvme0n1p3 --fido2-device=auto --fido2-with-user-pr
 
 ## Rsync backup
 
+```sh
+sudo rsync -aAXHv --progress --ignore-missing-args \
+  --include='/var/lib/bluetooth/***' \
+  --include='/etc/NetworkManager/system-connections/***' \
+  --include='/etc/nixos/***' \
+  --include='/home/ferran/nixos-cfg/***' \
+  --include='/home/ferran/.ssh/***' \
+  --include='/home/ferran/.local/share/keyrings/***' \
+  --include='/home/ferran/.config/cat_installer/***' \
+  --include='/home/ferran/.config/VSCodium/***' \
+  --include='/home/ferran/.config/vesktop/***' \
+  --include='/home/ferran/.vscode-oss/***' \
+  --include='/home/ferran/.mozilla/***' \
+  --include='/home/ferran/.thunderbird/***' \
+  --include='/home/ferran/Zotero/***' \
+  --include='/home/ferran/.zotero/***' \
+  --include='/home/ferran/.zsh/***' \
+  --include='/home/ferran/.local/share/zoxide/***' \
+  --include='/home/ferran/.password-store/***' \
+  --include='/home/ferran/.local/state/wireplumber/default-routes/***' \
+  --exclude='*' \
+  /mnt/ /
+```

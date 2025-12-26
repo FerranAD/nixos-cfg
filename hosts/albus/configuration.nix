@@ -101,7 +101,6 @@
   virtualisation.virtualbox.host.enable = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
     wget
     git
     gnumake

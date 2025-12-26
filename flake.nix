@@ -69,6 +69,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     autofirma-nix = {
       url = "github:nix-community/autofirma-nix"; # If you're tracking NixOS unstable
       inputs.nixpkgs.follows = "nixpkgs";
@@ -151,18 +156,18 @@
           modules = [
             ./hosts/albus/configuration.nix
             {
-            age.identityPaths = nixpkgs.lib.mkForce [
-              "${/etc/nixos/agenix-albus}"
-            ];
+              age.identityPaths = nixpkgs.lib.mkForce [
+                "${/etc/nixos/agenix-albus}"
+              ];
 
-            # Create the /persist/home folder if it is not created, make the folder rwx by everyone, since we can't chown with
-            # the real ${user}, yet...
-            system.activationScripts.addHomeImpermanenceFolder.text = ''
-              echo "Adding your /persist/home folder..."
-              mkdir -p /persist/home
-              # I know, this is a mess and it is temporal!
-              chmod -R 777 /persist/home
-            '';
+              # Create the /persist/home folder if it is not created, make the folder rwx by everyone, since we can't chown with
+              # the real ${user}, yet...
+              system.activationScripts.addHomeImpermanenceFolder.text = ''
+                echo "Adding your /persist/home folder..."
+                mkdir -p /persist/home
+                # I know, this is a mess and it is temporal!
+                chmod -R 777 /persist/home
+              '';
             }
           ];
         };
