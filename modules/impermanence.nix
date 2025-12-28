@@ -107,6 +107,7 @@
         ".config/cat_installer" # eduroam
         ".config/VSCodium"
         ".config/vesktop"
+        ".config/Signal"
         ".vscode-oss"
         ".mozilla"
         ".thunderbird"
