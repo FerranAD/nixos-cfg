@@ -277,6 +277,7 @@ in
         keepa
         untrap-for-youtube
         libredirect
+        don-t-fuck-with-paste
       ];
     };
   };
