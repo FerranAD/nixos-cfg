@@ -20,7 +20,7 @@
           [Desktop Entry]
           Name=Hyprland (NVIDIA)
           Comment=Hyprland completely running on NVIDIA
-          Exec=nvidia-offload ${pkgs.hyprland}/bin/Hyprland
+          Exec=nvidia-offload ${pkgs.hyprland}/bin/start-hyprland
           Type=Application
         '').overrideAttrs
         (_: {
