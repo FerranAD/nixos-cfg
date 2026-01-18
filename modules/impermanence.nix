@@ -85,6 +85,7 @@
         ".ssh"
         ".local/share/keyrings"
         ".bitmonero"
+        "Monero/wallets"
         ".local/share/docker"
         ".cache/uv"
         ".local/share/uv"
