@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   ...
 }:
 {
@@ -9,25 +8,13 @@
   ];
 
   boot.initrd.systemd.services.impermanence-root-rollover = {
-    after = [
-      # We need to wait for LUKS and LVM
-      "systemd-cryptsetup@crypted.service" # LUKS mapping name is "crypted" thus @crypted
-      "dev-root_vg-root.device"
-    ];
-    requires = [ "systemd-cryptsetup@crypted.service" ];
+    wantedBy = [ "initrd-root-device.target" ];
     wants = [ "dev-root_vg-root.device" ];
-
+    after = [ "dev-root_vg-root.device" ];
     before = [ "sysroot.mount" ];
-    wantedBy = [ "initrd.target" ];
+    requires = [ "systemd-cryptsetup@crypted.service" ];
 
-    unitConfig = {
-      DefaultDependencies = "no";
-    };
-
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
+    serviceConfig.Type = "oneshot";
 
     script = ''
       mkdir -p /btrfs_tmp
@@ -59,11 +46,10 @@
     '';
   };
 
-  # Fix agenix ssh key being not mounted when agenix was running
-  fileSystems."/etc/nixos" = {
-    depends = [ "/persist" ];
-    neededForBoot = true;
-  };
+  # Fix agenix ssh key being not mounted at startup
+  age.identityPaths = [
+    "/persist/system/etc/nixos/agenix-albus"
+  ];
 
   # Issue: https://github.com/nix-community/impermanence/issues/229
   # Can't use bind with machine-id...
@@ -72,6 +58,7 @@
   ];
 
   fileSystems."/persist".neededForBoot = true;
+
   environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
@@ -89,9 +76,6 @@
 
   programs.fuse.userAllowOther = true;
   home-manager.users.ferran = {
-    imports = [
-      inputs.impermanence.nixosModules.home-manager.impermanence
-    ];
     home.persistence."/persist/home" = {
       directories = [
         "projects"
@@ -119,8 +103,6 @@
         ".password-store"
         ".local/state/wireplumber"
       ];
-
-      allowOther = true;
     };
   };
 }
