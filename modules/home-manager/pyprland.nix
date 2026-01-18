@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  home.packages = [ pkgs.pyprland ];
+  # home.packages = [ inputs.pkgs.pyprland ];
 
+  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   home.file.".config/hypr/pyprland.toml".text = ''
     [pyprland]
 

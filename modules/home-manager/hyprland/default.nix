@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   home.packages =
     let
@@ -21,7 +26,7 @@
 
   wayland.windowManager.hyprland = {
     # plugins = with pkgs.hyprlandPlugins; [
-      # hyprexpo
+    # hyprexpo
     # ];
     enable = true;
     xwayland.enable = true;
@@ -139,12 +144,16 @@
         "SUPER, SUPER_L, exec, ${pkgs.hyprpanel}/bin/hyprpanel t dashboardmenu"
       ];
 
-      exec-once = [
-        "${pkgs.hyprpaper}/bin/hyprpaper"
-        "${pkgs.pyprland}/bin/pypr"
-        "${pkgs.wlsunset}/bin/wlsunset -l 41.614159 -L 0.625800"
-        "${pkgs.clipse}/bin/clipse -listen"
-      ];
+      exec-once =
+        let
+          pyprlandPkg = inputs.pyprland.packages."${pkgs.stdenv.hostPlatform.system}".pyprland;
+        in
+        [
+          "${pkgs.hyprpaper}/bin/hyprpaper"
+          "${pyprlandPkg}/bin/pypr"
+          "${pkgs.wlsunset}/bin/wlsunset -l 41.614159 -L 0.625800"
+          "${pkgs.clipse}/bin/clipse -listen"
+        ];
     };
   };
 }
