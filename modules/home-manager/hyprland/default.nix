@@ -20,9 +20,9 @@
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   wayland.windowManager.hyprland = {
-    plugins = with pkgs.hyprlandPlugins; [
-      hyprexpo
-    ];
+    # plugins = with pkgs.hyprlandPlugins; [
+      # hyprexpo
+    # ];
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;

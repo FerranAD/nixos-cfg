@@ -20,7 +20,7 @@
           [Desktop Entry]
           Name=Hyprland (NVIDIA)
           Comment=Hyprland completely running on NVIDIA
-          Exec=nvidia-offload Hyprland
+          Exec=nvidia-offload start-hyprland
           Type=Application
         '').overrideAttrs
         (_: {

@@ -9,7 +9,7 @@
     in
     with pkgs;
     [
-      nixfmt-rfc-style
+      nixfmt
       nixd
       vscode-alias
     ];

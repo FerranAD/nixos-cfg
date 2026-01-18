@@ -9,6 +9,7 @@ in
     {
       catppuccin.flavor = flavor;
       catppuccin.enable = true;
+      catppuccin.cache.enable = true;
       catppuccin.plymouth.enable = true;
       catppuccin.sddm.enable = false;
     }
@@ -17,6 +18,7 @@ in
         imports = [ inputs.catppuccin.homeModules.catppuccin ];
         catppuccin.flavor = flavor;
         catppuccin.enable = true;
+        catppuccin.cache.enable = true;
         catppuccin.cursors.enable = true;
         catppuccin.cursors.accent = "dark";
         catppuccin.vscode.profiles.default.enable = false;
