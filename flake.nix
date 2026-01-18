@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # impermanence.url = "github:nix-community/impermanence?rev=4a07d84eaaac3d8cfd26a5f7a3da8161df0e75cd";
     impermanence.url = "github:nix-community/impermanence";
 
     # Secrets
@@ -75,7 +76,7 @@
     };
 
     autofirma-nix = {
-      url = "github:nix-community/autofirma-nix"; # If you're tracking NixOS unstable
+      url = "github:nix-community/autofirma-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -198,35 +199,13 @@
         hedwig-iso = nixos-generators.nixosGenerate {
           system = "aarch64-linux";
           modules = [
-            ./minimal-cfg.nix
+            ./hosts/minimal-cfg.nix
           ];
           specialArgs = {
             hostname = "hedwig";
           };
           format = "sd-aarch64-installer";
         };
-      };
-
-      nixosConfigurations.hedwig-install = nixpkgs-stable.lib.nixosSystem {
-        system = "aarch64-linux";
-        pkgs = import nixpkgs-stable {
-          system = "aarch64-linux";
-          overlays = [
-            agenix-rekey.overlays.default
-          ];
-          config.allowUnfree = true;
-        };
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/hedwig/configuration.nix
-          {
-            age.identityPaths = nixpkgs.lib.mkForce [
-              "${/etc/nixos/agenix-hedwig}"
-            ];
-          }
-        ];
       };
 
       nixosConfigurations.hedwig = nixpkgs-stable.lib.nixosSystem {

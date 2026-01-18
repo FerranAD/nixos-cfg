@@ -14,6 +14,7 @@
 - [ ] Garbage collect to remove first nixos build and btrfs snapshot with agenix keys on the nix store
 - [ ] Refactor so modules are togglable options
 - [ ] Move thunderbird config from dotfiles to home-manager
+- [ ] Fix python
 
 ## Clone
 

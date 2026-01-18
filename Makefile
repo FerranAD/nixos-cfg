@@ -29,23 +29,7 @@ upgrade:
 	make update && make switch-debug
 
 hedwig-iso:
-	nix build .#hedwig-iso --system aarch64-linux
-
-# hedwig-install:
-# 	@if [ -z "$(ip)" ]; then \
-# 		echo "❌ Error: please run 'make hedwig-install ip=<address>'"; \
-# 		exit 1; \
-# 	fi
-# 	sudo --preserve-env=SSH_AUTH_SOCK,GPG_TTY nixos-anywhere \
-# 		-f '.?submodules=1#hedwig-install' \
-# 		--option pure-eval false -L root@$(ip)
-
-hedwig-install:
-	@if [ -z "$(ip)" ]; then \
-		echo "❌ Error: please run 'make hedwig-switch ip=<address>'"; \
-		exit 1; \
-	fi
-	nixos-rebuild --option pure-eval false --flake .?submodules=1#hedwig-install --build-host ferran@localhost --target-host root@$(ip) switch;
+	sudo nix build .#hedwig-iso --system aarch64-linux --impure
 
 hedwig-switch:
 	@if [ -z "$(ip)" ]; then \

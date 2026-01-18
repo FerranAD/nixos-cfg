@@ -9,7 +9,6 @@
   imports = [
     ./agenix.nix
     ../../modules/nixos/locale.nix
-    inputs.home-manager.nixosModules.default
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
     {
       disabledModules = [ "profiles/base.nix" ];
@@ -21,19 +20,9 @@
     fsType = "ext4";
   };
 
-  fileSystems."/storage" = {
-    device = "/dev/disk/by-label/STORAGE";
-    fsType = "ext4";
-  };
-
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
-    neovim
-    wget
-    git
-    gnumake
-    lolcat
   ];
 
   boot = {
@@ -97,16 +86,6 @@
   nix.settings.experimental-features = [
     "flakes"
   ];
-
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    useGlobalPkgs = true;
-    users = {
-      "ferran" = import ./home.nix;
-    };
-  };
 
   users.users.ferran = {
     isNormalUser = true;
