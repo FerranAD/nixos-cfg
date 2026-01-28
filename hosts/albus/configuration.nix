@@ -88,8 +88,6 @@
     settings.PermitRootLogin = "yes";
   };
 
-  virtualisation.virtualbox.host.enable = true;
-
   environment.systemPackages = with pkgs; [
     wget
     git
@@ -116,7 +114,7 @@
   };
 
   security.sudo.extraConfig = ''
-  	Defaults lecture=never
+    	Defaults lecture=never
   '';
 
   system.stateVersion = "24.05";
