@@ -15,25 +15,33 @@
     clipboard.providers.wl-copy.enable = true;
     globals.mapleader = " ";
 
+    plugins.markview.enable = true;
+    keymaps = [
+      {
+        action = "<cmd>Markview Toggle<CR>";
+        key = "<leader>m";
+      }
+    ];
+
     plugins.lualine.enable = true;
     plugins.treesitter.enable = true;
     plugins.web-devicons.enable = true;
     plugins.telescope = {
-        enable = true;
-        extensions = {
-          fzf-native = {
-            enable = true;
-          };
-        };
-        keymaps = {
-          "<leader>f" = {
-            action = "git_files";
-            options = {
-              desc = "Telescope Git Files";
-            };
-          };
-          "<leader>ff" = "live_grep";
+      enable = true;
+      extensions = {
+        fzf-native = {
+          enable = true;
         };
       };
+      keymaps = {
+        "<leader>f" = {
+          action = "find_files";
+          options = {
+            desc = "Telescope Find Files";
+          };
+        };
+        "<leader>ff" = "live_grep";
+      };
+    };
   };
 }

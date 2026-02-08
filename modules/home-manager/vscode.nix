@@ -12,6 +12,7 @@
       nixfmt
       nixd
       vscode-alias
+      mypy
     ];
   programs.vscode = {
     enable = true;
@@ -28,9 +29,10 @@
 
       # Language
       ms-toolsai.jupyter
-
       ms-python.python
-      ms-python.black-formatter
+      # ms-python.vscode-pylance
+      matangover.mypy
+      charliermarsh.ruff
       jnoortheen.nix-ide
       yzhang.markdown-all-in-one
 
@@ -73,6 +75,7 @@
       "window.titleBarStyle" = "custom";
       "window.dialogStyle" = "custom";
       "chat.disableAIFeatures" = false;
+      "mypy.checkNotebooks" = true;
     };
     keybindings = [
       {
