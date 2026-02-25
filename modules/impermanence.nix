@@ -96,6 +96,7 @@
         ".mozilla"
         ".thunderbird"
         ".local/share/direnv"
+        "VirtualBox VMs"
         "Zotero"
         ".zotero"
         ".zsh"

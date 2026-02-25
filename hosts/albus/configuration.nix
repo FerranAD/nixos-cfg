@@ -33,6 +33,9 @@
     ../../modules/nixos/sddm.nix
   ];
 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
   hardware = {
     bluetooth.enable = true;
     uinput.enable = true;
@@ -57,6 +60,7 @@
       isNormalUser = true;
       extraGroups = [
         "networkmanager"
+        "vboxusers"
         "wheel"
         "udev"
         "adbusers"
@@ -95,7 +99,7 @@
     agenix-rekey
     nwg-displays
     nixos-anywhere
-    texliveMedium
+    texliveFull
     signal-desktop-bin
     onlyoffice-desktopeditors
     mpv
