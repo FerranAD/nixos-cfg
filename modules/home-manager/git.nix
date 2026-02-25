@@ -7,7 +7,7 @@
     lfs.enable = true;
     settings = {
       user.name = "Ferran Aran";
-      user.email = "ferran@ferranaran.com";
+      user.email = "ferran@aranferran.com";
       color = {
         ui = "auto";
       };
@@ -19,7 +19,7 @@
       };
     };
     signing.key = null; # Let gpg-agent decide the key
-    signing.signByDefault = true;
+    signing.signByDefault = false;
   };
   programs.zsh.shellAliases = {
     gad = "git add .";
