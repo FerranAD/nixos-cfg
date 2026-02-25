@@ -24,6 +24,7 @@ in
         catppuccin.vscode.profiles.default.enable = false;
         # Disable since it's horrible on zsh
         catppuccin.zsh-syntax-highlighting.enable = false;
+        catppuccin.hyprlock.enable = false;
       };
     }
   ];
