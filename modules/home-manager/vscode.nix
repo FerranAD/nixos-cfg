@@ -37,6 +37,7 @@
       yzhang.markdown-all-in-one
 
       # Tools
+      mechatroner.rainbow-csv
       vscodevim.vim
       github.copilot
       github.copilot-chat
