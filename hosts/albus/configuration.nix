@@ -33,7 +33,7 @@
     ../../modules/nixos/sddm.nix
   ];
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = false;
 
   hardware = {
     bluetooth.enable = true;
