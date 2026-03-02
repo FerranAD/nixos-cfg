@@ -7,7 +7,7 @@
       systemd.dbus.enable = true;
       systemd.emergencyAccess = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_18;
     plymouth.enable = true;
     kernelParams = [
       "nvidia-drm.fbdev=1"
