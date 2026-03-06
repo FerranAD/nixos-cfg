@@ -6,7 +6,7 @@
     enable = true;
     lfs.enable = true;
     settings = {
-      user.name = "Ferran Aran";
+      user.name = "Ferran Aran Domingo";
       user.email = "ferran@aranferran.com";
       color = {
         ui = "auto";

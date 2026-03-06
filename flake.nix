@@ -173,6 +173,53 @@
           ];
         };
 
+      nixosConfigurations.dobby =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/dobby/configuration.nix
+          ];
+        };
+
+      nixosConfigurations.dobby-install =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/dobby/configuration.nix
+            {
+              age.identityPaths = nixpkgs.lib.mkForce [
+                "${/etc/nixos/agenix-dobby}"
+              ];
+            }
+          ];
+        };
+
       nixosConfigurations.draco =
         let
           system = "x86_64-linux";
