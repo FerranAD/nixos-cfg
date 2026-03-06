@@ -16,7 +16,7 @@
     enableSshSupport = true;
     enableBashIntegration = true;
     enableExtraSocket = true;
-    sshKeys = [ "99C6A5713950906F2D6E82ECE088F51931A156CC" ];
+    sshKeys = [ "C646325B370E1294EB3A06ECF4FCA8E88BA16531" ];
     extraConfig = ''
       allow-preset-passphrase
     '';
@@ -24,7 +24,7 @@
   };
   # This is the key-grip, not the same as the key fingerprint.
   home.file.".pam-gnupg".text = ''
-    99C6A5713950906F2D6E82ECE088F51931A156CC
+    C646325B370E1294EB3A06ECF4FCA8E88BA16531
   '';
   home.packages = [ pkgs.pinentry-gnome3 ];
 }
