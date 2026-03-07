@@ -4,10 +4,10 @@
   inputs = {
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager-stable.url = "github:nix-community/home-manager/release-25.05";
+    home-manager-stable.url = "github:nix-community/home-manager/release-25.11";
 
     nur = {
       url = "github:nix-community/NUR";
@@ -91,7 +91,6 @@
       self,
       nixpkgs,
       nixpkgs-stable,
-      nixos-hardware,
       agenix-rekey,
       agenix,
       disko,
@@ -220,28 +219,6 @@
           ];
         };
 
-      nixosConfigurations.draco =
-        let
-          system = "x86_64-linux";
-        in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          pkgs = import nixpkgs-stable {
-            inherit system;
-            overlays = [
-              agenix-rekey.overlays.default
-            ];
-            config.allowUnfree = true;
-          };
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/draco/configuration.nix
-            nixos-hardware.nixosModules.apple-t2
-          ];
-        };
-
       packages.aarch64-linux = {
         hedwig-iso = nixos-generators.nixosGenerate {
           system = "aarch64-linux";
@@ -269,6 +246,26 @@
         };
         modules = [
           ./hosts/hedwig/configuration.nix
+        ];
+      };
+
+      nixosConfigurations.minimal-x86 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (
+            { ... }:
+            {
+              users.users.root = {
+                openssh.authorizedKeys.keys = [
+                  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDO11F5Mw0JYYi/IgmgfV7bRZS7yDi5y/FSDpM3Ep6Qt openpgp:0xBC69F42C"
+                ];
+              };
+              services.openssh = {
+                enable = true;
+                settings.PermitRootLogin = "yes";
+              };
+            }
+          )
         ];
       };
 

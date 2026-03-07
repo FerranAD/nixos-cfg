@@ -8,12 +8,18 @@
 {
   imports = [
     ./agenix.nix
+    ./disko.nix
+    ./hardware-configuration.nix
     ../../modules/nixos/locale.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    neovim
+  nix.settings.experimental-features = [
+    "flakes"
+    "nix-command"
   ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.initrd.systemd.enable = true;
 
   networking = {
     firewall.enable = false;
@@ -21,18 +27,12 @@
     networkmanager.enable = true;
   };
 
-  nix.settings.experimental-features = [
-    "flakes"
-  ];
-
   users.users.ferran = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
-      tree
       htop
       git
-      wget
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDO11F5Mw0JYYi/IgmgfV7bRZS7yDi5y/FSDpM3Ep6Qt openpgp:0xBC69F42C"

@@ -31,9 +31,23 @@ upgrade:
 hedwig-iso:
 	sudo nix build .#hedwig-iso --system aarch64-linux --impure
 
+iso-x86:
+	nixos-rebuild build-image --flake \?.submodules=1#minimal-x86 --image-variant iso-installer
+
 hedwig-switch:
-	@if [ -z "$(ip)" ]; then \
-		echo "❌ Error: please run 'make hedwig-switch ip=<address>'"; \
-		exit 1; \
-	fi
+# make hedwig-switch ip=<address>
 	nixos-rebuild --flake .?submodules=1#hedwig --build-host ferran@localhost --target-host root@$(ip) switch;
+
+dobby-switch:
+# make dobby-switch ip=<address>
+	nixos-rebuild --flake .?submodules=1#dobby --build-host root@$(ip) --target-host root@$(ip) switch;
+
+dobby-install:
+# make dobby-install ip=<address>
+	sudo chown -R ferran:users /etc/nixos/agenix-*
+	nixos-anywhere --flake .?submodules=1#dobby-install --build-on remote --target-host root@$(ip) --option pure-eval false --generate-hardware-config nixos-generate-config ./hosts/dobby/hardware-configuration.nix
+	sudo chown -R root:root /etc/nixos/agenix-*
+
+switch-remote:
+# make switch-remote ip=<remote-ip-address>
+	nixos-rebuild switch --sudo --flake .?submodules=1#${HOSTNAME} -L --build-host root@$(ip) --target-host ferran@localhost
