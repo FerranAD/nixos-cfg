@@ -17,6 +17,7 @@ in
     identityPaths = identityPaths;
     secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
     secrets.user-password.rekeyFile = ../../secrets/user-password.age;
+    secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

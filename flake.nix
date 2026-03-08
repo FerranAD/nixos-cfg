@@ -79,6 +79,12 @@
       url = "github:nix-community/autofirma-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    # Misc
+    nixarr = {
+      url = "github:nix-media-server/nixarr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -92,6 +98,7 @@
       nixpkgs,
       nixpkgs-stable,
       agenix-rekey,
+      nixarr,
       agenix,
       disko,
       nixos-generators,

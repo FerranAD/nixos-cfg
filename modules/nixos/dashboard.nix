@@ -3,7 +3,7 @@
   services.homepage-dashboard = {
     enable = true;
 
-    allowedHosts = "dobby:8082";
+    allowedHosts = "home.aranferran.com";
     listenPort = 8082;
 
     settings = {
