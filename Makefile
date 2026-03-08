@@ -39,8 +39,8 @@ hedwig-switch:
 	nixos-rebuild --flake .?submodules=1#hedwig --build-host ferran@localhost --target-host root@$(ip) switch;
 
 dobby-switch:
-# make dobby-switch ip=<address>
-	nixos-rebuild --flake .?submodules=1#dobby --build-host root@$(ip) --target-host root@$(ip) switch;
+	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
+	nixos-rebuild --flake .?submodules=1#dobby --build-host root@dobby --target-host root@dobby switch;
 
 dobby-install:
 # make dobby-install ip=<address>

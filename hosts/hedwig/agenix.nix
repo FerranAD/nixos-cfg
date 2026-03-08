@@ -16,6 +16,7 @@ in
   age = {
     identityPaths = identityPaths;
     secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
+    secrets.user-password.rekeyFile = ../../secrets/user-password.age;
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

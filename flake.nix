@@ -270,8 +270,11 @@
       };
 
       agenix-rekey = agenix-rekey.configure {
-        userFlake = self;
-        nixosConfigurations = self.nixosConfigurations;
+        userFlake = self; 
+        # Skip the minimal config since agenix will error because it is not configured for that host.
+        nixosConfigurations = nixpkgs.lib.filterAttrs (
+          name: _: name != "minimal-x86"
+        ) self.nixosConfigurations;
       };
     };
 }

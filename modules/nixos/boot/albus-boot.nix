@@ -6,6 +6,8 @@
       verbose = false;
       systemd.dbus.enable = true;
       systemd.emergencyAccess = true;
+      systemd.enable = true;
+      luks.fido2Support = false; # We let systemd-cryptenroll handle fido2
     };
     kernelPackages = pkgs.linuxPackages_6_18;
     plymouth.enable = true;

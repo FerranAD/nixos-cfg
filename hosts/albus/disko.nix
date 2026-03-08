@@ -13,8 +13,6 @@ let
 in
 {
   imports = [ inputs.disko.nixosModules.disko ];
-  boot.initrd.systemd.enable = true;
-  boot.initrd.luks.fido2Support = false; # We let systemd-cryptenroll handle fido2
   disko.devices = {
     disk.main = {
       type = "disk";

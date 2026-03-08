@@ -51,6 +51,11 @@
     "/persist/system/etc/nixos/agenix-albus"
   ];
 
+  # Stop sudo explaining to be careful on the first usage
+  security.sudo.extraConfig = ''
+    	Defaults lecture=never
+  '';
+
   # Issue: https://github.com/nix-community/impermanence/issues/229
   # Can't use bind with machine-id...
   systemd.tmpfiles.rules = [
