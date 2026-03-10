@@ -8,6 +8,7 @@
     rpc-host-whitelist = lib.strings.concatStringsSep "," [ "transmission.aranferran.com" ];
   };
   services.flaresolverr.enable = true;
+  users.users.jellyfin.extraGroups = [ "render" ];
   nixarr = {
     enable = true;
     mediaDir = "/data/nixarr/media";
