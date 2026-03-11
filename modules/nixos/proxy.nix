@@ -53,7 +53,7 @@
 
     dynamicConfigOptions = {
       http.routers = {
-        dashboard = {
+        traefik = {
           entryPoints = [ "websecure" ];
           rule = "Host(`traefik.aranferran.com`)";
           service = "api@internal";
@@ -64,6 +64,13 @@
           entryPoints = [ "websecure" ];
           rule = "Host(`glances.aranferran.com`)";
           service = "glances";
+          tls.certResolver = "letsencrypt";
+        };
+
+        home = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`home.aranferran.com`)";
+          service = "home";
           tls.certResolver = "letsencrypt";
         };
 
@@ -129,13 +136,23 @@
           service = "flaresolverr";
           tls.certResolver = "letsencrypt";
         };
+
+        immich = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`immich.aranferran.com`)";
+          service = "immich";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
-        jellyfin.loadBalancer.servers = [
-          { url = "http://localhost:8096"; }
-        ];
         glances.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.glances.port}"; }
+        ];
+        home.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}"; }
+        ];
+        jellyfin.loadBalancer.servers = [
+          { url = "http://localhost:8096"; }
         ];
         bazarr.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.bazarr.listenPort}"; }
@@ -158,6 +175,10 @@
         flaresolverr.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.flaresolverr.port}"; }
         ];
+        immich.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.immich.port}"; }
+        ];
+
       };
     };
   };

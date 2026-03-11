@@ -3,7 +3,6 @@
   imports = [
     inputs.nixarr.nixosModules.default
   ];
-
   services.transmission.settings = {
     rpc-host-whitelist = lib.strings.concatStringsSep "," [ "transmission.aranferran.com" ];
   };

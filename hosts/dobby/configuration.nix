@@ -16,6 +16,7 @@
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/dashboard.nix
     ../../modules/nixos/openssh.nix
+    ../../modules/nixos/immich.nix
     ../../modules/nixos/nixarr.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/proxy.nix
