@@ -18,6 +18,7 @@ in
     secrets.tailscale-authkey.rekeyFile = ../../secrets/tailscale-authkey.age;
     secrets.user-password.rekeyFile = ../../secrets/user-password.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
+    secrets."airvpn-dobby-wg.conf".rekeyFile = ../../secrets/airvpn-dobby-wg.conf.age;
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

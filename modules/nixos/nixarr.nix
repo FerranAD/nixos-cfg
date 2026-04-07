@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, inputs, config, ... }:
 {
   imports = [
     inputs.nixarr.nixosModules.default
@@ -7,25 +7,33 @@
     rpc-host-whitelist = lib.strings.concatStringsSep "," [ "transmission.aranferran.com" ];
   };
   services.flaresolverr.enable = true;
+
+  networking.firewall.allowedTCPPorts = [
+    30335
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    30335
+  ];
+
   users.users.jellyfin.extraGroups = [ "render" ];
+
   nixarr = {
     enable = true;
     mediaDir = "/data/nixarr/media";
     stateDir = "/data/nixarr/media/.state/nixarr";
 
-    # vpn = {
-    #   enable = true;
-    #   # WARNING: This file must _not_ be in the config git directory
-    #   # You can usually get this wireguard file from your VPN provider
-    #   wgConf = "/data/.secret/wg.conf";
-    # };
+    vpn = {
+      enable = true;
+      wgConf = config.age.secrets."airvpn-dobby-wg.conf".path;
+    };
 
     jellyfin.enable = true;
 
     transmission = {
       enable = true;
-      vpn.enable = false;
-      peerPort = 50000; # Set this to the port forwarded by your VPN
+      vpn.enable = true;
+      peerPort = 30335;
     };
 
     bazarr.enable = true;
