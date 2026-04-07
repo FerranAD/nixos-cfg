@@ -80,12 +80,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    # Misc
+    # Server
     nixarr = {
       url = "github:nix-media-server/nixarr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Misc
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";

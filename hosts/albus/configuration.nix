@@ -42,7 +42,7 @@
     nwg-displays
     nixos-anywhere
     texliveFull
-    signal-desktop-bin
+    signal-desktop
     onlyoffice-desktopeditors
     mpv
     htop

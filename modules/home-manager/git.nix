@@ -20,6 +20,7 @@
     };
     signing.key = null; # Let gpg-agent decide the key
     signing.signByDefault = true;
+    signing.format = "openpgp";
   };
   programs.zsh.shellAliases = {
     gad = "git add .";
