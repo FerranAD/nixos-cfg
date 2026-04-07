@@ -189,9 +189,6 @@
         ollama.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.ollama.port}"; }
         ];
-        open-webui.loadBalancer.servers = [
-          { url = "http://localhost:${toString config.services.open-webui.port}"; }
-        ];
       };
     };
   };

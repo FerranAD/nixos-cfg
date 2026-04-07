@@ -17,7 +17,7 @@ test:
 	nixos-rebuild test --sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
 
 rekey:
-	agenix --extra-flake-params '/?submodules=1' rekey && cd secrets && git add . && git commit -m "build: rekey" && git push && cd ..
+	cd secrets && git add . && git commit && cd .. && agenix --extra-flake-params '/?submodules=1' rekey && cd secrets && git add . && git commit -m "build: rekey" && git push && cd ..
 
 lint:
 	nixfmt .
