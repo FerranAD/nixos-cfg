@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    immich-cli
     immich-go
   ];
   systemd.tmpfiles.rules = [

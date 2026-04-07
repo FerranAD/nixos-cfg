@@ -29,6 +29,7 @@
         websecure = {
           address = ":443";
           asDefault = true;
+          transport.respondingTimeouts.readTimeout = "0s";
           http.tls.certResolver = "letsencrypt";
         };
       };
@@ -143,6 +144,13 @@
           service = "immich";
           tls.certResolver = "letsencrypt";
         };
+
+        ollama = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`ollama.aranferran.com`)";
+          service = "ollama";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -178,7 +186,12 @@
         immich.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.immich.port}"; }
         ];
-
+        ollama.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.ollama.port}"; }
+        ];
+        open-webui.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.open-webui.port}"; }
+        ];
       };
     };
   };
