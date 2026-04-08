@@ -86,6 +86,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Misc
     nixos-generators = {
       url = "github:nix-community/nixos-generators";

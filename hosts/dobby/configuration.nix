@@ -15,6 +15,7 @@
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/dashboard.nix
+    ../../modules/nixos/minecraft.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/immich.nix
     ../../modules/nixos/ollama.nix
