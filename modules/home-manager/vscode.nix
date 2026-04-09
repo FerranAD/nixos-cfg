@@ -1,22 +1,23 @@
 { pkgs, ... }:
 {
   home.packages =
-    let
-      vscode-alias = pkgs.writeShellScriptBin "code" ''
-        #!/bin/sh
-        exec codium "$@"
-      '';
-    in
+    # let
+    #   vscode-alias = pkgs.writeShellScriptBin "code" ''
+    #     #!/bin/sh
+    #     exec codium "$@"
+    #   '';
+    # in
     with pkgs;
     [
       nixfmt
       nixd
-      vscode-alias
+      # vscode-alias
       mypy
     ];
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    # package = pkgs.vscodium;
+    package = pkgs.vscode;
     mutableExtensionsDir = true;
   };
   programs.vscode.profiles.default = {
