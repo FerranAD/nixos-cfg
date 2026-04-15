@@ -3,10 +3,12 @@
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    home-manager.url = "github:nix-community/home-manager";
+    # home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager-stable.url = "github:nix-community/home-manager/release-25.11";
 
     nur = {
@@ -47,13 +49,16 @@
     };
 
     # Desktop
-    hyprland.url = "github:hyprwm/hyprland";
+    # hyprland = {
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   url = "github:hyprwm/hyprland";
+    # };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     pyprland = {
       url = "github:hyprland-community/pyprland";
@@ -61,7 +66,7 @@
     };
 
     catppuccin = {
-      url = "github:catppuccin/nix";
+      url = "github:catppuccin/nix?ref=release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -71,7 +76,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim?ref=nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -79,7 +84,7 @@
       url = "github:nix-community/autofirma-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     # Server
     nixarr = {
       url = "github:nix-media-server/nixarr";
@@ -232,6 +237,17 @@
           ];
         };
 
+      nixosConfigurations.oci-base = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          "${nixpkgs}/nixos/modules/virtualisation/oci-image.nix"
+          ./hosts/minimal-cfg.nix
+        ];
+        specialArgs = {
+          hostname = "rowling";
+        };
+      };
+
       packages.aarch64-linux = {
         hedwig-iso = nixos-generators.nixosGenerate {
           system = "aarch64-linux";
@@ -243,6 +259,7 @@
           };
           format = "sd-aarch64-installer";
         };
+        oracle-iso = self.nixosConfigurations.oci-base.config.system.build.OCIImage;
       };
 
       nixosConfigurations.hedwig = nixpkgs-stable.lib.nixosSystem {
@@ -283,7 +300,7 @@
       };
 
       agenix-rekey = agenix-rekey.configure {
-        userFlake = self; 
+        userFlake = self;
         # Skip the minimal config since agenix will error because it is not configured for that host.
         nixosConfigurations = nixpkgs.lib.filterAttrs (
           name: _: name != "minimal-x86"

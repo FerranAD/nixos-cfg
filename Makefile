@@ -31,6 +31,9 @@ upgrade:
 hedwig-iso:
 	sudo nix build .#hedwig-iso --system aarch64-linux --impure
 
+oracle-iso:
+	sudo nix build .#oracle-iso --system aarch64-linux --impure
+
 iso-x86:
 	nixos-rebuild build-image --flake \?.submodules=1#minimal-x86 --image-variant iso-installer
 

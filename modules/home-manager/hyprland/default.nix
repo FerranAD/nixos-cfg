@@ -25,9 +25,6 @@
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   wayland.windowManager.hyprland = {
-    # plugins = with pkgs.hyprlandPlugins; [
-    # hyprexpo
-    # ];
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
@@ -114,16 +111,28 @@
 
       monitor = [ ",preferred,auto,auto" ];
 
-      windowRules = [
-        "windowrule = float on, match:class ^(Zotero)$, match:title ^(Progress)$"
-        "windowrule = float on, match:class udiskie, match:title udiskie"
-        "windowrule = float on, match:class codium, match:title Open File"
-        "windowrule = opacity 0.8, match:class alacritty-dropterm"
-        "windowrule = float on, match:class org.ksnip.ksnip"
-        "windowrule = size 30% 50%, match:class org.ksnip.ksnip"
-        "windowrule = float on, match:class clipse"
-        "windowrule = size 40% 40%, match:class clipse"
-        "windowrule = plugin:hyprbars:nobar, match:any true"
+      # windowRules = [
+      #   "windowrule = float on, match:class ^(Zotero)$, match:title ^(Progress)$"
+      #   "windowrule = float on, match:class udiskie, match:title udiskie"
+      #   "windowrule = float on, match:class codium, match:title Open File"
+      #   "windowrule = opacity 0.8, match:class alacritty-dropterm"
+      #   "windowrule = float on, match:class org.ksnip.ksnip"
+      #   "windowrule = size 30% 50%, match:class org.ksnip.ksnip"
+      #   "windowrule = float on, match:class clipse"
+      #   "windowrule = size 40% 40%, match:class clipse"
+      #   "windowrule = plugin:hyprbars:nobar, match:any true"
+      # ];
+
+      windowrulev2 = [
+        "float,class:^(Zotero)$,title:^(Progress)$"
+        "float, class:(udiskie), title:(udiskie)"
+        "float, class:(codium), title:(Open File)"
+        "opacity 0.8, class:(alacritty-dropterm)"
+        "float, class:(org.ksnip.ksnip)"
+        "size >30% >50%, class:(org.ksnip.ksnip)"
+        "float, class:(clipse)"
+        "size 40% 40%, class:(clipse)"
+        "plugin:hyprbars:nobar, floating:0"
       ];
 
       "$mod" = "SUPER";

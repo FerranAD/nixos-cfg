@@ -5,11 +5,15 @@
     ipc = "on";
     splash = false;
 
-    wallpaper = [
-      {
-        monitor = "";
-        path = "${../../images/wallpaper.jpg}";
-      }
-    ];
+    preload = [ "${../../images/wallpaper.jpg}" ];
+
+    wallpaper = [ ",${../../images/wallpaper.jpg}" ];
+
+    # wallpaper = [
+    #   {
+    #     monitor = "";
+    #     path = "${../../images/wallpaper.jpg}";
+    #   }
+    # ];
   };
 }

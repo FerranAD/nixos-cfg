@@ -13,6 +13,23 @@
     theme = "sddm-astronaut-theme";
   };
 
+  # services.displayManager = {
+  #   sessionPackages = [
+  #     (
+  #       (pkgs.writeTextDir "share/wayland-sessions/hyprland-nvidia.desktop" ''
+  #         [Desktop Entry]
+  #         Name=Hyprland (NVIDIA)
+  #         Comment=Hyprland completely running on NVIDIA
+  #         Exec=nvidia-offload start-hyprland
+  #         Type=Application
+  #       '').overrideAttrs
+  #       (_: {
+  #         passthru.providedSessions = [ "hyprland-nvidia" ];
+  #       })
+  #     )
+  #   ];
+  # };
+
   services.displayManager = {
     sessionPackages = [
       (
@@ -20,7 +37,7 @@
           [Desktop Entry]
           Name=Hyprland (NVIDIA)
           Comment=Hyprland completely running on NVIDIA
-          Exec=nvidia-offload start-hyprland
+          Exec=nvidia-offload ${pkgs.hyprland}/bin/Hyprland
           Type=Application
         '').overrideAttrs
         (_: {

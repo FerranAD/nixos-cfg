@@ -31,7 +31,7 @@
   home.username = "ferran";
   home.homeDirectory = "/home/ferran";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
     vesktop

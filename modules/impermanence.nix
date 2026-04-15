@@ -95,9 +95,11 @@
         ".local/share/uv"
         ".config/cat_installer" # eduroam
         ".config/VSCodium"
+        ".config/Code"
         ".config/vesktop"
         ".config/Signal"
         ".vscode-oss"
+        ".vscode"
         ".mozilla"
         ".thunderbird"
         ".local/share/direnv"
@@ -108,6 +110,7 @@
         ".local/share/zoxide"
         ".password-store"
         ".local/state/wireplumber"
+        ".local/share/PrismLauncher"
       ];
     };
   };
