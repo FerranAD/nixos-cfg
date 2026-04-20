@@ -63,6 +63,7 @@
       "github.copilot.enable" = {
         "*" = true;
         "markdown" = true;
+        "nextEditSuggestions.enabled" = true;
       };
       "keyboard.dispatch" = "keyCode";
       "editor.wordWrap" = "on";
