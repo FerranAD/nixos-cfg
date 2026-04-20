@@ -98,6 +98,7 @@
         ".config/Code"
         ".config/vesktop"
         ".config/Signal"
+        ".config/Slack"
         ".vscode-oss"
         ".vscode"
         ".mozilla"

@@ -47,6 +47,7 @@
     mpv
     htop
     prismlauncher
+    slack
   ];
 
   home-manager = {
