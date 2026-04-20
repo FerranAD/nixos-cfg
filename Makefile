@@ -45,6 +45,10 @@ dobby-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
 	nixos-rebuild --flake .?submodules=1#dobby --build-host root@dobby --target-host root@dobby switch;
 
+rowling-switch:
+	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
+	nixos-rebuild --flake .?submodules=1#rowling --build-host root@79.72.57.70 --target-host root@79.72.57.70 switch;
+
 dobby-install:
 # make dobby-install ip=<address>
 	sudo chown -R ferran:users /etc/nixos/agenix-*

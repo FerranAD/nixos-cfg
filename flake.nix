@@ -190,6 +190,27 @@
           ];
         };
 
+      nixosConfigurations.rowling =
+        let
+          system = "aarch64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/rowling/configuration.nix
+          ];
+        };
+
       nixosConfigurations.dobby =
         let
           system = "x86_64-linux";
@@ -301,9 +322,14 @@
 
       agenix-rekey = agenix-rekey.configure {
         userFlake = self;
-        # Skip the minimal config since agenix will error because it is not configured for that host.
+
+        # Skip hosts that either don't use agenix or are intentionally minimal/test builds.
         nixosConfigurations = nixpkgs.lib.filterAttrs (
-          name: _: name != "minimal-x86"
+          name: _:
+          !(builtins.elem name [
+            "minimal-x86"
+            "oci-base"
+          ])
         ) self.nixosConfigurations;
       };
     };
