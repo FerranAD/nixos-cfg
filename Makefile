@@ -47,7 +47,11 @@ dobby-switch:
 
 rowling-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
-	nixos-rebuild --flake .?submodules=1#rowling --build-host root@79.72.57.70 --target-host root@79.72.57.70 switch;
+	nixos-rebuild --flake .?submodules=1#rowling --build-host root@79.72.48.70 --target-host root@79.72.48.70 switch;
+
+rowling-switch-first-time:
+	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
+	nixos-rebuild --flake .?submodules=1#rowling --build-host root@79.72.48.70 --target-host root@79.72.48.70 switch --install-bootloader;
 
 dobby-install:
 # make dobby-install ip=<address>
