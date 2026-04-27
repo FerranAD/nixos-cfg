@@ -112,6 +112,7 @@
         ".password-store"
         ".local/state/wireplumber"
         ".local/share/PrismLauncher"
+        ".oci/"
       ];
     };
   };

@@ -47,8 +47,13 @@
     mpv
     htop
     prismlauncher
-    slack
   ];
+
+  # programs.nix-ld = {
+  #   enable = true;
+  #   libraries = with pkgs; [
+  #    ];
+  # };
 
   home-manager = {
     extraSpecialArgs = {
