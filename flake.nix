@@ -6,6 +6,7 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?rev=0726a0ecb6d4e08f6adced58726b95db924cef57";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     # home-manager.url = "github:nix-community/home-manager";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -88,7 +89,7 @@
     # Server
     nixarr = {
       url = "github:nix-media-server/nixarr";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nix-minecraft = {
@@ -108,6 +109,7 @@
       self,
       nixpkgs,
       nixpkgs-stable,
+      nixpkgs-unstable,
       agenix-rekey,
       nixarr,
       agenix,
@@ -215,9 +217,9 @@
         let
           system = "x86_64-linux";
         in
-        nixpkgs.lib.nixosSystem {
+        nixpkgs-unstable.lib.nixosSystem {
           inherit system;
-          pkgs = import nixpkgs {
+          pkgs = import nixpkgs-unstable {
             inherit system;
             overlays = [
               agenix-rekey.overlays.default
