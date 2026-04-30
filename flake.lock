@@ -64,15 +64,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1776873346,
-        "narHash": "sha256-cXFP+pv6p7m+mJzQDf4XRj71wWWLO+/pY91+dEvdk+A=",
+        "lastModified": 1776853481,
+        "narHash": "sha256-3BrnLtIJC7xdkJec3e0NPTcJ43Tiapl3zdEg8GZ7px4=",
         "owner": "nix-community",
         "repo": "autofirma-nix",
-        "rev": "4af550ddc854be1a47a52218f7d13f2d4739b11c",
+        "rev": "cc047cc101438dda5b1ab7a5fe7e28bf6f79bfce",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-25.11",
         "repo": "autofirma-nix",
         "type": "github"
       }
@@ -80,16 +81,16 @@
     "autofirma-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1747811913,
-        "narHash": "sha256-vk0I2wpaiwC5kY8R36i/1CLHGCtsl3scDcJ6qg1p50k=",
+        "lastModified": 1716805628,
+        "narHash": "sha256-GQyj3QuWIHTkYwdJ4oKVsG923YG9mCUXfhqdIvEWNMA=",
         "owner": "ctt-gob-es",
         "repo": "clienteafirma",
-        "rev": "1f29aa7a2aae8eda40a70fed79b0428153c78df8",
+        "rev": "f8888062394a4ca41c5802beb2524597a5ce465a",
         "type": "github"
       },
       "original": {
         "owner": "ctt-gob-es",
-        "ref": "v1.9",
+        "ref": "v1.8.3",
         "repo": "clienteafirma",
         "type": "github"
       }
@@ -118,16 +119,16 @@
     "clienteafirma-external-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1753702371,
-        "narHash": "sha256-3bXdZ6fQAId6nHqiJ60BDBhFI9cosN7jtI0soggcO9Q=",
+        "lastModified": 1712248159,
+        "narHash": "sha256-iS3I6zIxuKG133s/FqDlXZzOZ2ZOJcqZK9X6Tv3+3lc=",
         "owner": "ctt-gob-es",
         "repo": "clienteafirma-external",
-        "rev": "d3792cc3816906da7fff652f9bd122f84b29b5c7",
+        "rev": "f450ac76094ffe387f6590b9ac61b5ada5a501e7",
         "type": "github"
       },
       "original": {
         "owner": "ctt-gob-es",
-        "ref": "v1.0.6",
+        "ref": "OT_14395",
         "repo": "clienteafirma-external",
         "type": "github"
       }
@@ -373,15 +374,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1776777932,
-        "narHash": "sha256-0R3Yow/NzSeVGUke5tL7CCkqmss4Vmi6BbV6idHzq/8=",
+        "lastModified": 1775425411,
+        "narHash": "sha256-KY6HsebJHEe5nHOWP7ur09mb0drGxYSzE3rQxy62rJo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5d5640599a0050b994330328b9fd45709c909720",
+        "rev": "0d02ec1d0a05f88ef9e74b516842900c41f0f2fe",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -495,16 +497,16 @@
     "jmulticard-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1753703143,
-        "narHash": "sha256-XHX9MwWQe9BIjEfrrquU9gtzx3x6leGBhWjMPmVtALE=",
+        "lastModified": 1686816513,
+        "narHash": "sha256-sCqMK4FvwRHsGIB6iQVyqrx0+EDiUfQSAsPqmDq2Giw=",
         "owner": "ctt-gob-es",
         "repo": "jmulticard",
-        "rev": "2550e7eab43b9089673d0989959894846425f499",
+        "rev": "9983fc690f3b68dc2c8fde19db269766cf0fb387",
         "type": "github"
       },
       "original": {
         "owner": "ctt-gob-es",
-        "ref": "v2.0",
+        "ref": "v1.8",
         "repo": "jmulticard",
         "type": "github"
       }
@@ -655,16 +657,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1775423009,
-        "narHash": "sha256-vPKLpjhIVWdDrfiUM8atW6YkIggCEKdSAlJPzzhkQlw=",
+        "lastModified": 1775002709,
+        "narHash": "sha256-d3Yx83vSrN+2z/loBh4mJpyRqr9aAJqlke4TkpFmRJA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
+        "rev": "bcd464ccd2a1a7cd09aa2f8d4ffba83b761b1d0e",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }

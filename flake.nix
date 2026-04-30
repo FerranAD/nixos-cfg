@@ -50,17 +50,6 @@
     };
 
     # Desktop
-    # hyprland = {
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   url = "github:hyprwm/hyprland";
-    # };
-
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     pyprland = {
       url = "github:hyprland-community/pyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,7 +71,7 @@
     };
 
     autofirma-nix = {
-      url = "github:nix-community/autofirma-nix";
+      url = "github:nix-community/autofirma-nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -213,27 +202,6 @@
           ];
         };
 
-      nixosConfigurations.dobby =
-        let
-          system = "x86_64-linux";
-        in
-        nixpkgs-unstable.lib.nixosSystem {
-          inherit system;
-          pkgs = import nixpkgs-unstable {
-            inherit system;
-            overlays = [
-              agenix-rekey.overlays.default
-            ];
-            config.allowUnfree = true;
-          };
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./hosts/dobby/configuration.nix
-          ];
-        };
-
       nixosConfigurations.dobby-install =
         let
           system = "x86_64-linux";
@@ -257,6 +225,74 @@
                 "${/etc/nixos/agenix-dobby}"
               ];
             }
+          ];
+        };
+
+      nixosConfigurations.dobby =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs-unstable.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs-unstable {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/dobby/configuration.nix
+          ];
+        };
+
+      nixosConfigurations.rubeus-install =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/rubeus/configuration.nix
+            {
+              age.identityPaths = nixpkgs.lib.mkForce [
+                "${/etc/nixos/agenix-rubeus}"
+              ];
+            }
+          ];
+        };
+
+      nixosConfigurations.rubeus =
+        let
+          system = "x86_64-linux";
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              agenix-rekey.overlays.default
+            ];
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/rubeus/configuration.nix
           ];
         };
 
