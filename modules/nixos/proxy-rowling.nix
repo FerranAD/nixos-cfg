@@ -68,10 +68,21 @@
           service = "glances";
           tls.certResolver = "letsencrypt";
         };
+
+        vikunja = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`vikunja-xikibby.oracle.aranferran.com`)";
+          service = "vikunja";
+          tls.certResolver = "letsencrypt";
+        };
+
       };
       http.services = {
         glances.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.glances.port}"; }
+        ];
+        vikunja.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.vikunja.port}"; }
         ];
       };
     };
