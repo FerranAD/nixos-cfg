@@ -151,6 +151,13 @@
           service = "ollama";
           tls.certResolver = "letsencrypt";
         };
+
+        trilium = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`trilium.aranferran.com`)";
+          service = "trilium";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -188,6 +195,9 @@
         ];
         ollama.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.ollama.port}"; }
+        ];
+        trilium.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.trilium-server.port}"; }
         ];
       };
     };

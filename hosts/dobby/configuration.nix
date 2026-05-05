@@ -16,6 +16,7 @@
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/dashboard.nix
     ../../modules/nixos/openssh.nix
+    ../../modules/nixos/trilium.nix
     ../../modules/nixos/immich.nix
     ../../modules/nixos/ollama.nix
     ../../modules/nixos/nixarr.nix

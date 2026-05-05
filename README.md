@@ -1,20 +1,17 @@
 ## Hostnames
 
-🪄 MSI laptop -> albus
+🪄 Main laptop (MSI with NVIDIA 1660ti)-> albus
 
 🦉 Home server (RPI4) -> hedwig
 
+🧦 Home server (Asus NUC) -> dobby
+
 🤡 Macbook laptop -> draco
 
-🗿 Slow server with lots of storage -> rubeus
+🗿 Slow storage server -> rubeus
 
+💰 Oracle cloud server -> rowling
 
-## TODO
-
-- [ ] Garbage collect to remove first nixos build and btrfs snapshot with agenix keys on the nix store
-- [ ] Refactor so modules are togglable options
-- [ ] Move thunderbird config from dotfiles to home-manager
-- [ ] Fix python
 
 ## Clone
 
