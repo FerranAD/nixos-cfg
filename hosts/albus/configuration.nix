@@ -23,6 +23,7 @@
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/docker.nix
+    ../../modules/nixos/dnie.nix
     ../../modules/nixos/yubikey
 
     #Desktop
@@ -74,6 +75,7 @@
 
   services.printing.enable = true;
   services.gvfs.enable = true;
+  services.pcscd.enable = true;
 
   programs.zsh.enable = true;
   programs.zsh.setOptions = [
