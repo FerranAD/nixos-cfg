@@ -17,6 +17,7 @@
     ../../modules/nixos/dashboard.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/trilium.nix
+    ../../modules/nixos/shiori.nix
     ../../modules/nixos/immich.nix
     ../../modules/nixos/ollama.nix
     ../../modules/nixos/nixarr.nix

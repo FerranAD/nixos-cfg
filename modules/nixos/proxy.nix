@@ -158,6 +158,13 @@
           service = "trilium";
           tls.certResolver = "letsencrypt";
         };
+
+        shiori = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`shiori.aranferran.com`)";
+          service = "shiori";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -198,6 +205,9 @@
         ];
         trilium.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.trilium-server.port}"; }
+        ];
+        shiori.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.shiori.port}"; }
         ];
       };
     };

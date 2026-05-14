@@ -75,7 +75,6 @@
 
   services.printing.enable = true;
   services.gvfs.enable = true;
-  services.pcscd.enable = true;
 
   programs.zsh.enable = true;
   programs.zsh.setOptions = [
