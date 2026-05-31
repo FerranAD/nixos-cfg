@@ -44,4 +44,22 @@
       };
     };
   };
+
+  home.file.".ideavimrc".text = ''
+    " ~/.ideavimrc
+
+    " Leader key
+    let mapleader = " "
+
+    " Clipboard
+    set clipboard+=unnamedplus
+
+    " Optional useful IdeaVim defaults
+    set scrolloff=5
+    set incsearch
+
+    " Telescope-like mappings using JetBrains IDE actions
+    map <leader>f <Action>(GotoFile)
+    map <leader>ff <Action>(FindInPath)
+  '';
 }

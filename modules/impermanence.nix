@@ -113,6 +113,10 @@
         ".local/state/wireplumber"
         ".local/share/PrismLauncher"
         ".oci/"
+        ".config/JetBrains"
+        ".cache/JetBrains"
+        ".local/share/JetBrains"
+        ".config/github-copilot"
       ];
     };
   };

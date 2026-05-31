@@ -2,8 +2,17 @@
   inputs,
   pkgs,
   nurPkgs,
+  config,
   ...
 }:
+let
+  pkgsUnstable = import inputs.nixpkgs-unstable-latest {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config = config.nixpkgs.config // {
+      allowUnfree = true;
+    };
+  };
+in
 {
   imports = [
     inputs.home-manager.nixosModules.default
@@ -35,26 +44,30 @@
     ../../modules/catppuccin.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    gnumake
-    agenix-rekey
-    nwg-displays
-    nixos-anywhere
-    texliveFull
-    signal-desktop
-    onlyoffice-desktopeditors
-    mpv
-    htop
-    prismlauncher
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      wget
+      git
+      gnumake
+      agenix-rekey
+      nwg-displays
+      nixos-anywhere
+      texliveFull
+      signal-desktop
+      onlyoffice-desktopeditors
+      mpv
+      htop
+      prismlauncher
+      uv
+      zip
+      unzip
+      codex
+    ])
+    ++ [
+      pkgsUnstable.jetbrains.pycharm
+    ];
 
-  # programs.nix-ld = {
-  #   enable = true;
-  #   libraries = with pkgs; [
-  #    ];
-  # };
+  programs.wireshark.enable = true;
 
   home-manager = {
     extraSpecialArgs = {

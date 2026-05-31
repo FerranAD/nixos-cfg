@@ -7,6 +7,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?rev=0726a0ecb6d4e08f6adced58726b95db924cef57";
+    nixpkgs-unstable-latest.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     # home-manager.url = "github:nix-community/home-manager";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -99,6 +100,7 @@
       nixpkgs,
       nixpkgs-stable,
       nixpkgs-unstable,
+      nixpkgs-unstable-latest,
       agenix-rekey,
       nixarr,
       agenix,
