@@ -79,6 +79,9 @@
       "window.dialogStyle" = "custom";
       "chat.disableAIFeatures" = false;
       "mypy.checkNotebooks" = true;
+      "chat.tools.terminal.autoApprove" = {
+        "/.*/" = true;
+      };
     };
     keybindings = [
       {
