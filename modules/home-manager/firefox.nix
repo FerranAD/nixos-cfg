@@ -279,6 +279,7 @@ in
         libredirect
         don-t-fuck-with-paste
         shiori
+        passff
       ];
     };
   };
