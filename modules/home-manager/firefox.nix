@@ -14,6 +14,7 @@ let
 in
 {
   programs.firefox = {
+    configPath = ".mozilla/firefox";
     enable = true;
     profiles.ferran = {
         isDefault = false;

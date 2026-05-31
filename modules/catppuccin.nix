@@ -26,6 +26,8 @@ in
         catppuccin.zsh-syntax-highlighting.enable = false;
         # Causes high CPU usage, see https://github.com/catppuccin/hyprlock/issues/20
         catppuccin.hyprlock.enable = false;
+        # Current Hyprland config parser in this setup rejects catppuccin's lua colors block.
+        catppuccin.hyprland.enable = false;
       };
     }
   ];

@@ -45,7 +45,7 @@ in
   ];
 
   environment.systemPackages =
-    (with pkgs; [
+    with pkgs; [
       wget
       git
       gnumake
@@ -62,9 +62,7 @@ in
       zip
       unzip
       codex
-    ])
-    ++ [
-      pkgsUnstable.jetbrains.pycharm
+      jetbrains.pycharm
     ];
 
   programs.wireshark.enable = true;

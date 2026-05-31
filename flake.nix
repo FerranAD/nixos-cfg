@@ -3,15 +3,14 @@
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs?rev=0726a0ecb6d4e08f6adced58726b95db924cef57";
-    nixpkgs-unstable-latest.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    # home-manager.url = "github:nix-community/home-manager";
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
-    home-manager-stable.url = "github:nix-community/home-manager/release-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
+
+    nixos-hardware = {
+        url = "github:nixos/nixos-hardware";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nur = {
       url = "github:nix-community/NUR";
@@ -23,7 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # impermanence.url = "github:nix-community/impermanence?rev=4a07d84eaaac3d8cfd26a5f7a3da8161df0e75cd";
     impermanence.url = "github:nix-community/impermanence";
 
     # Secrets
@@ -57,8 +55,7 @@
     };
 
     catppuccin = {
-      url = "github:catppuccin/nix?ref=release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:catppuccin/nix?ref=release-26.05";
     };
 
     spicetify-nix = {
@@ -67,19 +64,17 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim?ref=nixos-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim?ref=nixos-26.05";
     };
 
     autofirma-nix = {
       url = "github:nix-community/autofirma-nix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Server
     nixarr = {
       url = "github:nix-media-server/nixarr";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-minecraft = {
@@ -98,9 +93,7 @@
     {
       self,
       nixpkgs,
-      nixpkgs-stable,
       nixpkgs-unstable,
-      nixpkgs-unstable-latest,
       agenix-rekey,
       nixarr,
       agenix,
@@ -234,9 +227,9 @@
         let
           system = "x86_64-linux";
         in
-        nixpkgs-unstable.lib.nixosSystem {
+        nixpkgs.lib.nixosSystem {
           inherit system;
-          pkgs = import nixpkgs-unstable {
+          pkgs = import nixpkgs {
             inherit system;
             overlays = [
               agenix-rekey.overlays.default
@@ -323,9 +316,9 @@
         oracle-iso = self.nixosConfigurations.oci-base.config.system.build.OCIImage;
       };
 
-      nixosConfigurations.hedwig = nixpkgs-stable.lib.nixosSystem {
+      nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        pkgs = import nixpkgs-stable {
+        pkgs = import nixpkgs {
           system = "aarch64-linux";
           overlays = [
             agenix-rekey.overlays.default
