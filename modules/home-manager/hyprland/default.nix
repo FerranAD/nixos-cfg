@@ -59,7 +59,6 @@
         shadow = {
           enabled = true;
           color = "rgba(00000055)";
-          ignore_window = true;
           offset = "0 15";
           range = 100;
           render_power = 2;
@@ -112,16 +111,15 @@
 
       monitor = [ ",preferred,auto,auto" ];
 
-      windowrulev2 = [
-        "float,class:^(Zotero)$,title:^(Progress)$"
-        "float,class:^udiskie$,title:^udiskie$"
-        "float,class:^codium$,title:^Open File$"
-        "opacity 0.8 0.8,class:^alacritty-dropterm$"
-        "float,class:^org\\.ksnip\\.ksnip$"
-        "size 30% 50%,class:^org\\.ksnip\\.ksnip$"
-        "float,class:^clipse$"
-        "size 40% 40%,class:^clipse$"
-        "plugin:hyprbars:nobar,class:.*"
+      windowrule = [
+        "match:class ^(Zotero)$, match:title ^(Progress)$, float on"
+        "match:class ^udiskie$, match:title ^udiskie$, float on"
+        "match:class ^codium$, match:title ^Open File$, float on"
+        "match:class ^alacritty-dropterm$, opacity 0.8 0.8"
+        "match:class ^org\\.ksnip\\.ksnip$, float on"
+        "match:class ^org\\.ksnip\\.ksnip$, size 30% 50%"
+        "match:class ^clipse$, float on"
+        "match:class ^clipse$, size 40% 40%"
       ];
 
       "$mod" = "SUPER";
