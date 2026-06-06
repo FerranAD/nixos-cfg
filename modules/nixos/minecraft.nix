@@ -59,8 +59,8 @@
             name = "AuthMeReloaded.jar";
           };
           "plugins/LuckPerms.jar" = builtins.fetchurl {
-            url = "https://download.luckperms.net/1631/bukkit/loader/LuckPerms-Bukkit-5.5.42.jar";
-            sha256 = "0d7rmgmb1crwbrizn0p7gdbf6x420mdx00g6k6sf6qs6a60h7bnx";
+            url = "https://download.luckperms.net/1643/bukkit/loader/LuckPerms-Bukkit-5.5.55.jar";
+            sha256 = "1flfzhlacimrazj0j0b5jqcsd18lx726xc1shs8186jjgg4955x9";
             name = "LuckPerms.jar";
           };
           "plugins/SimpleWhitelist.jar" = builtins.fetchurl {

@@ -11,8 +11,6 @@
     config.age.secrets."porkbun-traefik.env".path
   ];
 
-  services.glances.enable = true;
-
   services.traefik = {
     enable = true;
 
@@ -62,13 +60,6 @@
           tls.certResolver = "letsencrypt";
         };
 
-        glances = {
-          entryPoints = [ "websecure" ];
-          rule = "Host(`glances.oracle.aranferran.com`)";
-          service = "glances";
-          tls.certResolver = "letsencrypt";
-        };
-
         vikunja = {
           entryPoints = [ "websecure" ];
           rule = "Host(`vikunja-xikibby.oracle.aranferran.com`)";
@@ -76,13 +67,20 @@
           tls.certResolver = "letsencrypt";
         };
 
+        nextcloud = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`cloud.oracle.aranferran.com`)";
+          service = "nextcloud";
+          tls.certResolver = "letsencrypt";
+        };
+
       };
       http.services = {
-        glances.loadBalancer.servers = [
-          { url = "http://localhost:${toString config.services.glances.port}"; }
-        ];
         vikunja.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.vikunja.port}"; }
+        ];
+        nextctloud.loadBalancer.servers = [
+          { url = "http://localhost:8880"; }
         ];
       };
     };

@@ -13,6 +13,7 @@
     ../../modules/nixos/proxy-rowling.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/minecraft.nix
+    ../../modules/nixos/nextcloud.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/vikunja.nix
     ../../modules/nixos/locale.nix
