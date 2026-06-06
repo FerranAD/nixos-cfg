@@ -117,6 +117,7 @@
         ".cache/JetBrains"
         ".local/share/JetBrains"
         ".config/github-copilot"
+        ".codex"
       ];
     };
   };

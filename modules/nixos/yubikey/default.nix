@@ -26,7 +26,7 @@
     age-plugin-yubikey
     (pkgs.callPackage ./icon/icon.nix { })
   ];
-  environment.shellInit = ''
+  environment.interactiveShellInit = ''
     gpg-connect-agent /bye
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   '';
