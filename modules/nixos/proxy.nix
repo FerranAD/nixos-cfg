@@ -165,6 +165,13 @@
           service = "shiori";
           tls.certResolver = "letsencrypt";
         };
+
+        freemarg = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`freemarg.aranferran.com`)";
+          service = "freemarg";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -208,6 +215,9 @@
         ];
         shiori.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.shiori.port}"; }
+        ];
+        freemarg.loadBalancer.servers = [
+          { url = "http://localhost:8881"; }
         ];
       };
     };

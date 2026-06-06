@@ -15,6 +15,7 @@
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/dashboard.nix
+    ../../modules/nixos/freemarg.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/trilium.nix
     ../../modules/nixos/shiori.nix
@@ -26,6 +27,9 @@
   ];
 
   virtualisation.containers.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.oci-containers.backend = "docker";
+
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.intel
