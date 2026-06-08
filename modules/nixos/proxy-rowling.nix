@@ -74,6 +74,13 @@
           tls.certResolver = "letsencrypt";
         };
 
+        privatebin = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`privatebin.oracle.aranferran.com`)";
+          service = "privatebin";
+          tls.certResolver = "letsencrypt";
+        };
+
       };
       http.services = {
         vikunja.loadBalancer.servers = [
@@ -81,6 +88,9 @@
         ];
         nextcloud.loadBalancer.servers = [
           { url = "http://localhost:8880"; }
+        ];
+        privatebin.loadBalancer.servers = [
+          { url = "http://localhost:8881"; }
         ];
       };
     };

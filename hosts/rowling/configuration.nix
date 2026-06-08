@@ -12,6 +12,7 @@
     ../../modules/nixos/boot/rowling-boot.nix
     ../../modules/nixos/proxy-rowling.nix
     ../../modules/nixos/nix-settings.nix
+    ../../modules/nixos/privatebin.nix
     ../../modules/nixos/minecraft.nix
     ../../modules/nixos/nextcloud.nix
     ../../modules/nixos/openssh.nix
