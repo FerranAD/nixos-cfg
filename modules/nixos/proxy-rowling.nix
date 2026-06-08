@@ -79,7 +79,7 @@
         vikunja.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.vikunja.port}"; }
         ];
-        nextctloud.loadBalancer.servers = [
+        nextcloud.loadBalancer.servers = [
           { url = "http://localhost:8880"; }
         ];
       };

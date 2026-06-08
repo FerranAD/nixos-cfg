@@ -28,6 +28,14 @@
         # List of apps we want to install and are already packaged in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
         inherit notes tasks;
+        # Spreed = Nextcloud Talk
+        spreed = pkgs.fetchNextcloudApp {
+          appName = "spreed";
+          appVersion = "23.0.6";
+          url = "https://github.com/nextcloud-releases/spreed/releases/download/v23.0.6/spreed-v23.0.6.tar.gz";
+          hash = "sha256-D/S4OCkpWm9DqGZlTSfWGnVIsAWfcdlFX8mCQ6M6qjk=";
+          license = "agpl3Plus";
+        };
       };
 
       config = {
