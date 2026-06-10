@@ -14,6 +14,7 @@ let
 in
 {
   programs.firefox = {
+    nativeMessagingHosts = [ pkgs.passff-host ];
     configPath = ".mozilla/firefox";
     enable = true;
     profiles.ferran = {

@@ -63,7 +63,6 @@ in
       unzip
       codex
       jetbrains.pycharm
-      passff-host
     ];
 
   programs.wireshark.enable = true;
