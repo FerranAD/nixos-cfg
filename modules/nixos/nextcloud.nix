@@ -27,7 +27,7 @@
       extraApps = with config.services.nextcloud.package.packages.apps; {
         # List of apps we want to install and are already packaged in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-        inherit notes tasks;
+        inherit notes tasks collectives;
         # Spreed = Nextcloud Talk
         spreed = pkgs.fetchNextcloudApp {
           appName = "spreed";
