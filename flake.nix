@@ -201,9 +201,9 @@
         let
           system = "x86_64-linux";
         in
-        nixpkgs.lib.nixosSystem {
+        nixpkgs-unstable.lib.nixosSystem {
           inherit system;
-          pkgs = import nixpkgs {
+          pkgs = import nixpkgs-unstable {
             inherit system;
             overlays = [
               agenix-rekey.overlays.default
@@ -216,7 +216,7 @@
           modules = [
             ./hosts/dobby/configuration.nix
             {
-              age.identityPaths = nixpkgs.lib.mkForce [
+              age.identityPaths = nixpkgs-unstable.lib.mkForce [
                 "${/etc/nixos/agenix-dobby}"
               ];
             }
@@ -227,9 +227,9 @@
         let
           system = "x86_64-linux";
         in
-        nixpkgs.lib.nixosSystem {
+        nixpkgs-unstable.lib.nixosSystem {
           inherit system;
-          pkgs = import nixpkgs {
+          pkgs = import nixpkgs-unstable {
             inherit system;
             overlays = [
               agenix-rekey.overlays.default
