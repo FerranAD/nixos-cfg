@@ -63,9 +63,12 @@ in
       unzip
       codex
       jetbrains.pycharm
+      vlc
+      brave
     ];
 
   programs.wireshark.enable = true;
+  programs.java.enable = true;
 
   home-manager = {
     extraSpecialArgs = {

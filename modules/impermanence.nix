@@ -22,8 +22,14 @@
 
       if [[ -e /btrfs_tmp/root ]]; then
         mkdir -p /btrfs_tmp/old_roots
-        timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
-        mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
+        timestamp=$(date "+%Y-%m-%d_%H:%M:%S")
+        old_root="/btrfs_tmp/old_roots/$timestamp"
+        suffix=0
+        while [[ -e "$old_root" ]]; do
+          suffix=$((suffix + 1))
+          old_root="/btrfs_tmp/old_roots/$timestamp-$suffix"
+        done
+        mv /btrfs_tmp/root "$old_root"
       fi
 
       delete_subvolume_recursively() {
@@ -35,7 +41,7 @@
       }
 
       if [[ -d /btrfs_tmp/old_roots ]]; then
-        for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+        for i in $(find /btrfs_tmp/old_roots/ -mindepth 1 -maxdepth 1 -mtime +30); do
           delete_subvolume_recursively "$i"
         done
       fi
@@ -102,6 +108,7 @@
         ".vscode-oss"
         ".vscode"
         ".mozilla"
+        ".config/BraveSoftware/Brave-Browser/"
         ".thunderbird"
         ".local/share/direnv"
         "VirtualBox VMs"
