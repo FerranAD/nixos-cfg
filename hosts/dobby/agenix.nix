@@ -22,6 +22,7 @@ in
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
     secrets."shiori.env".rekeyFile = ../../secrets/shiori.env.age;
     secrets."airvpn-dobby-wg.conf".rekeyFile = ../../secrets/airvpn-dobby-wg.conf.age;
+    secrets."homepage-dashboard.env".rekeyFile = ../../secrets/homepage-dashboard.env.age;
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

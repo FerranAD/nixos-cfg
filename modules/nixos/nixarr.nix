@@ -4,7 +4,11 @@
     inputs.nixarr.nixosModules.default
   ];
   services.transmission.settings = {
-    rpc-host-whitelist = lib.strings.concatStringsSep "," [ "transmission.aranferran.com" ];
+    rpc-host-whitelist = lib.strings.concatStringsSep "," [
+      "transmission.aranferran.com"
+      "127.0.0.1"
+      "localhost"
+    ];
   };
   services.flaresolverr.enable = true;
 

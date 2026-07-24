@@ -22,6 +22,13 @@ in
         id = 1234;
         extensions.force = true;
     };
+
+    policies.Homepage = {
+      URL = "https://home.aranferran.com";
+      StartPage = "homepage";
+      Locked = false;
+    };
+
     profiles.default =  {
       userChrome = ''
                 /*
