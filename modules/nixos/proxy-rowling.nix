@@ -1,4 +1,8 @@
 { config, ... }:
+let
+  xrayDomain = "xray.oracle.aranferran.com";
+  xrayPort = 10000;
+in
 {
   # Based on https://aottr.dev/posts/2025/05/homelab-setting-up-traefik-reverse-proxy-with-ssl-on-nixos/#setting-up-traefik-on-nixos
 
@@ -93,6 +97,17 @@
           { url = "http://localhost:8881"; }
         ];
       };
+
+      tcp.routers.xray = {
+        entryPoints = [ "websecure" ];
+        rule = "HostSNI(`${xrayDomain}`)";
+        service = "xray";
+        tls.passthrough = true;
+      };
+
+      tcp.services.xray.loadBalancer.servers = [
+        { address = "127.0.0.1:${toString xrayPort}"; }
+      ];
     };
   };
 }
