@@ -50,7 +50,7 @@ dobby-switch:
 
 rubeus-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
-	nixos-rebuild --flake .?submodules=1#rubeus --build-host root@172.16.106.100 --target-host root@172.16.106.100 switch;
+	nixos-rebuild --flake .?submodules=1#rubeus --build-host root@rubeus --target-host root@rubeus switch;
 
 rowling-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \

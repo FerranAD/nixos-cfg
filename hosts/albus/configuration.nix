@@ -26,6 +26,7 @@ in
     ../../modules/nixos/tailscale/client.nix
     ../../modules/nixos/boot/albus-boot.nix
     ../../modules/nixos/power-settings.nix
+    ../../modules/nixos/backups-client.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/openssh.nix
     ../../modules/impermanence.nix

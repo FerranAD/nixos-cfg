@@ -12,6 +12,7 @@
     ../../modules/nixos/users/server-users.nix
     ../../modules/nixos/boot/rubeus-boot.nix
     ../../modules/nixos/tailscale/client.nix
+    ../../modules/nixos/backups-server.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/locale.nix
