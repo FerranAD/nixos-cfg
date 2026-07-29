@@ -10,6 +10,12 @@
       luks.fido2Support = false; # We let systemd-cryptenroll handle fido2
     };
     kernelPackages = pkgs.linuxPackages_6_18;
+    extraModprobeConfig = ''
+      # MSI GF75 Thin 9SD exposes NVIDIA HDMI as the first HDA controller and
+      # Realtek ALC233 analog audio as the second. Force the Realtek headset
+      # routing quirk so the headphone/speaker amp is initialized correctly.
+      options snd-hda-intel model=auto,headset-mode
+    '';
     plymouth.enable = true;
     kernelParams = [
       "nvidia-drm.fbdev=1"
