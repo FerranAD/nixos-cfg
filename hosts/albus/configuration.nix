@@ -21,12 +21,12 @@ in
     ./agenix.nix
     ./disko.nix
 
+    ../../modules/nixos/backups/backups-client-albus.nix
     ../../modules/nixos/network/albus-network.nix
     ../../modules/nixos/users/albus-users.nix
     ../../modules/nixos/tailscale/client.nix
     ../../modules/nixos/boot/albus-boot.nix
     ../../modules/nixos/power-settings.nix
-    ../../modules/nixos/backups-client.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/openssh.nix
     ../../modules/impermanence.nix

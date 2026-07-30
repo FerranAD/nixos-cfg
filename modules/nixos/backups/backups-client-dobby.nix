@@ -4,11 +4,9 @@
   ...
 }:
 {
-  services.borgbackup.jobs.laptop = {
+  services.borgbackup.jobs.dobby = {
     paths = [
-      # "/home/ferran/data"
-      # "/home/ferran/projects"
-      "/home/ferran/test"
+      "/data/test"
     ];
 
     exclude = [
@@ -36,7 +34,7 @@
       passCommand = "cat ${config.age.secrets.borgbackups-passkey.path}";
     };
 
-    environment.BORG_RSH = "${pkgs.openssh}/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null -i ${config.age.secrets.borgbackups-albus-key.path}";
+    environment.BORG_RSH = "${pkgs.openssh}/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null -i ${config.age.secrets.borgbackups-dobby-key.path}";
 
     compression = "auto,zstd";
 

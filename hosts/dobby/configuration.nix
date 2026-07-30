@@ -8,6 +8,7 @@
     ./disko.nix
     ./agenix.nix
 
+    ../../modules/nixos/backups/backups-client-dobby.nix
     ../../modules/nixos/network/dobby-network.nix
     ../../modules/nixos/tailscale/exit-node.nix
     ../../modules/nixos/users/server-users.nix
