@@ -172,6 +172,13 @@
           service = "freemarg";
           tls.certResolver = "letsencrypt";
         };
+
+        borg-status = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`backups.rubeus.aranferran.com`)";
+          service = "borg-status";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -218,6 +225,9 @@
         ];
         freemarg.loadBalancer.servers = [
           { url = "http://localhost:8881"; }
+        ];
+        borg-status.loadBalancer.servers = [
+          { url = "http://rubeus:8090"; }
         ];
       };
     };

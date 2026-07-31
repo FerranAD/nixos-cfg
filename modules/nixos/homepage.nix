@@ -420,6 +420,15 @@ in
               siteMonitor = "http://127.0.0.1:${toString config.services.glances.port}";
             };
           }
+          {
+            "Rubeus Backups" = {
+              id = "dobby-rubeus-backups";
+              icon = "mdi-backup-restore";
+              href = "https://backups.rubeus.aranferran.com";
+              description = "Borg repository health for Rubeus";
+              siteMonitor = "https://backups.rubeus.aranferran.com/api/status";
+            };
+          }
         ];
       }
     ];
