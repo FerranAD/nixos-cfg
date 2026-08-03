@@ -36,6 +36,16 @@
 
     environment.BORG_RSH = "${pkgs.openssh}/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null -i ${config.age.secrets.borgbackups-dobby-key.path}";
 
+    extraCreateArgs = [
+      "--verbose"
+      "--stats"
+      "--checkpoint-interval 600" # Every 10 minutes creates a checkpoint so backups can be interrupted and don't have to start all over again.
+    ];
+
+    extraPruneArgs = [
+      "--stats"
+    ];
+
     compression = "auto,zstd";
 
     startAt = "daily";
