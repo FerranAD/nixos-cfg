@@ -61,28 +61,88 @@ sudo chown -R root:root /etc/nixos/agenix-*
 sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+2+7 --wipe-slot=tpm2 /dev/nvme0n1p3
 ```
 
-## Rsync backup
+## Clean nix store after install
+
+The first nix generation left host agenix keys on the store, we want to remove that generation. To do so:
+
+List the available generations:
+
+```bash
+sudo nix-env \
+  --profile /nix/var/nix/profiles/system \
+  --list-generations
+```
+
+Delete a specific generation, for example generation 1:
+
+```bash
+sudo nix-env \
+  --profile /nix/var/nix/profiles/system \
+  --delete-generations 1
+```
+
+Optionally remove unreferenced store paths and reclaim disk space:
+
+```bash
+sudo nix-collect-garbage
+```
+
+## Borg backups
+
+Client jobs are named after the host, for example `albus` and `dobby`. The NixOS
+module also installs matching Borg wrappers, so client-side Borg commands can use
+`sudo borg-job-albus ...` or `sudo borg-job-dobby ...` without manually passing
+the repo, passphrase command, or SSH key.
+
+### Client commands
+
+Trigger a backup now:
 
 ```sh
-sudo rsync -aAXHv --progress --ignore-missing-args \
-  --include='/var/lib/bluetooth/***' \
-  --include='/etc/NetworkManager/system-connections/***' \
-  --include='/etc/nixos/***' \
-  --include='/home/ferran/nixos-cfg/***' \
-  --include='/home/ferran/.ssh/***' \
-  --include='/home/ferran/.local/share/keyrings/***' \
-  --include='/home/ferran/.config/cat_installer/***' \
-  --include='/home/ferran/.config/VSCodium/***' \
-  --include='/home/ferran/.config/vesktop/***' \
-  --include='/home/ferran/.vscode-oss/***' \
-  --include='/home/ferran/.mozilla/***' \
-  --include='/home/ferran/.thunderbird/***' \
-  --include='/home/ferran/Zotero/***' \
-  --include='/home/ferran/.zotero/***' \
-  --include='/home/ferran/.zsh/***' \
-  --include='/home/ferran/.local/share/zoxide/***' \
-  --include='/home/ferran/.password-store/***' \
-  --include='/home/ferran/.local/state/wireplumber/default-routes/***' \
-  --exclude='*' \
-  /mnt/ /
+sudo systemctl start borgbackup-job-albus.service
+```
+
+Watch the current or latest run:
+
+```sh
+journalctl -u borgbackup-job-albus.service -f -o cat
+systemctl status borgbackup-job-albus.service
+```
+
+Check when the timer will run next:
+
+```sh
+systemctl list-timers 'borgbackup-job-*'
+```
+
+List archives from a client:
+
+```sh
+sudo borg-job-albus list
+```
+
+Show the contents of an archive:
+
+```sh
+sudo borg-job-albus list ::albus-albus-YYYY-MM-DDTHH:MM:SS
+```
+
+Check the remote repository from a client:
+
+```sh
+sudo borg-job-albus check --repository-only
+```
+
+Mount an archive for browsing:
+
+```sh
+mkdir -p /tmp/borg-restore
+sudo borg-job-albus mount ::albus-albus-YYYY-MM-DDTHH:MM:SS /tmp/borg-restore
+sudo borg-job-albus umount /tmp/borg-restore
+```
+
+Extract a path from an archive into the current directory:
+
+```sh
+sudo borg-job-albus extract ::albus-albus-YYYY-MM-DDTHH:MM:SS home/ferran/path/to/file
 ```
