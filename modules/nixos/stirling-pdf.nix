@@ -13,7 +13,6 @@
       SECURITY_INITIALLOGIN_PASSWORD = "changeme123";
       STORAGE_ENABLED=true;
       STORAGE_PROVIDER="local";
-      STORAGE_LOCAL_BASEPATH = "/data/stirling-pdf";
     };
   };
 }
