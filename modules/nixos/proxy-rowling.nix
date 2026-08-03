@@ -112,6 +112,7 @@ in
 
       http.middlewares."traefik-auth".basicAuth.usersFile =
         config.age.secrets."traefik-dashboard-users".path;
+
     };
   };
 }

@@ -18,7 +18,11 @@ in
     secrets.user-password.rekeyFile = ../../secrets/user-password.age;
     secrets.nextcloud-admin-pass.rekeyFile = ../../secrets/nextcloud-admin-pass.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
-    secrets."traefik-dashboard-users".rekeyFile = ../../secrets/traefik-dashboard-users.age;
+    secrets."traefik-dashboard-users" = {
+      rekeyFile = ../../secrets/traefik-dashboard-users.age;
+      owner = "traefik";
+      group = "traefik";
+    };
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

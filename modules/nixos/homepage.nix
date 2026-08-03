@@ -390,11 +390,6 @@ in
               href = "https://traefik.aranferran.com";
               description = "Reverse proxy on Dobby";
               siteMonitor = "https://traefik.aranferran.com";
-              widget = {
-                type = "traefik";
-                url = "https://traefik.aranferran.com";
-                fields = [ "routers" "services" "middleware" ];
-              };
             };
           }
           {
@@ -404,11 +399,6 @@ in
               href = "https://traefik.oracle.aranferran.com";
               description = "Reverse proxy on Rowling";
               siteMonitor = "https://traefik.oracle.aranferran.com";
-              widget = {
-                type = "traefik";
-                url = "https://traefik.oracle.aranferran.com";
-                fields = [ "routers" "services" "middleware" ];
-              };
             };
           }
           {
