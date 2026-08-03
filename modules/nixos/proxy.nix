@@ -166,6 +166,13 @@
           tls.certResolver = "letsencrypt";
         };
 
+        stirling-pdf = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`pdf.aranferran.com`)";
+          service = "stirling-pdf";
+          tls.certResolver = "letsencrypt";
+        };
+
         freemarg = {
           entryPoints = [ "websecure" ];
           rule = "Host(`freemarg.aranferran.com`)";
@@ -222,6 +229,9 @@
         ];
         shiori.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.shiori.port}"; }
+        ];
+        stirling-pdf.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.stirling-pdf.environment.SERVER_PORT}"; }
         ];
         freemarg.loadBalancer.servers = [
           { url = "http://localhost:8881"; }

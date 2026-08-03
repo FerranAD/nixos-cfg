@@ -14,6 +14,7 @@
     ../../modules/nixos/users/server-users.nix
     ../../modules/nixos/boot/dobby-boot.nix
     ../../modules/nixos/nix-settings.nix
+    ../../modules/nixos/stirling-pdf.nix
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/homepage.nix
     ../../modules/nixos/freemarg.nix
