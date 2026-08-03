@@ -66,6 +66,9 @@ in
         clipclear = "${pkgs.clipse}/bin/clipse -clear";
       };
       initContent = ''
+        gpg-connect-agent /bye
+        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
         nixr() {
           nix run "nixpkgs#$1" ''${@:2}
         }
