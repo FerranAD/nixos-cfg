@@ -62,6 +62,7 @@ in
           rule = "Host(`traefik.oracle.aranferran.com`)";
           service = "api@internal";
           tls.certResolver = "letsencrypt";
+          middlewares = [ "traefik-auth" ];
         };
 
         vikunja = {
@@ -108,6 +109,9 @@ in
       tcp.services.xray.loadBalancer.servers = [
         { address = "127.0.0.1:${toString xrayPort}"; }
       ];
+
+      http.middlewares."traefik-auth".basicAuth.usersFile =
+        config.age.secrets."traefik-dashboard-users".path;
     };
   };
 }

@@ -59,6 +59,7 @@
           rule = "Host(`traefik.aranferran.com`)";
           service = "api@internal";
           tls.certResolver = "letsencrypt";
+          middlewares = [ "traefik-auth" ];
         };
 
         glances = {
@@ -240,6 +241,9 @@
           { url = "http://rubeus:8090"; }
         ];
       };
+
+      http.middlewares."traefik-auth".basicAuth.usersFile =
+        config.age.secrets."traefik-dashboard-users".path;
     };
   };
 }

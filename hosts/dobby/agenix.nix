@@ -20,6 +20,7 @@ in
     secrets."airvpn-freemarg.env".rekeyFile = ../../secrets/airvpn-freemarg.env.age;
     secrets."docker-freemarg.env".rekeyFile = ../../secrets/docker-freemarg.env.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
+    secrets."traefik-dashboard-users".rekeyFile = ../../secrets/traefik-dashboard-users.age;
     secrets."shiori.env".rekeyFile = ../../secrets/shiori.env.age;
     secrets."airvpn-dobby-wg.conf".rekeyFile = ../../secrets/airvpn-dobby-wg.conf.age;
     secrets."homepage-dashboard.env".rekeyFile = ../../secrets/homepage-dashboard.env.age;
