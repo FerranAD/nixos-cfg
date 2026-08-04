@@ -76,6 +76,14 @@
           tls.certResolver = "letsencrypt";
         };
 
+        dns = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`dns.aranferran.com`)";
+          service = "adguardhome";
+          tls.certResolver = "letsencrypt";
+          middlewares = [ "secure-headers" ];
+        };
+
         jellyfin = {
           entryPoints = [ "websecure" ];
           rule = "Host(`jellyfin.aranferran.com`)";
@@ -195,6 +203,9 @@
         home.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}"; }
         ];
+        adguardhome.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.adguardhome.port}"; }
+        ];
         jellyfin.loadBalancer.servers = [
           { url = "http://localhost:8096"; }
         ];
@@ -238,8 +249,20 @@
           { url = "http://localhost:8881"; }
         ];
         borg-status.loadBalancer.servers = [
-          { url = "http://rubeus:8090"; }
+          { url = "http://100.89.193.57:8090"; }
         ];
+      };
+
+      http.middlewares."secure-headers".headers = {
+        sslRedirect = true;
+        stsSeconds = 31536000;
+        stsIncludeSubdomains = true;
+        stsPreload = true;
+        forceSTSHeader = true;
+        contentTypeNosniff = true;
+        browserXssFilter = true;
+        referrerPolicy = "same-origin";
+        customRequestHeaders.X-Forwarded-Proto = "https";
       };
 
       http.middlewares."traefik-auth".basicAuth.usersFile =

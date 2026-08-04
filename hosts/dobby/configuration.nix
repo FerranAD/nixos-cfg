@@ -15,6 +15,7 @@
     ../../modules/nixos/boot/dobby-boot.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/stirling-pdf.nix
+    ../../modules/nixos/adguardhome.nix
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/homepage.nix
     ../../modules/nixos/freemarg.nix
@@ -33,6 +34,10 @@
   virtualisation.oci-containers.backend = "docker";
 
   services.glances.enable = true;
+
+  services.tailscale.extraSetFlags = [
+    "--accept-dns=false"
+  ];
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.intel

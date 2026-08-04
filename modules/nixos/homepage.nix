@@ -393,6 +393,22 @@ in
             };
           }
           {
+            "AdGuard Home" = {
+              id = "dobby-adguardhome";
+              icon = "adguard-home.png";
+              href = "https://dns.aranferran.com";
+              description = "DNS filtering on Dobby";
+              siteMonitor = "http://127.0.0.1:${toString config.services.adguardhome.port}";
+              widget = {
+                type = "adguard";
+                url = "http://127.0.0.1:${toString config.services.adguardhome.port}";
+                username = "admin";
+                password = "{{HOMEPAGE_VAR_ADGUARD_PASSWORD}}";
+                fields = [ "queries" "blocked" "filtered" "latency" ];
+              };
+            };
+          }
+          {
             "Rowling Traefik" = {
               id = "rowling-traefik";
               icon = "traefik.png";
