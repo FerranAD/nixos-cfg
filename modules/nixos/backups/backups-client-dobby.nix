@@ -177,7 +177,7 @@
       "*/out"
     ];
 
-    repo = "borg@rubeus:.";
+    repo = "borg@100.89.193.57:.";
 
     encryption = {
       mode = "repokey-blake2";
@@ -185,6 +185,8 @@
     };
 
     environment.BORG_RSH = "${pkgs.openssh}/bin/ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -F /dev/null -i ${config.age.secrets.borgbackups-dobby-key.path}";
+
+    extraArgs = "--lock-wait 3600";
 
     extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
 

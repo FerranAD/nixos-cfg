@@ -158,7 +158,7 @@ let
 
     def run_check(path):
         started = time.time()
-        command = [BORG, "check", "--repository-only", "--lock-wait", "5", path]
+        command = [BORG, "check", "--repository-only", "--lock-wait", "${toString cfg.checkLockWaitSeconds}", path]
         try:
             result = subprocess.run(
                 command,
@@ -537,6 +537,12 @@ in
       default = 3300;
       description = "Timeout for repository-only Borg checks.";
     };
+
+    checkLockWaitSeconds = lib.mkOption {
+      type = lib.types.int;
+      default = 3600;
+      description = "Seconds to wait for Borg repository locks during checks.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -588,8 +594,9 @@ in
     systemd.timers.borg-status-ui-check = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
-        OnBootSec = "5m";
-        OnUnitActiveSec = "1h";
+        OnBootSec = "45m";
+        OnUnitActiveSec = "1d";
+        RandomizedDelaySec = "2h";
         Persistent = true;
       };
     };
