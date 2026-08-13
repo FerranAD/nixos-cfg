@@ -14,6 +14,14 @@
         }
       ];
 
+      clients.runtime_sources = {
+        hosts = true;
+        rdns = true;
+        arp = true;
+        dhcp = true;
+        whois = false;
+      };
+
       dns = {
         bind_hosts = [
           "0.0.0.0"
@@ -32,6 +40,10 @@
         cache_enabled = true;
         cache_size = 67108864;
         cache_optimistic = true;
+        use_private_ptr_resolvers = true;
+        local_ptr_upstreams = [
+          "192.168.1.1"
+        ];
       };
 
       filtering = {
