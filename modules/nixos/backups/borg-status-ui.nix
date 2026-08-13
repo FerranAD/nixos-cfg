@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.services.borgStatusUi;
 
@@ -11,14 +16,17 @@ let
     allowSubRepos = repo.allowSubRepos;
   }) config.services.borgbackup.repos;
 
-  repoServiceNames =
-    lib.mapAttrsToList (name: _: "borgbackup-repo-${name}.service") config.services.borgbackup.repos;
+  repoServiceNames = lib.mapAttrsToList (
+    name: _: "borgbackup-repo-${name}.service"
+  ) config.services.borgbackup.repos;
 
-  repoConfig = pkgs.writeText "borg-status-repos.json" (builtins.toJSON {
-    freshnessWarningHours = cfg.freshnessWarningHours;
-    freshnessCriticalHours = cfg.freshnessCriticalHours;
-    repos = repoInventory;
-  });
+  repoConfig = pkgs.writeText "borg-status-repos.json" (
+    builtins.toJSON {
+      freshnessWarningHours = cfg.freshnessWarningHours;
+      freshnessCriticalHours = cfg.freshnessCriticalHours;
+      repos = repoInventory;
+    }
+  );
 
   collector = pkgs.writeText "borg-status-collector.py" ''
     import argparse
@@ -35,6 +43,24 @@ let
     STATE_DIR = "${cfg.stateDir}"
     STATUS_PATH = os.path.join(STATE_DIR, "status.json")
     BORG = "${lib.getExe config.services.borgbackup.package}"
+
+    def check_result(state, started, message, exit_code=None):
+        return {
+            "state": state,
+            "exitCode": exit_code,
+            "checkedAt": utc_now().isoformat(),
+            "durationSeconds": time.time() - started,
+            "message": message.strip()[-4000:],
+        }
+
+    def lock_message(message):
+        normalized = message.lower()
+        return "lock" in normalized and (
+            "failed" in normalized
+            or "timeout" in normalized
+            or "could not" in normalized
+            or "unable" in normalized
+        )
 
     def utc_now():
         return dt.datetime.now(dt.timezone.utc)
@@ -158,6 +184,14 @@ let
 
     def run_check(path):
         started = time.time()
+        lock_path = os.path.join(path, "lock.exclusive")
+        if os.path.exists(lock_path):
+            return check_result(
+                "locked",
+                started,
+                f"repository lock exists at {lock_path}; a backup or maintenance job may still be running",
+            )
+
         command = [BORG, "check", "--repository-only", "--lock-wait", "${toString cfg.checkLockWaitSeconds}", path]
         try:
             result = subprocess.run(
@@ -167,22 +201,16 @@ let
                 stderr=subprocess.PIPE,
                 timeout=${toString cfg.checkTimeoutSeconds},
             )
-            state = "ok" if result.returncode == 0 else "error"
-            return {
-                "state": state,
-                "exitCode": result.returncode,
-                "checkedAt": utc_now().isoformat(),
-                "durationSeconds": time.time() - started,
-                "message": (result.stderr or result.stdout).strip()[-4000:],
-            }
+            message = result.stderr or result.stdout
+            if result.returncode == 0:
+                state = "ok"
+            elif lock_message(message):
+                state = "locked"
+            else:
+                state = "error"
+            return check_result(state, started, message, result.returncode)
         except subprocess.TimeoutExpired as exc:
-            return {
-                "state": "timeout",
-                "exitCode": None,
-                "checkedAt": utc_now().isoformat(),
-                "durationSeconds": time.time() - started,
-                "message": f"borg check timed out after {exc.timeout} seconds",
-            }
+            return check_result("timeout", started, f"borg check timed out after {exc.timeout} seconds")
 
     def collect_repo(repo, existing, mode, warning_hours, critical_hours):
         path = repo["path"]
@@ -432,7 +460,7 @@ let
               text-transform: uppercase;
             }}
             .fresh, .ok {{ color: var(--ok); border-color: var(--ok); background: rgba(34, 197, 94, 0.12); }}
-            .stale, .warning, .timeout {{ color: var(--warn); border-color: var(--warn); background: rgba(245, 158, 11, 0.12); }}
+            .stale, .warning, .timeout, .locked {{ color: var(--warn); border-color: var(--warn); background: rgba(245, 158, 11, 0.12); }}
             .critical, .error {{ color: var(--bad); border-color: var(--bad); background: rgba(239, 68, 68, 0.12); }}
             pre {{
               margin: 16px 0 0;
@@ -534,13 +562,13 @@ in
 
     checkTimeoutSeconds = lib.mkOption {
       type = lib.types.int;
-      default = 3300;
-      description = "Timeout for repository-only Borg checks.";
+      default = 1800;
+      description = "Maximum runtime for repository-only Borg checks.";
     };
 
     checkLockWaitSeconds = lib.mkOption {
       type = lib.types.int;
-      default = 3600;
+      default = 5;
       description = "Seconds to wait for Borg repository locks during checks.";
     };
   };
@@ -578,6 +606,7 @@ in
         Group = "borg";
         StateDirectory = "borg-status-ui";
         StateDirectoryMode = "0755";
+        TimeoutStartSec = "${toString (cfg.checkTimeoutSeconds + 60)}s";
         ExecStart = "${lib.getExe pkgs.python3} ${collector} --mode check";
       };
     };
@@ -604,7 +633,10 @@ in
     systemd.services.borg-status-ui = {
       description = "Read-only Borg repository status UI";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "borg-status-ui-refresh.service" ];
+      after = [
+        "network.target"
+        "borg-status-ui-refresh.service"
+      ];
       wants = [ "borg-status-ui-refresh.service" ];
       serviceConfig = {
         Type = "simple";

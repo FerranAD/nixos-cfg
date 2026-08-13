@@ -133,6 +133,20 @@ Check the remote repository from a client:
 sudo borg-job-albus check --repository-only
 ```
 
+Recover from a stale repository lock only after confirming no backup or status
+check is running:
+
+```sh
+sudo systemctl status borgbackup-job-dobby.service
+sudo borg-job-dobby break-lock
+```
+
+If the Rubeus status check is the active process, stop it first on Rubeus:
+
+```sh
+sudo systemctl stop borg-status-ui-check.service
+```
+
 Mount an archive for browsing:
 
 ```sh
