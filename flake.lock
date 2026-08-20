@@ -325,6 +325,26 @@
         "type": "github"
       }
     },
+    "forticlient-nixos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781855918,
+        "narHash": "sha256-ethk92yiBxhf4YvMmBMxmWDjhMXny3IwbYhR+UxTdrw=",
+        "owner": "jplana",
+        "repo": "forticlient-nixos",
+        "rev": "e1c170ec952ddae24142684369674ec762f1eaa5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jplana",
+        "repo": "forticlient-nixos",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -833,6 +853,7 @@
         "autofirma-nix": "autofirma-nix",
         "catppuccin": "catppuccin",
         "disko": "disko",
+        "forticlient-nixos": "forticlient-nixos",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
         "nix-minecraft": "nix-minecraft",

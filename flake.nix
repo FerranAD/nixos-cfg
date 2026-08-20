@@ -87,6 +87,11 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    forticlient-nixos = {
+      url = "github:jplana/forticlient-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
