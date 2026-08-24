@@ -90,7 +90,7 @@ in
         };
       };
 
-      terminal = "alacritty";
+      terminal = "kitty";
 
       theme = {
         bar = {

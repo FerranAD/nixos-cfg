@@ -6,11 +6,9 @@
   ...
 }:
 let
-  pkgsUnstable = import inputs.nixpkgs-unstable-latest {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    config = config.nixpkgs.config // {
-      allowUnfree = true;
-    };
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config = config.nixpkgs.config;
   };
 in
 {
@@ -46,28 +44,26 @@ in
     ../../modules/catppuccin.nix
   ];
 
-  environment.systemPackages =
-    with pkgs; [
-      wget
-      git
-      gnumake
-      agenix-rekey
-      nwg-displays
-      nixos-anywhere
-      texliveFull
-      signal-desktop
-      onlyoffice-desktopeditors
-      mpv
-      htop
-      prismlauncher
-      uv
-      zip
-      unzip
-      codex
-      jetbrains.pycharm
-      vlc
-      brave
-    ];
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    gnumake
+    agenix-rekey
+    nwg-displays
+    nixos-anywhere
+    texliveFull
+    signal-desktop
+    onlyoffice-desktopeditors
+    htop
+    file
+    uv
+    zip
+    unzip
+    unstable.codex
+    jetbrains.pycharm
+    vlc
+    brave
+  ];
 
   programs.wireshark.enable = true;
   programs.java.enable = true;

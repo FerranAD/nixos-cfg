@@ -14,8 +14,8 @@
 
     [scratchpads.term]
     animation = ""
-    command = "alacritty --class alacritty-dropterm"
-    class = "alacritty-dropterm"
+    command = "kitty --class kitty-dropterm"
+    class = "kitty-dropterm"
     position = "30% 6%"
     size = "40% 30%"
     max_size = "1920px 100%"

@@ -115,7 +115,7 @@
         "match:class ^(Zotero)$, match:title ^(Progress)$, float on"
         "match:class ^udiskie$, match:title ^udiskie$, float on"
         "match:class ^codium$, match:title ^Open File$, float on"
-        "match:class ^alacritty-dropterm$, opacity 0.8 0.8"
+        "match:class ^kitty-dropterm$, opacity 0.8 0.8"
         "match:class ^org\\.ksnip\\.ksnip$, float on"
         "match:class ^org\\.ksnip\\.ksnip$, size 30% 50%"
         "match:class ^clipse$, float on"

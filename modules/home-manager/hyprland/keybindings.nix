@@ -40,7 +40,7 @@ let
     "$mod, y, exec, passMenu && ${clearClipboard}"
     "$mod SHIFT, l, exec, loginctl lock-session"
     "SUPER, V, exec, ${pkgs.kitty}/bin/kitty --class clipse ${pkgs.clipse}/bin/clipse"
-    "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
+    "$mod, Return, exec, ${pkgs.kitty}/bin/kitty"
     "$mod, i, exec, ${keyboardChange}/bin/keyboardChange"
     "$mod, space, exec, ${pkgs.pyprland}/bin/pypr toggle term"
     "$mod, u ,exec, ${pkgs.hyprpanel}/bin/hyprpanel t powermenu"

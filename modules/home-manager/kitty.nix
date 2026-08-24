@@ -14,6 +14,9 @@
       background_opacity = "0.8";
       background_blur = 5;
       font_size = 11;
+      scrollback_lines = 10000;
+      scrollbar = "always";
+      scrollbar_interactive = true;
     };
   };
 }
