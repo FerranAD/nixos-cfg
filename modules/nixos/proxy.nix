@@ -76,6 +76,14 @@
           tls.certResolver = "letsencrypt";
         };
 
+        home-assistant = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`homeassistant.aranferran.com`)";
+          service = "home-assistant";
+          tls.certResolver = "letsencrypt";
+          middlewares = [ "secure-headers" ];
+        };
+
         dns = {
           entryPoints = [ "websecure" ];
           rule = "Host(`dns.aranferran.com`)";
@@ -202,6 +210,9 @@
         ];
         home.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}"; }
+        ];
+        home-assistant.loadBalancer.servers = [
+          { url = "http://127.0.0.1:${toString config.services.home-assistant.config.http.server_port}"; }
         ];
         adguardhome.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.adguardhome.port}"; }

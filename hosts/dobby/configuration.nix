@@ -17,6 +17,7 @@
     ../../modules/nixos/stirling-pdf.nix
     ../../modules/nixos/adguardhome.nix
     ../../modules/nixos/intel-arc.nix
+    ../../modules/nixos/home-assistant.nix
     ../../modules/nixos/homepage.nix
     ../../modules/nixos/freemarg.nix
     ../../modules/nixos/openssh.nix

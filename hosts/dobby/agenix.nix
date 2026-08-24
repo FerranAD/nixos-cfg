@@ -28,6 +28,11 @@ in
     secrets."shiori.env".rekeyFile = ../../secrets/shiori.env.age;
     secrets."airvpn-dobby-wg.conf".rekeyFile = ../../secrets/airvpn-dobby-wg.conf.age;
     secrets."homepage-dashboard.env".rekeyFile = ../../secrets/homepage-dashboard.env.age;
+    secrets."home-assistant-secrets.yaml" = {
+      rekeyFile = ../../secrets/home-assistant-secrets.yaml.age;
+      owner = "hass";
+      group = "hass";
+    };
     secrets.borgbackups-dobby-key.rekeyFile = ../../secrets/borgbackups-dobby-key.age;
     secrets.borgbackups-passkey.rekeyFile = ../../secrets/borgbackups-passkey.age;
     rekey = {

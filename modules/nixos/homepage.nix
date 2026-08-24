@@ -316,6 +316,25 @@ in
             };
           }
           {
+            "Home Assistant" = {
+              id = "dobby-home-assistant";
+              icon = "home-assistant.png";
+              href = "https://homeassistant.aranferran.com";
+              description = "Home automation and Assist";
+              siteMonitor = "http://127.0.0.1:${toString config.services.home-assistant.config.http.server_port}";
+              widget = {
+                type = "homeassistant";
+                url = "http://127.0.0.1:${toString config.services.home-assistant.config.http.server_port}";
+                key = "{{HOMEPAGE_VAR_HOME_ASSISTANT_TOKEN}}";
+                fields = [
+                  "people_home"
+                  "lights_on"
+                  "switches_on"
+                ];
+              };
+            };
+          }
+          {
             "Xikibby Minecraft" = {
               id = "rowling-minecraft-xikibby";
               icon = "minecraft.png";
