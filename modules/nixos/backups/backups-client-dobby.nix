@@ -177,7 +177,7 @@
       "*/out"
     ];
 
-    repo = "borg@100.89.193.57:.";
+    repo = "borg@100.106.108.102:.";
 
     encryption = {
       mode = "repokey-blake2";
