@@ -100,6 +100,7 @@
         ".cache/uv"
         ".local/share/uv"
         ".config/cat_installer" # eduroam
+        ".config/kdeconnect"
         ".config/VSCodium"
         ".config/Code"
         ".config/vesktop"

@@ -68,6 +68,7 @@ in
   programs.wireshark.enable = true;
   programs.java.enable = true;
   virtualisation.vmware.host.enable = true;
+  programs.kdeconnect.enable = true;
 
   home-manager = {
     extraSpecialArgs = {
