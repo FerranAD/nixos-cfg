@@ -35,6 +35,7 @@ in
     };
     secrets.borgbackups-dobby-key.rekeyFile = ../../secrets/borgbackups-dobby-key.age;
     secrets.borgbackups-passkey.rekeyFile = ../../secrets/borgbackups-passkey.age;
+    secrets.paperless-admin-pass.rekeyFile = ../../secrets/paperless-admin-pass.age;
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;

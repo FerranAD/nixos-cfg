@@ -302,6 +302,15 @@ in
               siteMonitor = "http://127.0.0.1:${toString config.services.shiori.port}";
             };
           }
+          {
+            "Paperless-ngx" = {
+              id = "dobby-paperless";
+              icon = "paperless-ngx.png";
+              href = "https://paperless.aranferran.com";
+              description = "Document archive";
+              siteMonitor = "http://127.0.0.1:${toString config.services.paperless.port}";
+            };
+          }
         ];
       }
       {
@@ -396,6 +405,15 @@ in
               href = "https://privatebin.oracle.aranferran.com";
               description = "Private pastebin on Rowling";
               siteMonitor = "https://privatebin.oracle.aranferran.com";
+            };
+          }
+          {
+            "Paperless-AI" = {
+              id = "dobby-paperless-ai";
+              icon = "mdi-robot-outline";
+              href = "https://paperless-ai.aranferran.com";
+              description = "AI document analysis";
+              siteMonitor = "http://127.0.0.1:8083";
             };
           }
         ];

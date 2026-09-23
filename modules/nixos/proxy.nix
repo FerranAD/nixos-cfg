@@ -203,6 +203,20 @@
           service = "borg-status";
           tls.certResolver = "letsencrypt";
         };
+
+        paperless = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`paperless.aranferran.com`)";
+          service = "paperless";
+          tls.certResolver = "letsencrypt";
+        };
+
+        paperless-ai = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`paperless-ai.aranferran.com`)";
+          service = "paperless-ai";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -261,6 +275,12 @@
         ];
         borg-status.loadBalancer.servers = [
           { url = "http://100.89.193.57:8090"; }
+        ];
+        paperless.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.paperless.port}"; }
+        ];
+        paperless-ai.loadBalancer.servers = [
+          { url = "http://localhost:8083"; }
         ];
       };
 
