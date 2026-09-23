@@ -59,6 +59,7 @@ in
     uv
     zip
     unzip
+    wallfacer
     unstable.codex
     jetbrains.pycharm
     vlc

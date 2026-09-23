@@ -117,6 +117,7 @@
             inherit system;
             overlays = [
               agenix-rekey.overlays.default
+              (import ./packages)
             ];
             config.allowUnfree = true;
           };
@@ -147,6 +148,7 @@
             inherit system;
             overlays = [
               agenix-rekey.overlays.default
+              (import ./packages)
             ];
             config.allowUnfree = true;
           };
