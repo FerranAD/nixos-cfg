@@ -5,16 +5,16 @@ ifndef HOSTNAME
 endif
 
 switch:
-	nixos-rebuild switch --sudo --flake .?submodules=1#${HOSTNAME} -L
+	nh os switch '.?submodules=1' -H ${HOSTNAME} -L
 
 switch-debug:
-	nixos-rebuild switch --sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
+	nh os switch '.?submodules=1' -H ${HOSTNAME} -L --option eval-cache false --show-trace
 
 boot:
-	nixos-rebuild boot --sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
+	nh os boot '.?submodules=1' -H ${HOSTNAME} -L --option eval-cache false --show-trace
 
 test:
-	nixos-rebuild test --sudo --flake .?submodules=1#${HOSTNAME} -L --option eval-cache false --show-trace
+	nh os test '.?submodules=1' -H ${HOSTNAME} -L --option eval-cache false --show-trace
 
 rekey:
 	agenix --extra-flake-params '/?submodules=1' rekey
@@ -35,30 +35,30 @@ oracle-iso:
 	sudo nix build .#oracle-iso --system aarch64-linux --impure
 
 iso-x86:
-	nixos-rebuild build-image --flake \?.submodules=1#minimal-x86 --image-variant iso-installer
+	nh os build-image '.?submodules=1' -H minimal-x86 --image-variant iso-installer
 
 rubeus-iso:
-	nixos-rebuild build-image --flake \?.submodules=1#rubeus-install --image-variant iso-installer --impure
+	nh os build-image '.?submodules=1' -H rubeus-install --image-variant iso-installer --impure
 
 hedwig-switch:
 # make hedwig-switch ip=<address>
-	nixos-rebuild --flake .?submodules=1#hedwig --build-host ferran@localhost --target-host root@$(ip) switch;
+	nh os switch '.?submodules=1' -H hedwig --build-host ferran@localhost --target-host root@$(ip)
 
 dobby-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
-	nixos-rebuild --flake .?submodules=1#dobby --build-host root@dobby --target-host root@dobby switch;
+	nh os switch '.?submodules=1' -H dobby --build-host root@dobby --target-host root@dobby
 
 rubeus-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
-	nixos-rebuild --flake .?submodules=1#rubeus --build-host ferran@localhost --target-host root@rubeus switch;
+	nh os switch '.?submodules=1' -H rubeus --build-host ferran@localhost --target-host root@rubeus
 
 rowling-switch:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
-	nixos-rebuild --flake .?submodules=1#rowling --build-host root@79.72.48.70 --target-host root@79.72.48.70 switch;
+	nh os switch '.?submodules=1' -H rowling --build-host root@79.72.48.70 --target-host root@79.72.48.70
 
 rowling-switch-first-time:
 	NIX_SSHOPTS="-o IdentityAgent=/run/user/1000/gnupg/S.gpg-agent.ssh" \
-	nixos-rebuild --flake .?submodules=1#rowling --build-host root@79.72.48.70 --target-host root@79.72.48.70 switch --install-bootloader;
+	nh os switch '.?submodules=1' -H rowling --build-host root@79.72.48.70 --target-host root@79.72.48.70 --install-bootloader
 
 dobby-install:
 # make dobby-install ip=<address>
@@ -75,4 +75,4 @@ rubeus-install:
 
 switch-remote:
 # make switch-remote ip=<remote-ip-address>
-	nixos-rebuild switch --sudo --flake .?submodules=1#${HOSTNAME} -L --build-host root@$(ip) --target-host ferran@localhost
+	nh os switch '.?submodules=1' -H ${HOSTNAME} -L --build-host root@$(ip) --target-host ferran@localhost

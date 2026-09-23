@@ -51,7 +51,7 @@ in
     agenix-rekey
     nwg-displays
     nixos-anywhere
-    texliveFull
+    # texliveFull
     signal-desktop
     onlyoffice-desktopeditors
     htop
@@ -61,12 +61,13 @@ in
     unzip
     wallfacer
     unstable.codex
-    jetbrains.pycharm
+    # jetbrains.pycharm
     vlc
     brave
   ];
 
   programs.wireshark.enable = true;
+  programs.nh.enable = true;
   programs.java.enable = true;
   virtualisation.vmware.host.enable = true;
   programs.kdeconnect.enable = true;
