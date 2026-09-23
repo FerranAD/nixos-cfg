@@ -3,19 +3,17 @@
   ...
 }:
 let
-  paperlessData = "data/paperless";
-  aissistData = "data/paperless-aissist";
-
-  aissistPort = 8083;
+  aissistData = "/data/paperless-aissist";
+  aissistPort = "8083";
 in
 {
   services.paperless = {
     enable = true;
     address = "0.0.0.0";
 
-    dataDir = "${paperlessData}/data";
-    mediaDir = "${paperlessData}/media";
-    consumptionDir = "${paperlessData}/consume";
+    dataDir = "/data/paperless/data";
+    mediaDir = "/data/paperless/media";
+    consumptionDir = "/data/paperless/consume";
     consumptionDirIsPublic = false;
     database.createLocally = true;
     passwordFile = config.age.secrets.paperless-admin-pass.path;
@@ -42,7 +40,7 @@ in
 
     exporter = {
       enable = true;
-      directory = "${paperlessData}/export";
+      directory = "/data/paperless/export";
       onCalendar = "02:30:00";
     };
   };
@@ -64,7 +62,7 @@ in
   };
 
   systemd.tmpfiles.rules = [
-    "d ${paperlessData} 0750 paperless paperless - -"
+    "d /data/paperless 0750 paperless paperless - -"
     "d ${aissistData} 0700 paperless paperless - -"
   ];
 

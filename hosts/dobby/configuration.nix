@@ -13,11 +13,12 @@
     ../../modules/nixos/tailscale/exit-node.nix
     ../../modules/nixos/users/server-users.nix
     ../../modules/nixos/boot/dobby-boot.nix
+    ../../modules/nixos/home-assistant.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/stirling-pdf.nix
     ../../modules/nixos/adguardhome.nix
     ../../modules/nixos/intel-arc.nix
-    ../../modules/nixos/home-assistant.nix
+    ../../modules/nixos/paperless.nix
     ../../modules/nixos/homepage.nix
     ../../modules/nixos/freemarg.nix
     ../../modules/nixos/openssh.nix
