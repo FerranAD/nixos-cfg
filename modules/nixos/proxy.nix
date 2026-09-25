@@ -280,7 +280,7 @@
           { url = "http://localhost:${toString config.services.paperless.port}"; }
         ];
         paperless-ai.loadBalancer.servers = [
-          { url = "http://localhost:8083"; }
+          { url = "http://localhost:8080"; }
         ];
       };
 

@@ -4,12 +4,11 @@
 }:
 let
   aissistData = "/data/paperless-aissist";
-  aissistPort = "8083";
 in
 {
   services.paperless = {
     enable = true;
-    address = "0.0.0.0";
+    address = "127.0.0.1";
 
     dataDir = "/data/paperless/data";
     mediaDir = "/data/paperless/media";
@@ -22,6 +21,7 @@ in
       PAPERLESS_ADMIN_USER = "admin";
       PAPERLESS_URL = "https://paperless.aranferran.com";
 
+      PAPERLESS_CONSUMER_DELETE_DUPLICATES=true;
       PAPERLESS_OCR_MODE = "auto";
       PAPERLESS_ARCHIVE_FILE_GENERATION = "auto";
       PAPERLESS_OCR_LANGUAGE = "spa+cat+eng";
@@ -48,12 +48,7 @@ in
   virtualisation.oci-containers.containers.paperless-aissist = {
     image = "docker.io/nyxtronlab/paperless-aissist:latest";
     autoStart = true;
-    ports = [
-      "127.0.0.1:${aissistPort}:8080"
-    ];
-    extraOptions = [
-      "--add-host=host.containers.internal:host-gateway"
-    ];
+    extraOptions = [ "--network=host" ];
     environment = {
       PUID = toString config.ids.uids.paperless;
       PGID = toString config.ids.gids.paperless;
