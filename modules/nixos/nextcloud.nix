@@ -45,6 +45,16 @@
         adminuser = "admin";
         adminpassFile = config.age.secrets.nextcloud-admin-pass.path;
       };
+
+      settings = {
+        # Stay logged in for up to 7 days of inactivity
+        session_lifetime = 60 * 60 * 24 * 7;
+
+        # "Remember me" lasts 90 days
+        remember_login_cookie_lifetime = 60 * 60 * 24 * 90;
+
+        session_keepalive = true;
+      };
     };
   };
 }
