@@ -108,6 +108,7 @@
         ".config/Slack"
         ".vscode-oss"
         ".vscode"
+        ".vscode-shared"
         ".mozilla"
         ".config/BraveSoftware/Brave-Browser/"
         ".thunderbird"

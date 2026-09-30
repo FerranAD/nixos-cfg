@@ -64,6 +64,7 @@ in
     # jetbrains.pycharm
     vlc
     brave
+    nh
   ];
 
   programs.wireshark.enable = true;
