@@ -113,6 +113,13 @@
           tls.certResolver = "letsencrypt";
         };
 
+        lingarr = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`lingarr.aranferran.com`)";
+          service = "lingarr";
+          tls.certResolver = "letsencrypt";
+        };
+
         prowlarr = {
           entryPoints = [ "websecure" ];
           rule = "Host(`prowlarr.aranferran.com`)";
@@ -236,6 +243,9 @@
         ];
         bazarr.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.bazarr.listenPort}"; }
+        ];
+        lingarr.loadBalancer.servers = [
+          { url = "http://localhost:9876"; }
         ];
         prowlarr.loadBalancer.servers = [
           { url = "http://localhost:${toString config.services.prowlarr.settings.server.port}"; }

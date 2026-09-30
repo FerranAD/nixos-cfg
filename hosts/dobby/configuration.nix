@@ -27,6 +27,7 @@
     ../../modules/nixos/immich.nix
     ../../modules/nixos/ollama.nix
     ../../modules/nixos/nixarr.nix
+    ../../modules/nixos/lingarr.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/proxy.nix
   ];

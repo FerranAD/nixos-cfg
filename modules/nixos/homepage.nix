@@ -226,6 +226,15 @@ in
             };
           }
           {
+            "Lingarr" = {
+              id = "dobby-lingarr";
+              icon = "mdi-translate";
+              href = "https://lingarr.aranferran.com";
+              description = "Subtitle translation";
+              siteMonitor = "http://127.0.0.1:9876";
+            };
+          }
+          {
             "Prowlarr" = {
               id = "dobby-prowlarr";
               icon = "prowlarr.png";
