@@ -65,6 +65,7 @@ in
     vlc
     brave
     nh
+    nodejs
   ];
 
   programs.wireshark.enable = true;

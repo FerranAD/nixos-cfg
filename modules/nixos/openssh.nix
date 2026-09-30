@@ -1,4 +1,4 @@
-{config, ...}:
+{ config, ... }:
 {
   users.users.root = {
     hashedPasswordFile = config.age.secrets.user-password.path;

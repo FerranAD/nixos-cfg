@@ -57,6 +57,7 @@ in
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
+        ssh = "${pkgs.kitty}/bin/kitten ssh";
         cp = "cp -iv";
         mv = "mv -iv";
         rm = "${pkgs.trash-cli}/bin/trash-put";
