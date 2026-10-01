@@ -83,6 +83,8 @@
     };
 
     # Misc
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";

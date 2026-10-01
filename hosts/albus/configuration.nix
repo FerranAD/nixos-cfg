@@ -10,6 +10,17 @@ let
     system = pkgs.stdenv.hostPlatform.system;
     config = config.nixpkgs.config;
   };
+  chatgpt = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt;
+  chatgptWithGtkSchemas = pkgs.symlinkJoin {
+    name = "chatgpt-with-gtk-schemas";
+    paths = [ chatgpt ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      rm "$out/bin/chatgpt"
+      makeWrapper "${chatgpt}/bin/chatgpt" "$out/bin/chatgpt" \
+        --prefix XDG_DATA_DIRS : "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+    '';
+  };
 in
 {
   imports = [
@@ -44,6 +55,8 @@ in
     ../../modules/catppuccin.nix
   ];
 
+  nix.settings.allow-import-from-derivation = false;
+
   environment.systemPackages = with pkgs; [
     wget
     git
@@ -51,6 +64,7 @@ in
     agenix-rekey
     nwg-displays
     nixos-anywhere
+    chatgptWithGtkSchemas
     # texliveFull
     signal-desktop
     onlyoffice-desktopeditors
