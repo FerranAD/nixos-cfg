@@ -85,6 +85,8 @@
         safe_search.enabled = false;
       };
 
+      user_rules = [ "@@||local.aranferran.com^" ];
+
       filters = [
         {
           enabled = true;
