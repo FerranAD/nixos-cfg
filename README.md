@@ -87,6 +87,34 @@ Optionally remove unreferenced store paths and reclaim disk space:
 sudo nix-collect-garbage
 ```
 
+## Reverse proxy entries
+
+Edit the `entries` block at the top of `modules/nixos/proxy/dobby.nix` (Dobby) or
+`modules/nixos/proxy/rowling.nix` (Rowling). Add one block per service:
+
+```nix
+myapp = {
+  url = "http://localhost:3000";
+};
+```
+
+This serves `myapp.aranferran.com` on Dobby or
+`myapp.oracle.aranferran.com` on Rowling with HTTPS. Edit `url` to change the
+backend; delete the block to remove the route and its backend.
+
+Optional fields are `host` to override the name before the domain (for example,
+`host = "pdf";` or `host = "backups.rubeus";`), `middlewares` for a list of existing
+middleware names, and `service` to override the backend name. The domain is always
+appended: `aranferran.com` on Dobby and `oracle.aranferran.com` on Rowling.
+An alias uses `service` without `url` to reuse another entry's backend; remove
+its aliases too when deleting that backend. The dashboard uses `api@internal`
+and keeps its authentication middleware.
+
+Shared HTTPS, certificates, logging, firewall ports, and middleware definitions
+live in `modules/nixos/proxy/common.nix`. The `secure-headers` middleware adds HSTS,
+browser security headers, and `X-Forwarded-Proto: https`; it is applied only to
+entries that list it. Home Assistant and DNS retain their existing use of it.
+
 ## Borg backups
 
 Client jobs are named after the host, for example `albus` and `dobby`. The NixOS

@@ -16,6 +16,7 @@
     ../../modules/nixos/home-assistant.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/stirling-pdf.nix
+    ../../modules/nixos/proxy/dobby.nix
     ../../modules/nixos/adguardhome.nix
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/paperless.nix
@@ -30,7 +31,6 @@
     ../../modules/nixos/lingarr.nix
     ../../modules/nixos/libretranslate.nix
     ../../modules/nixos/locale.nix
-    ../../modules/nixos/proxy.nix
   ];
 
   virtualisation.containers.enable = true;

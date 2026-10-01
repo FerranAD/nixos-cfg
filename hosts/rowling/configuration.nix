@@ -10,8 +10,7 @@
     ../../modules/nixos/network/rowling-network.nix
     ../../modules/nixos/users/server-users.nix
     ../../modules/nixos/boot/rowling-boot.nix
-    ../../modules/nixos/proxy-rowling.nix
-    ../../modules/nixos/xray.nix
+    ../../modules/nixos/proxy/rowling.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/privatebin.nix
     ../../modules/nixos/minecraft.nix
