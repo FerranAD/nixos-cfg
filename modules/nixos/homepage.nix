@@ -425,6 +425,15 @@ in
               siteMonitor = "http://127.0.0.1:8083";
             };
           }
+          {
+            "LibreTranslate" = {
+              id = "dobby-libretranslate";
+              icon = "mdi-translate";
+              href = "https://libretranslate.aranferran.com";
+              description = "Machine translation";
+              siteMonitor = "http://127.0.0.1:${toString config.services.libretranslate.port}";
+            };
+          }
         ];
       }
       {

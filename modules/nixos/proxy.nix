@@ -224,6 +224,13 @@
           service = "paperless-ai";
           tls.certResolver = "letsencrypt";
         };
+
+        libretranslate = {
+          entryPoints = [ "websecure" ];
+          rule = "Host(`libretranslate.aranferran.com`)";
+          service = "libretranslate";
+          tls.certResolver = "letsencrypt";
+        };
       };
       http.services = {
         glances.loadBalancer.servers = [
@@ -291,6 +298,9 @@
         ];
         paperless-ai.loadBalancer.servers = [
           { url = "http://localhost:8080"; }
+        ];
+        libretranslate.loadBalancer.servers = [
+          { url = "http://localhost:${toString config.services.libretranslate.port}"; }
         ];
       };
 
