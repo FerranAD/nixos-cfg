@@ -19,6 +19,9 @@ let
     privatebin = {
       url = "http://localhost:8881";
     };
+    ntfy = {
+      url = "http://${config.services.ntfy-sh.settings.listen-http}";
+    };
   };
 in
 {

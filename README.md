@@ -115,6 +115,18 @@ live in `modules/nixos/proxy/common.nix`. The `secure-headers` middleware adds H
 browser security headers, and `X-Forwarded-Proto: https`; it is applied only to
 entries that list it. Home Assistant and DNS retain their existing use of it.
 
+## ntfy on Rowling
+
+After deploying with `make rowling-switch`, create an ntfy administrator on Rowling:
+
+```sh
+sudo -u ntfy-sh ntfy user add --role=admin ferran
+```
+
+Use `https://ntfy.oracle.aranferran.com` as the server URL in the web or mobile app
+and log in with that account. Publishing and subscribing require authentication.
+The NixOS module keeps users, cached messages, and attachments in `/var/lib/ntfy-sh`.
+
 ## Borg backups
 
 Client jobs are named after the host, for example `albus` and `dobby`. The NixOS

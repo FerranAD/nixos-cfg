@@ -15,6 +15,7 @@
     ../../modules/nixos/privatebin.nix
     ../../modules/nixos/minecraft.nix
     ../../modules/nixos/nextcloud.nix
+    ../../modules/nixos/ntfy.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/vikunja.nix
     ../../modules/nixos/locale.nix
