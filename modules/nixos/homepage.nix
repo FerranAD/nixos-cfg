@@ -399,6 +399,15 @@ in
       {
         "Tools" = [
           {
+            "onWatch" = {
+              id = "dobby-onwatch";
+              icon = "mdi-chart-line";
+              href = "https://onwatch.aranferran.com";
+              description = "AI quota tracking";
+              siteMonitor = "http://127.0.0.1:9211";
+            };
+          }
+          {
             "Freemarg" = {
               id = "dobby-freemarg";
               icon = "mdi-hiking";

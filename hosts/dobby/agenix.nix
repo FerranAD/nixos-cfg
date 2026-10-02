@@ -19,6 +19,7 @@ in
     secrets.user-password.rekeyFile = ../../secrets/user-password.age;
     secrets."airvpn-freemarg.env".rekeyFile = ../../secrets/airvpn-freemarg.env.age;
     secrets."docker-freemarg.env".rekeyFile = ../../secrets/docker-freemarg.env.age;
+    secrets."onwatch.env".rekeyFile = ../../secrets/onwatch.env.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
     secrets."traefik-dashboard-users" = {
       rekeyFile = ../../secrets/traefik-dashboard-users.age;

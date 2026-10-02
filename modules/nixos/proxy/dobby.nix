@@ -61,6 +61,10 @@ let
     ollama = {
       url = "http://localhost:${toString config.services.ollama.port}";
     };
+    onwatch = {
+      url = "http://127.0.0.1:9211";
+      middlewares = [ "secure-headers" ];
+    };
     trilium = {
       url = "http://localhost:${toString config.services.trilium-server.port}";
     };

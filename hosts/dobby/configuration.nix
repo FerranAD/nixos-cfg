@@ -27,6 +27,7 @@
     ../../modules/nixos/shiori.nix
     ../../modules/nixos/immich.nix
     ../../modules/nixos/ollama.nix
+    ../../modules/nixos/onwatch.nix
     ../../modules/nixos/nixarr.nix
     ../../modules/nixos/lingarr.nix
     ../../modules/nixos/libretranslate.nix
@@ -46,6 +47,7 @@
   environment.systemPackages = with pkgs; [
     nvtopPackages.intel
     intel-gpu-tools
+    codex
   ];
 
   system.stateVersion = "24.05";
