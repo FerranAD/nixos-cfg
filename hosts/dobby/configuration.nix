@@ -38,6 +38,9 @@
   virtualisation.docker.enable = true;
   virtualisation.oci-containers.backend = "docker";
 
+  boot.kernelModules = [ "tun" ];
+  users.users.ferran.extraGroups = [ "kvm" ];
+
   services.glances.enable = true;
 
   services.tailscale.extraSetFlags = [
