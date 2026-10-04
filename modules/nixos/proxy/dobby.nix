@@ -87,6 +87,9 @@ let
     libretranslate = {
       url = "http://localhost:${toString config.services.libretranslate.port}";
     };
+    tokendrain = {
+      url = "http://localhost:${toString config.services.tokendrain.web.port}";
+    };
   };
 in
 {

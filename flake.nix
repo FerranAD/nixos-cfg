@@ -8,8 +8,8 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
 
     nixos-hardware = {
-        url = "github:nixos/nixos-hardware";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nixos/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nur = {
@@ -94,6 +94,8 @@
       url = "github:jplana/forticlient-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tokendrain.url = "github:FerranAD/tokendrain";
   };
 
   outputs =

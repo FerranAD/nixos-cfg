@@ -14,10 +14,12 @@
     ../../modules/nixos/users/server-users.nix
     ../../modules/nixos/boot/dobby-boot.nix
     ../../modules/nixos/home-assistant.nix
+    ../../modules/nixos/libretranslate.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/stirling-pdf.nix
     ../../modules/nixos/proxy/dobby.nix
     ../../modules/nixos/adguardhome.nix
+    ../../modules/nixos/tokendrain.nix
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/paperless.nix
     ../../modules/nixos/homepage.nix
@@ -30,7 +32,6 @@
     ../../modules/nixos/onwatch.nix
     ../../modules/nixos/nixarr.nix
     ../../modules/nixos/lingarr.nix
-    ../../modules/nixos/libretranslate.nix
     ../../modules/nixos/locale.nix
   ];
 
