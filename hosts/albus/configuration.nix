@@ -62,7 +62,7 @@ in
     git
     gnumake
     agenix-rekey
-    nwg-displays
+    hyprmon
     nixos-anywhere
     chatgptWithGtkSchemas
     # texliveFull

@@ -1,6 +1,6 @@
 ## Hostnames
 
-🪄 Main laptop (MSI with NVIDIA 1660ti)-> albus
+🪄 Main laptop (MSI with NVIDIA 1660ti)-> albus (Usa hyprmon per les pantalles)
 
 🦉 Home server (RPI4) -> hedwig
 
