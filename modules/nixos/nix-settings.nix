@@ -7,7 +7,7 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      allow-import-from-derivation = false;
+      allow-import-from-derivation = true;
       allowed-users = [ "@wheel" ];
       trusted-users = [ "@wheel" ];
       substituters = [

@@ -22,6 +22,10 @@
     signing.signByDefault = true;
     signing.format = "openpgp";
   };
+  programs.gh = {
+    enable = true;
+    settings.git_protocol = "ssh";
+  };
   programs.zsh.shellAliases = {
     gad = "git add .";
     gco = "git commit";

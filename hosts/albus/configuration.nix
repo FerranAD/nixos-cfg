@@ -55,8 +55,6 @@ in
     ../../modules/catppuccin.nix
   ];
 
-  nix.settings.allow-import-from-derivation = false;
-
   environment.systemPackages = with pkgs; [
     wget
     git
