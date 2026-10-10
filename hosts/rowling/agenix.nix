@@ -19,6 +19,21 @@ in
     secrets.nextcloud-admin-pass.rekeyFile = ../../secrets/nextcloud-admin-pass.age;
     secrets."ntfy.env".rekeyFile = ../../secrets/ntfy.env.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
+    secrets.o2cloud-webdav-password = {
+      rekeyFile = ../../secrets/o2cloud-webdav-password.age;
+      owner = "o2cloud-webdav";
+      group = "o2cloud-webdav";
+    };
+    secrets.o2cloud-admin-password = {
+      rekeyFile = ../../secrets/o2cloud-admin-password.age;
+      owner = "o2cloud-webdav";
+      group = "o2cloud-webdav";
+    };
+    secrets.o2cloud-encryption-key = {
+      rekeyFile = ../../secrets/o2cloud-encryption-key.age;
+      owner = "o2cloud-webdav";
+      group = "o2cloud-webdav";
+    };
     secrets."traefik-dashboard-users" = {
       rekeyFile = ../../secrets/traefik-dashboard-users.age;
       owner = "traefik";

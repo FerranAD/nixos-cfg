@@ -22,6 +22,9 @@ let
     ntfy = {
       url = "http://${config.services.ntfy-sh.settings.listen-http}";
     };
+    o2cloud = {
+      url = "http://localhost:8088";
+    };
   };
 in
 {

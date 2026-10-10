@@ -16,10 +16,15 @@
     ../../modules/nixos/minecraft.nix
     ../../modules/nixos/nextcloud.nix
     ../../modules/nixos/ntfy.nix
+    ../../modules/nixos/o2cloud-webdav.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/vikunja.nix
     ../../modules/nixos/locale.nix
   ];
+
+  virtualisation.containers.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.oci-containers.backend = "docker";
 
   environment.systemPackages = with pkgs; [
     htop

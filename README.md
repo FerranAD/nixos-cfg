@@ -87,6 +87,27 @@ Optionally remove unreferenced store paths and reclaim disk space:
 sudo nix-collect-garbage
 ```
 
+## O2 Cloud WebDAV on Rowling
+
+Until upstream releases ARM64 images, the NixOS service builds the pinned PR
+source natively on Rowling before starting. 
+
+After deployment, open `https://o2cloud.oracle.aranferran.com/admin` and start the
+assisted O2 login. The passwordless noVNC screen is bound to localhost; forward it
+from your computer with:
+
+```sh
+ssh -N -L 6080:127.0.0.1:6080 ferran@rowling
+```
+
+WebDAV clients use `https://o2cloud.oracle.aranferran.com/dav` with user `o2dav`.
+After the cloud login, test a directory listing (curl prompts for the WebDAV
+password):
+
+```sh
+curl --fail --user o2dav -X PROPFIND -H 'Depth: 1' https://o2cloud.oracle.aranferran.com/dav/
+```
+
 ## Borg backups
 
 Client jobs are named after the host, for example `albus` and `dobby`. The NixOS
