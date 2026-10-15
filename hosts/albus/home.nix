@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -39,7 +44,34 @@
     hyprpicker
     monero-gui
     zotero
+    loupe
+    file-roller
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplicationPackages = with pkgs; [
+      loupe
+      file-roller
+      vlc
+      onlyoffice-desktopeditors
+    ];
+    defaultApplications = {
+      "inode/directory" = [ "thunar.desktop" ];
+      "text/plain" = [ "code.desktop" ];
+      "text/markdown" = [ "code.desktop" ];
+      "text/csv" = [ "onlyoffice-desktopeditors.desktop" ];
+      "text/tab-separated-values" = [ "onlyoffice-desktopeditors.desktop" ];
+      "application/json" = [ "code.desktop" ];
+      "application/pdf" = [ "firefox.desktop" ];
+      "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
+      "x-scheme-handler/codex" = [ "chatgpt.desktop" ];
+    };
+    associations.added = config.xdg.mimeApps.defaultApplications;
+  };
+
+  # Replace the existing unmanaged associations; defaults now live in Nix.
+  xdg.configFile."mimeapps.list".force = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";
