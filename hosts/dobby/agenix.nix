@@ -21,6 +21,7 @@ in
     secrets."docker-freemarg.env".rekeyFile = ../../secrets/docker-freemarg.env.age;
     secrets."onwatch.env".rekeyFile = ../../secrets/onwatch.env.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
+    secrets."newt.env".rekeyFile = ../../secrets/newt.env.age;
     secrets."traefik-dashboard-users" = {
       rekeyFile = ../../secrets/traefik-dashboard-users.age;
       owner = "traefik";

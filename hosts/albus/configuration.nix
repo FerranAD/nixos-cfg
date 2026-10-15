@@ -78,6 +78,7 @@ in
     brave
     nh
     nodejs
+    python314
   ];
 
   programs.wireshark.enable = true;

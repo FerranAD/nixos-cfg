@@ -19,6 +19,7 @@ in
     secrets.nextcloud-admin-pass.rekeyFile = ../../secrets/nextcloud-admin-pass.age;
     secrets."ntfy.env".rekeyFile = ../../secrets/ntfy.env.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
+    secrets."pangolin.env".rekeyFile = ../../secrets/pangolin.env.age;
     secrets.o2cloud-webdav-password = {
       rekeyFile = ../../secrets/o2cloud-webdav-password.age;
       owner = "o2cloud-webdav";

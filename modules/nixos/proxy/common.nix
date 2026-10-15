@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   # Based on https://aottr.dev/posts/2025/05/homelab-setting-up-traefik-reverse-proxy-with-ssl-on-nixos/#setting-up-traefik-on-nixos
 
@@ -13,6 +13,8 @@
 
   services.traefik = {
     enable = true;
+    # Keep shared proxy state here when another module also configures Traefik.
+    dataDir = lib.mkForce "/var/lib/traefik";
 
     staticConfigOptions = {
       entryPoints = {
@@ -28,7 +30,7 @@
         websecure = {
           address = ":443";
           asDefault = true;
-          transport.respondingTimeouts.readTimeout = "0s";
+          transport.respondingTimeouts.readTimeout = lib.mkDefault "0s";
           http.tls.certResolver = "letsencrypt";
         };
       };
@@ -39,13 +41,11 @@
         format = "json";
       };
 
-      certificatesResolvers.letsencrypt.acme = {
+      certificatesResolvers.letsencrypt.acme = lib.mkForce {
         email = "ferran@aranferran.com";
         storage = "${config.services.traefik.dataDir}/acme.json";
-        dnschallenge.provider = "porkbun";
+        dnsChallenge.provider = "porkbun";
       };
-
-      environmentFile = [ config.age.secrets."porkbun-traefik.env".path ];
 
       api.dashboard = true;
       api.insecure = false;

@@ -31,6 +31,7 @@
     ../../modules/nixos/ollama.nix
     ../../modules/nixos/onwatch.nix
     ../../modules/nixos/nixarr.nix
+    ../../modules/nixos/newt.nix
     ../../modules/nixos/lingarr.nix
     ../../modules/nixos/locale.nix
   ];
