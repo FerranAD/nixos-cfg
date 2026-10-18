@@ -72,6 +72,7 @@
 
   # Replace the existing unmanaged associations; defaults now live in Nix.
   xdg.configFile."mimeapps.list".force = true;
+  xdg.dataFile."applications/mimeapps.list".force = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";

@@ -23,6 +23,8 @@
     ../../modules/nixos/intel-arc.nix
     ../../modules/nixos/paperless.nix
     ../../modules/nixos/homepage.nix
+    ../../modules/nixos/beszel-agent.nix
+    ../../modules/nixos/beszel-hub.nix
     ../../modules/nixos/freemarg.nix
     ../../modules/nixos/openssh.nix
     ../../modules/nixos/trilium.nix

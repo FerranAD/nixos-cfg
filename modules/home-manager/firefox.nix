@@ -270,6 +270,12 @@ in
           icon = "cart";
           name = "finances";
         };
+        "viatges" = {
+          id = 8;
+          color = "orange";
+          icon = "cart";
+          name = "hotels";
+        };
       };
       containersForce = true;
 

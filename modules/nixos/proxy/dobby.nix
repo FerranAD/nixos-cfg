@@ -14,6 +14,9 @@ let
     home = {
       url = "http://localhost:${toString config.services.homepage-dashboard.listenPort}";
     };
+    beszel = {
+      url = "http://${config.services.beszel.hub.host}:${toString config.services.beszel.hub.port}";
+    };
     home-assistant = {
       host = "homeassistant";
       url = "http://127.0.0.1:${toString config.services.home-assistant.config.http.server_port}";

@@ -490,6 +490,15 @@ in
               siteMonitor = "http://127.0.0.1:${toString config.services.glances.port}";
             };
           }
+          {
+            "Beszel" = {
+              id = "dobby-beszel";
+              icon = "beszel.png";
+              href = "https://beszel.aranferran.com";
+              description = "Server and systemd monitoring";
+              siteMonitor = "http://127.0.0.1:8090/api/health";
+            };
+          }
         ];
       }
     ];

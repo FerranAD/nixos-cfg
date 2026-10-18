@@ -20,6 +20,8 @@ in
     secrets."airvpn-freemarg.env".rekeyFile = ../../secrets/airvpn-freemarg.env.age;
     secrets."docker-freemarg.env".rekeyFile = ../../secrets/docker-freemarg.env.age;
     secrets."onwatch.env".rekeyFile = ../../secrets/onwatch.env.age;
+    secrets."beszel-agent.env".rekeyFile = ../../secrets/beszel-agent.env.age;
+    secrets."beszel-hub.env".rekeyFile = ../../secrets/beszel-hub.env.age;
     secrets."porkbun-traefik.env".rekeyFile = ../../secrets/porkbun-traefik.env.age;
     secrets."newt.env".rekeyFile = ../../secrets/newt.env.age;
     secrets."traefik-dashboard-users" = {

@@ -108,6 +108,72 @@ password):
 curl --fail --user o2dav -X PROPFIND -H 'Depth: 1' https://o2cloud.oracle.aranferran.com/dav/
 ```
 
+## Beszel monitoring
+
+Dobby runs both the hub and the native agent using the locked unstable Beszel
+package. Open `https://beszel.aranferran.com` through Dobby's Traefik proxy. The
+hub listens on localhost; port 8090 is not opened in the firewall. The agent
+connects to the hub over localhost with its SSH listener disabled. There is no
+public Beszel proxy route on Rowling.
+
+The agent monitors systemd services, Docker containers, and SMART health for
+Dobby's NVMe disk (`/dev/nvme0` and `/dev/nvme0n1`). SMART enables raw-disk
+capabilities and relaxes the agent's sandbox. Docker monitoring grants access to
+the Docker socket. Service journal viewing requires Beszel 0.21; the current
+unstable package is 0.20.0, so journal access is not granted.
+
+### Secrets and first setup
+
+Both secrets are encrypted to your agenix-rekey master identity and rekeyed for
+Dobby. `secrets/beszel-hub.env.age` contains:
+
+```dotenv
+USER_EMAIL="<your email>"
+USER_PASSWORD="<strong initial password>"
+```
+
+Use systemd EnvironmentFile quoting: inside double quotes, write a literal
+backslash as `\\` and a literal double quote as `\"`. The credentials are used
+only when the initial database migration runs; changing the secret does not
+change an existing account's password.
+
+`secrets/beszel-agent.env.age` contains:
+
+```dotenv
+KEY="ssh-ed25519 <hub public key>"
+TOKEN="<registration or universal token>"
+```
+
+With a universal token, copy the public key from Add System without submitting
+that form. The agent registers automatically; no host/IP or agent port needs to
+be configured in the dashboard. Run `agenix rekey -a` and add the encrypted and
+rekeyed files in the secrets submodule before deploying Dobby.
+
+In notification settings, add
+`ntfy://:<access-token>@ntfy.oracle.aranferran.com/monitoring`, using a token
+allowed to publish to that topic, and send a test notification. Configure offline,
+disk-space, SMART, and sustained memory alerts in the dashboard.
+
+### Moving the existing hub from Rowling
+
+1. Download a backup from the existing hub's Settings → Backups before deploying
+   the removal on Rowling. Keep Rowling's `/var/lib/beszel-hub` state for rollback.
+2. Rekey the hub secret for Dobby and deploy Dobby. Route
+   `beszel.aranferran.com` through the same DNS/tunnel setup as Dobby's other
+   services, then restore the backup through Settings → Backups. This preserves
+   existing accounts and monitoring history instead of starting a new database.
+3. Restart `beszel-hub` and `beszel-agent` on Dobby and check that the existing
+   registration works. If using a fresh database instead, regenerate the agent's
+   key/token from that hub and rekey and deploy its secret.
+4. Deploy Rowling to remove its hub, secret deployment, and public proxy route.
+   The old `beszel.oracle.aranferran.com` DNS record can then be removed.
+
+Check `journalctl -u beszel-hub -u beszel-agent -b` on Dobby. Verify SMART data,
+systemd services, and container metrics in the dashboard. Configure Beszel's
+built-in backups to a backed-up location; its default state directory is
+`/var/lib/beszel-hub`, outside the existing Borg job's `/data` backup paths.
+Monitoring on Dobby cannot send an offline alert while Dobby itself is down.
+
 ## Borg backups
 
 Client jobs are named after the host, for example `albus` and `dobby`. The NixOS
