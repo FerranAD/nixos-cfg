@@ -36,6 +36,16 @@
       config.age.secrets."docker-freemarg.env".path
     ];
 
+    environment = {
+      STARTING_RESERVATION_ID="105000";
+      SENTINEL_STREAK_COUNT="30";
+      MAX_RETRIEVALS="1500";
+      APP_TIMEZONE="Europe/Madrid";
+      DAILY_SYNC_TIME="18:00";
+      PORT="8080";
+    };
+
+
     volumes = [
       "/data/freemarg:/app/data"
     ];
