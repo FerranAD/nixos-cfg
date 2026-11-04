@@ -14,6 +14,8 @@
     ];
 
     exclude = [
+      "*/*.qcow2"
+
       # Largest cache dirs
       ".cache"
       "*/cache2" # firefox

@@ -106,6 +106,7 @@
         ".config/vesktop"
         ".config/Signal"
         ".config/Slack"
+        ".config/gh"
         ".vscode-oss"
         ".vscode"
         ".vscode-shared"
