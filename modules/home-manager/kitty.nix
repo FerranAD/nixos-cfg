@@ -7,6 +7,8 @@
     enable = true;
     settings = {
       confirm_os_window_close = 0;
+      # Let Hyprland manage new windows instead of restoring a saved maximize state.
+      remember_window_size = false;
       dynamic_background_opacity = true;
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
@@ -19,4 +21,9 @@
       scrollbar_interactive = true;
     };
   };
+
+  xdg.configFile."kitty/ssh.conf".text = ''
+    # Use widely available terminfo on remote hosts, including onward SSH and sudo.
+    env TERM=xterm-256color
+  '';
 }
