@@ -73,6 +73,7 @@ in
     unzip
     wallfacer
     unstable.codex
+    bubblewrap
     # jetbrains.pycharm
     vlc
     brave
