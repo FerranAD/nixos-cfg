@@ -35,13 +35,6 @@ in
               ];
             };
           };
-          swap = {
-            size = "32G";
-            content = {
-              type = "swap";
-              resumeDevice = true;
-            };
-          };
           luks = {
             name = "root";
             size = "100%";
@@ -92,6 +85,7 @@ in
                   ]
                   ++ btrfsopt;
                   mountpoint = "/persist";
+                  swap.swapfile.size = "32G";
                 };
                 "/nix" = {
                   mountOptions = [

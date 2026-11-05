@@ -206,8 +206,8 @@
     # Run a missed backup after boot.
     persistentTimer = true;
 
-    # Do not suspend halfway through a backup.
-    inhibitsSleep = true;
+    # Lid sleep takes priority; Borg can retry at the next hourly run.
+    inhibitsSleep = false;
 
     prune.keep = {
       within = "1d"; # keep every backup created during the last 24 hours.
@@ -217,5 +217,32 @@
       yearly = 2; # keep the newest backup from each of the latest 2 years.
     };
     # Important note: days containing backups are not necessarily calendar days. If your laptop is off for three days, those missing days do not consume daily retention slots.
+  };
+
+  systemd.services.borgbackup-job-albus.unitConfig.ConditionACPower = true;
+
+  systemd.services.albus-borg-ac-watch = {
+    description = "Stop Albus Borg backup when AC power is unplugged";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "systemd-udevd.service" ];
+    script = ''
+      stop_on_battery() {
+        if ! ${pkgs.systemd}/bin/systemd-ac-power; then
+          ${pkgs.systemd}/bin/systemctl stop borgbackup-job-albus.service
+        fi
+      }
+
+      stop_on_battery
+      ${pkgs.systemd}/bin/udevadm monitor --udev --subsystem-match=power_supply |
+        while IFS= read -r event; do
+          case "$event" in
+            UDEV*) stop_on_battery ;;
+          esac
+        done
+    '';
+    serviceConfig = {
+      Restart = "always";
+      RestartSec = "1s";
+    };
   };
 }

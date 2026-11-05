@@ -36,6 +36,7 @@ let
   programKeys = [
     "$mod, N, exec, ${pkgs.firefox}/bin/firefox"
     "$mod, M, exec, ${fuzzel} --show run"
+    "$mod, P, exec, ${pkgs.nwg-displays}/bin/nwg-displays"
     "$mod, e, exec, ${pkgs.rofimoji}/bin/rofimoji --selector fuzzel --action copy"
     "$mod, y, exec, passMenu && ${clearClipboard}"
     "$mod SHIFT, l, exec, loginctl lock-session"

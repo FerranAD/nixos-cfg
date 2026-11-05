@@ -4,6 +4,26 @@
   ...
 }:
 let
+  hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+  laptopDisplay = pkgs.writeShellScript "laptop-display" ''
+    set -eu
+    monitors="$(${hyprctl} -j monitors)"
+    if [ "''${1:-}" = status ]; then
+      if printf '%s' "$monitors" | ${pkgs.jq}/bin/jq -e 'any(.[]; .name == "eDP-1")' >/dev/null; then
+        echo On
+      else
+        echo Off
+      fi
+    elif printf '%s' "$monitors" | ${pkgs.jq}/bin/jq -e 'any(.[]; .name == "eDP-1")' >/dev/null; then
+      if printf '%s' "$monitors" | ${pkgs.jq}/bin/jq -e 'any(.[]; .name != "eDP-1")' >/dev/null; then
+        ${hyprctl} keyword monitor "eDP-1,disable"
+      else
+        ${pkgs.libnotify}/bin/notify-send "Laptop display" "Connect another monitor before turning off eDP-1"
+      fi
+    else
+      ${hyprctl} keyword monitor "eDP-1,preferred,auto,auto"
+    fi
+  '';
   default_layout = {
     "left" = [
       "dashboard"
@@ -20,6 +40,7 @@ let
       "volume"
       "bluetooth"
       "network"
+      "custom/laptop-display"
       "clock"
       "notifications"
       "power"
@@ -27,6 +48,21 @@ let
   };
 in
 {
+  xdg.configFile."hyprpanel/modules.json" = {
+    force = true;
+    text = builtins.toJSON {
+      "custom/laptop-display" = {
+        icon = "󰍹";
+        label = "eDP: {}";
+        tooltip = "Toggle laptop display";
+        execute = "${laptopDisplay} status";
+        executeOnAction = "${laptopDisplay} status";
+        interval = 5000;
+        actions.onLeftClick = "${laptopDisplay} toggle";
+      };
+    };
+  };
+
   programs.hyprpanel = {
     enable = true;
 

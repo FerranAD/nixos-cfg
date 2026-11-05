@@ -42,6 +42,7 @@
     wl-clipboard
     swappy
     hyprpicker
+    nwg-displays
     monero-gui
     zotero
     loupe

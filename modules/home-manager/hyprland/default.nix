@@ -131,11 +131,6 @@
         "$mod, mouse:273, resizewindow"
       ];
 
-      bindl = [
-        '', switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"''
-        '', switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1,1920x1080@144.00,0x0,0"''
-      ];
-
       bindr = [
         "SUPER, SUPER_L, exec, ${pkgs.hyprpanel}/bin/hyprpanel t dashboardmenu"
       ];

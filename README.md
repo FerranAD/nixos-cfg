@@ -45,6 +45,13 @@ sudo systemd-cryptenroll /dev/nvme0n1p3
 sudo systemd-cryptenroll /dev/nvme0n1p3 --fido2-device=auto --fido2-with-user-presence=yes --fido2-with-user-verification=yes
 ```
 
+### Albus hibernation swapfile
+
+Disko creates a 32 GiB swapfile at `/persist/swapfile`, inside the encrypted
+Btrfs volume. The systemd initrd resumes using the hibernation location saved
+in EFI, so the file's physical offset does not need to be committed here.
+After reinstalling, test `systemctl hibernate` and confirm that the session returns.
+
 ## Install dobby
 
 Here we need sudo to be able to read agenix keys from `/etc/nixos`, but if we run the command with sudo, root is not able to use the auth key on the yubikey to login to the machine (only `ferran` user can through `gpg` config in home-manager). So we need to allow ferran to read the agenix keys temporarily.
