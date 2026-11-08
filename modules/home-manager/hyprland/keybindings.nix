@@ -34,6 +34,7 @@ let
     "$mod, tab, fullscreen, 1"
   ];
   programKeys = [
+    "$mod, O, hymission:toggle, onlycurrentworkspace"
     "$mod, N, exec, ${pkgs.firefox}/bin/firefox"
     "$mod, M, exec, ${fuzzel} --show run"
     "$mod, P, exec, ${pkgs.nwg-displays}/bin/nwg-displays"

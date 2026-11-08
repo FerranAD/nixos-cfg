@@ -368,26 +368,6 @@
         "type": "github"
       }
     },
-    "forticlient-nixos": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1781855918,
-        "narHash": "sha256-ethk92yiBxhf4YvMmBMxmWDjhMXny3IwbYhR+UxTdrw=",
-        "owner": "jplana",
-        "repo": "forticlient-nixos",
-        "rev": "e1c170ec952ddae24142684369674ec762f1eaa5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jplana",
-        "repo": "forticlient-nixos",
-        "type": "github"
-      }
-    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -466,6 +446,23 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "hymission-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781940069,
+        "narHash": "sha256-h1UWB0qKNK7XGGzrkntqhOwA7Ury0QYHnEI7RWUT7EE=",
+        "owner": "gfhdhytghd",
+        "repo": "hymission",
+        "rev": "7a4fba3e65900b78ccbab84ec1010afac46065d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gfhdhytghd",
+        "ref": "v0.4.2-v0.55.4",
+        "repo": "hymission",
         "type": "github"
       }
     },
@@ -950,8 +947,8 @@
         "autofirma-nix": "autofirma-nix",
         "catppuccin": "catppuccin",
         "disko": "disko",
-        "forticlient-nixos": "forticlient-nixos",
         "home-manager": "home-manager_2",
+        "hymission-src": "hymission-src",
         "impermanence": "impermanence",
         "llm-agents": "llm-agents",
         "nix-minecraft": "nix-minecraft",

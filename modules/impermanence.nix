@@ -107,6 +107,7 @@
         ".config/Signal"
         ".config/Slack"
         ".config/gh"
+        ".config/nwg-displays"
         ".vscode-oss"
         ".vscode"
         ".vscode-shared"

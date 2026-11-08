@@ -37,7 +37,6 @@ in
     ../../modules/nixos/boot/albus-boot.nix
     ../../modules/nixos/power-settings.nix
     ../../modules/nixos/nix-settings.nix
-    ../../modules/nixos/forticlient.nix
     ../../modules/nixos/openssh.nix
     ../../modules/impermanence.nix
     ../../modules/nixos/nvidia.nix

@@ -27,6 +27,9 @@
   wayland.windowManager.hyprland = {
     configType = "hyprlang";
     enable = true;
+    plugins = [
+      (pkgs.callPackage ../../../packages/hymission.nix { src = inputs.hymission-src; })
+    ];
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
@@ -66,17 +69,11 @@
         };
       };
 
-      # plugin = {
-      #   hyprexpo = {
-      #     columns = 3;
-      #     gap_size = 4;
-      #     bg_col = "rgb(000000)";
-
-      #     enable_gesture = true;
-      #     gesture_distance = 300;
-      #     gesture_positive = false;
-      #   };
-      # };
+      plugin.hymission = {
+        only_active_monitor = true;
+        only_active_workspace = false;
+        toggle_switch_mode = false;
+      };
 
       animations = {
         enabled = true;
@@ -88,10 +85,10 @@
         ];
       };
 
-      # gestures = {
-      #   workspace_swipe = true;
-      #   workspace_swipe_forever = true;
-      # };
+      gesture = [
+        "3, vertical, dispatcher, hymission:toggle"
+        "3, horizontal, workspace"
+      ];
 
       misc = {
         disable_hyprland_logo = true;
@@ -112,6 +109,7 @@
       monitor = [ ",preferred,auto,auto" ];
 
       windowrule = [
+        "match:class ^nwg-displays$, float on"
         "match:class ^(Zotero)$, match:title ^(Progress)$, float on"
         "match:class ^udiskie$, match:title ^udiskie$, float on"
         "match:class ^codium$, match:title ^Open File$, float on"
@@ -132,7 +130,7 @@
       ];
 
       bindr = [
-        "SUPER, SUPER_L, exec, ${pkgs.hyprpanel}/bin/hyprpanel t dashboardmenu"
+        "SUPER, SUPER_L, hymission:toggle, forceall"
       ];
 
       exec-once =

@@ -29,8 +29,6 @@
       url = "github:ryantm/agenix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        systems.follows = "systems";
       };
     };
 
@@ -49,6 +47,11 @@
     };
 
     # Desktop
+    hymission-src = {
+      url = "github:gfhdhytghd/hymission/v0.4.2-v0.55.4";
+      flake = false;
+    };
+
     pyprland = {
       url = "github:hyprland-community/pyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,11 +90,6 @@
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    forticlient-nixos = {
-      url = "github:jplana/forticlient-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
