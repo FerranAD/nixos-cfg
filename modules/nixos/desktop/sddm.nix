@@ -1,5 +1,17 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [ inputs.silentSDDM.nixosModules.default ];
+
+  programs.silentSDDM = {
+    enable = true;
+    theme = "default";
+    backgrounds.wallpaper = ../../../images/wallpaper.jpg;
+    settings = {
+      LoginScreen.background = "wallpaper.jpg";
+      LockScreen.background = "wallpaper.jpg";
+    };
+  };
+
   services.displayManager = {
     sddm = {
       enable = true;

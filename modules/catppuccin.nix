@@ -11,10 +11,7 @@ in
       catppuccin.enable = true;
       catppuccin.cache.enable = true;
       catppuccin.plymouth.enable = true;
-      catppuccin.sddm = {
-        enable = true;
-        background = null;
-      };
+      catppuccin.sddm.enable = false;
     }
     {
       home-manager.users.${user} = {
