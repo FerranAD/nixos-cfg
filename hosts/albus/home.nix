@@ -47,6 +47,14 @@
     zotero
     loupe
     file-roller
+    (writeShellScriptBin "setup-gcloud" ''
+      umask 077
+      mkdir -p "$HOME/.config"
+      ${unzip}/bin/unzip -qn "$HOME/data/gft/gcloud.zip" -d "$HOME/.config"
+      export CLOUDSDK_CONFIG="$HOME/.config/gcloud"
+      export NIXPKGS_ALLOW_UNFREE=1
+      exec nix shell --impure nixpkgs#google-cloud-sdk
+    '')
   ];
 
   xdg.mimeApps = {
