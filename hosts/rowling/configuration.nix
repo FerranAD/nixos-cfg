@@ -15,6 +15,7 @@
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/privatebin.nix
     ../../modules/nixos/minecraft.nix
+    ../../modules/nixos/pa-drop.nix
     ../../modules/nixos/nextcloud.nix
     ../../modules/nixos/ntfy.nix
     ../../modules/nixos/o2cloud-webdav.nix

@@ -40,6 +40,12 @@ in
       owner = "traefik";
       group = "traefik";
     };
+    secrets."pcp-upload-token" = {
+      rekeyFile = ../../secrets/pcp-upload-token.age;
+      owner = "pa-drop";
+      group = "pa-drop";
+      mode = "0400";
+    };
     rekey = {
       hostPubkey = hostPubkey;
       masterIdentities = masterIdentities;
